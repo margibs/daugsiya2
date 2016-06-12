@@ -3,6 +3,7 @@
 /public/uploads
 /public/autoposter_uploads
 /public/user_uploads
+/publicuser_uploads
 /storage
 composer.lock
 .htaccess-ONHOLD
