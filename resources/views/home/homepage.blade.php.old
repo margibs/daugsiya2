@@ -1,0 +1,1308 @@
+@extends('home.layout')
+
+@section('homecontent')
+
+ <style type="text/css">
+
+	body{
+	  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,d5d5d5+100 */
+		background: #ffffff; /* Old browsers */
+		background: -moz-linear-gradient(top,  #ffffff 0%, #F4F4F4  100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  #ffffff 0%,#F4F4F4  100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  #ffffff 0%,#F4F4F4  100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#F4F4F4',GradientType=0 ); /* IE6-9 */
+
+	  font-family: Montserrat;
+	}
+	a{
+	  text-decoration: none;
+	}
+	
+	/** ============================================ SLOTS ============================================== **/
+	.ezslot-outermost{	
+		clear: both;	
+		margin-left: 132px;
+    	margin-top: 69px;
+	}
+	.ezslot-outermost ul li{
+		display: inline-block;
+	}
+	.ezslot-outermost ul li img{
+		border:none!important;
+	}
+	#ezslots5{
+		margin-left: -5px;
+	}
+	#ezslots6{
+		margin-left: -1px;
+	}
+		
+	header{
+		background: #fff;
+		border: none;
+		box-shadow: none;
+	}
+	/** ============================================ TOP REEL ============================================ **/
+	.topreel{
+		background: transparent url(http://susanwins.com/uploads/16257_topreel.png) top center no-repeat;
+		height: 756px;
+		/*margin-top: 75px;*/
+		position: relative;
+    	z-index: 2;    
+	}
+	.topreel .goldtext{
+		margin-left: 170px;
+    	margin-top: -18px;
+	}
+	
+	/** ============================================ ABOUT SUSAN ============================================ **/
+	.aboutsusan{
+		overflow: hidden;
+    	padding: 34px 210px;
+	}
+	.aboutsusan img{
+		margin-right: 25px;
+		float: left;
+	}
+	.aboutsusan p{
+        color: #fff;
+	    margin-top: 110px;
+	    font-size: 13px;
+	    line-height: 17px;
+	    margin-left: 280px;
+	}
+	
+	/** ============================================ CATEGORY ============================================ **/
+	.categs{
+		background: #fff url(http://susanwins.com/uploads/91043_categ-bg.png) 45px 0 repeat-y;
+		padding:0px 60px 15px 60px;		
+		margin-top: -14px;
+	}
+	.categs .outer{
+		background: #E4E4E4;
+	    border-radius: 4px;
+	    margin: 10px 20px 0 15px;
+	    -moz-box-shadow: inset 0 0 6px 1px #2B2B2B;
+	    -webkit-box-shadow: inset 0 0 6px 1px #2B2B2B;
+	    box-shadow: inset 0 0 6px 1px #2B2B2B;
+	    padding: 0 7px;
+	    position: relative;
+	}
+	.categs .outer .divider{
+		text-align: center;
+	    padding: 15px 0;
+	    margin: 10px 4px;
+	    background: #EFEFEF;
+	    border-radius: 2px;
+	    border: 1px solid #AFAEAE;
+	    -moz-box-shadow: 0 0 6px -2px #6F6D6D;
+	    -webkit-box-shadow: 0 0 6px -2px #6F6D6D;
+	    box-shadow: 0 0 6px -2px #6F6D6D;
+	}
+	.categs .outer .dividergrey, .categs .outer .dividergrey2{
+		position: absolute;
+	    top: 0;	  
+	    width: 19px;
+	}
+	.categs .outer .dividergrey{
+  		left: 244px;
+	    height: 100%;
+	}
+	.categs .outer .dividergrey2{
+  		right: 244.1px;
+	    height: 100%;
+	}
+	.categs .outer .divider a{
+		margin-bottom: 30px;
+    	display: block;
+	}
+	.categs .right{
+		background: #000;
+		height: 1754px;
+		margin-top: -1px;
+    	margin-right: -7px;
+	}
+
+	/** ============================================ BIGWINS ============================================ **/
+	.bigwins{
+		background: transparent url(http://susanwins.com/uploads/52788_bigwins.png) top center no-repeat;
+		height: 420px;
+	}
+	.bigwins .text{
+		margin: 60px auto 10px auto;
+	    width: 570px;
+	    display: block;
+	}
+	.bigwins ul{
+		margin-left: 65px;
+    	margin-top: 20px;
+	}
+	.bigwins ul li{
+		display: inline-block;
+	    overflow: hidden;
+	    width: 18%;
+	    border: 1px solid #880704;
+	    background-image: -webkit-linear-gradient( top left, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 37%, rgba(255, 255, 255, 0.8) 45%, rgba(255, 255, 255, 0.0) 50% ), -webkit-linear-gradient( top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100% );
+	    border-radius: 4px;
+	    margin: 0 2px;
+	    -moz-box-shadow: 0 0 10px -3px #000;
+		-webkit-box-shadow: 0 0 10px -3px #000;
+		box-shadow: 0 0 10px -3px #000;
+	}
+	.bigwins ul li a{
+		display: inline-block;
+		margin: 3px;
+	}
+	.bigwins ul li a img{
+		margin-bottom: -3px;
+		width: 100%;
+    	height: auto;
+	}
+
+	/** ============================================ GAMES ============================================ **/
+	.games{	
+		background: transparent url(http://susanwins.com/uploads/95451_gamesgrey.png) 44px 0 repeat-y;
+		padding: 0 52px 20px 75px;
+		position: relative;
+		z-index: 2;
+	}
+	.games .left{
+		background: #000 url(http://susanwins.com/uploads/40489_gamesgirl.png) top center no-repeat;
+		min-height: 500px;
+	    border-radius: 4px;
+	    margin-right: 20px;
+	    padding: 190px 0 25px 10px;
+	    margin-bottom: 15px;
+	    border: 1px solid #C3C2C2;
+	}
+	.games .right{
+		background: #000;
+		height: 1810px;
+		margin-top: -30px;
+	}
+	.games .game{
+		border-radius: 4px;
+	    overflow: hidden;
+	    border: 2px solid #fbd270;
+	    /*margin: 7px 9px;*/
+	}
+	.games .game a{
+		display: block;
+	}
+	.games .game a:before{
+		position: absolute;
+	    content: ' ';
+	    width: 100%;
+	    height: 50%;
+	    top: 0;
+	    left: 0;
+	    -webkit-border-top-left-radius: 7px;
+	    -webkit-border-top-right-radius: 7px;
+	    -moz-border-radius-topleft: 7px;
+	    -moz-border-radius-topright: 7px;
+	    border-top-left-radius: 7px;
+	    border-top-right-radius: 7px;
+/*	    background: -moz-linear-gradient(top, rgba(255,255,255,0.6) 0%, rgba(255,255,255,.15) 100%);
+	    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.6)), color-stop(100%,rgba(255,255,255,.15)));
+	    background: linear-gradient(top, rgba(255,255,255,0.6) 0%,rgba(255,255,255,.15) 100%);*/
+	}
+	.games .game img{
+		width: 100%;
+		height: auto;
+		margin-bottom: -3px;
+	}
+	.spintbtn{
+		float: right;
+	    margin: -27px 184px 0 0;
+	    position: relative;
+	    z-index: 2;
+	}
+
+	/** ============================================ FOOTER ============================================ **/
+	.footer{
+		background: transparent url(http://susanwins.com/uploads/41575_footer.png) 44px 0 no-repeat;
+		height: 82px;
+		margin-top: -64px;
+	}
+	
+	.categicon{
+		border-radius: 50%;
+	    display: block;
+	    width: 171px;
+	    padding: 5px;
+	    height: 171px;
+	    border: 1px solid #E2AC38;
+	    margin: 0 auto;
+	   /* background: #fff2ce;
+	    background: -moz-linear-gradient(top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100%);
+	    background: -webkit-linear-gradient(top, #fff2ce 0%,#e2ad3e 29%,#e9bb2c 61%,#cfb319 79%,#cdb985 100%);
+	    background: linear-gradient(to bottom, #fff2ce 0%,#e2ad3e 29%,#e9bb2c 61%,#cfb319 79%,#cdb985 100%);
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff2ce', endColorstr='#cdb985',GradientType=0 );*/
+		
+		background:#fff2ce;
+	    background-repeat:no-repeat;
+   	    background-image:-webkit-linear-gradient(
+        top left,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%
+    ),
+    -webkit-linear-gradient(
+       top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100%
+    );
+    background-image:-moz-linear-gradient(
+        0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%
+    ),
+    -moz-linear-gradient(
+        top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100%
+    );    
+    background-image:-o-linear-gradient(
+        0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%
+    ),
+    -o-linear-gradient(
+        top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100%
+    );
+    background-image:linear-gradient(
+        0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%
+    ),
+    linear-gradient(
+        top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100%
+    );
+    background-position:-100px -100px, 0 0;
+    -moz-background-size:250% 250%, 100% 100%;
+         background-size:250% 250%, 100% 100%;
+    -webkit-transition:background-position 0s ease;
+       -moz-transition:background-position 0s ease;       
+         -o-transition:background-position 0s ease;
+            transition:background-position 0s ease;
+	}
+	
+	.categicon:hover,
+	.categicon:focus {
+	    color:#fff;
+	    background-position:0 0, 0 0;
+	    -webkit-transition-duration:0.5s;
+	       -moz-transition-duration:0.5s;
+	            transition-duration:0.5s;
+
+	    -webkit-box-shadow: 0 0 13px 8px #FDFDFD;
+	       -moz-box-shadow: 0 0 13px 8px #FDFDFD;
+	            box-shadow: 0 0 13px 8px #FDFDFD;
+	}
+	.categicon img{
+		width: 95%;
+    	margin: 5px 2px;
+	}
+
+
+	.categcaption{
+		position: relative;
+	    z-index: 2;
+	    padding: 10px 0 2px 0;
+	    width: 75%;
+	    margin: -49px auto 0 auto;
+
+
+		background:#fff2ce;
+	      background-repeat:no-repeat;
+    background-image:-webkit-linear-gradient(
+        top left,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%
+    ),
+    -webkit-linear-gradient(
+       top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100%
+    );
+    background-image:-moz-linear-gradient(
+        0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%
+    ),
+    -moz-linear-gradient(
+        top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100%
+    );    
+    background-image:-o-linear-gradient(
+        0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%
+    ),
+    -o-linear-gradient(
+        top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100%
+    );
+    background-image:linear-gradient(
+        0 0,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.2) 37%,
+        rgba(255, 255, 255, 0.8) 45%,
+        rgba(255, 255, 255, 0.0) 50%
+    ),
+    linear-gradient(
+        top, #fff2ce 0%, #e2ad3e 29%, #e9bb2c 61%, #cfb319 79%, #cdb985 100%
+    );
+    background-position:-100px -100px, 0 0;
+    -moz-background-size:250% 250%, 100% 100%;
+         background-size:250% 250%, 100% 100%;
+    -webkit-transition:background-position 0s ease;
+       -moz-transition:background-position 0s ease;       
+         -o-transition:background-position 0s ease;
+            transition:background-position 0s ease;
+
+	    border-radius: 20px;
+	}
+
+	.categcaption:hover,
+	.categcaption:focus{
+	    color:#fff;
+	    background-position:0 0, 0 0;
+	    -webkit-transition-duration:0.5s;
+	       -moz-transition-duration:0.5s;
+	            transition-duration:0.5s;
+	}
+
+	.categcaption .inner{
+		background: #cc1008;
+	    width: 96%;
+	    margin: -7px auto 1px auto;
+	    padding-top: 6px;
+	    border-radius: 21px;
+
+	    -moz-box-shadow: inset 0 0 10px -2px #333232;
+		-webkit-box-shadow: inset 0 0 10px -2px #333232;
+		box-shadow: inset 0 0 10px -2px #333232;
+	}
+
+
+
+/* -------------- THE button -------------- */
+.button {
+	cursor: pointer;
+/* text */
+	text-decoration: 		none;
+	font: 					24px/1em 'Droid Sans', sans-serif;
+	font-weight: 			bold;
+	text-shadow: 			rgba(255,255,255,.5) 0 1px 0;
+	-webkit-user-select: 	none;
+	-moz-user-select: 		none;
+	user-select: 			none;
+	
+	
+/* layout */
+	padding: 				.5em .6em .4em .6em;
+	margin: 				.5em;
+	display: 				inline-block;
+	position: 				relative;
+	
+	-webkit-border-radius: 	8px;
+	-moz-border-radius: 	8px;
+	border-radius: 	8px;
+	
+/* effects */
+	border-top: 		1px solid rgba(255,255,255,0.8);
+	border-bottom: 		1px solid rgba(0,0,0,0.1);
+	
+	background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+	background-image: 	-moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+	background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(http://iwantaneff.in/t/http://iwantaneff.in/t/noise.png);
+
+	-webkit-transition: background .2s ease-in-out;
+	-moz-transition: 	background .2s ease-in-out;
+	transition: 		background .2s ease-in-out;
+	
+/* color */
+	color: 				hsl(0, 0%, 40%) !important;
+	background-color: 	hsl(0, 0%, 75%);
+	
+	-webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+						hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+						rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+	-moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+						hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+						rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+						hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+						rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
+/* -------------- button (tag) -------------- */
+
+button.button {
+	border-left: none;
+	border-right: none;
+}
+button.button:hover {
+	cursor: pointer;
+}
+
+
+/* -------------- icon -------------- */
+.button:before {
+	font: 			1.2em/0 'Lobster', sans-serif;
+	/*content: 		attr(data-icon); /* gets the icon value from the custom data attribute and puts it infront of the button label */
+	margin-right: 	0.4em;	
+}
+
+/* -------------- colours -------------- */
+
+.button.orange {
+	color: 				hsl(39, 100%, 30%) !important;
+	background-color: 	hsl(39, 100%, 50%);
+
+	-webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+	-moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.orange:hover { 	background-color: hsl(39, 100%, 65%); }
+
+
+.button.blue {
+	color: 				hsl(208, 50%, 40%) !important;
+	background-color: 	hsl(208, 100%, 75%);
+	
+	-webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+	-moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+	box-shadow: 		inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(208, 50%, 55%) 0 .1em 3px, hsl(208, 50%, 40%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px;	/* drop shadow */
+}
+.button.blue:hover { 	background-color: hsl(208, 100%, 83%); }
+
+.button.green {
+	color: 				hsl(88, 70%, 30%) !important;
+	background-color: 	hsl(88, 70%, 60%);
+	-webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+	-moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+	box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ 
+							hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+							rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.green:hover { 	background-color: hsl(88, 70%, 75%); }
+
+.button.pink {
+	/*color: 				hsl(0, 100%, 37%) !important;*/
+	color 			: #fff!important;
+	background-color: 	hsl(0, 100%, 47%);
+	-webkit-box-shadow: inset rgba(255, 0, 0, 0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 91%, 45%) 0 .1em 3px, hsl(0, 98%, 29%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+	-moz-box-shadow: 	inset rgba(255, 0, 0, 0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 91%, 45%) 0 .1em 3px, hsl(0, 98%, 29%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+	box-shadow: 		inset rgba(255, 0, 0, 0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 91%, 45%) 0 .1em 3px, hsl(0, 98%, 29%) 0 .3em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+}
+.button.pink:hover { 	background-color: hsl(0, 97%, 68%); }
+
+
+
+.button.transparent {
+	color: 	rgba(0,0,0,0.5) !important;
+}
+.button.transparent, .button.transparent:hover, .button.transparent:active {
+	background-color: transparent;
+	background-image: none;
+}
+.button.transparent:hover {
+	opacity: .9;
+}
+
+
+
+/* -------------- States -------------- */
+
+.button:hover {
+	background-color: 	hsl(0, 0%, 83%);
+}
+
+
+
+.button:active {
+	background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+	background-image: 	-moz-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+	background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(http://iwantaneff.in/t/noise.png);
+
+	-webkit-box-shadow: inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+							rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+	-moz-box-shadow: 	inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+							rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+	box-shadow: 		inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */ 
+							rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+	-webkit-transform: 	translateY(.2em);
+	-moz-transform: 	translateY(.2em);
+	transform: 			translateY(.2em);
+}
+
+.button:focus {
+	outline: none;
+	color: rgba(254,255,255,0.9) !important;
+	text-shadow: rgba(0,0,0,0.2) 0 1px 2px;
+}
+
+.button[disabled], .button[disabled]:hover, .button.disabled, .button.disabled:hover {
+	opacity: 			.5;
+	cursor: 			default;
+	color: 				rgba(0,0,0,0.2) !important;
+	text-shadow: 		none !important;
+	background-color: 	rgba(0,0,0,0.05);
+	background-image: 	none;
+	border-top: 		none;
+
+	-webkit-box-shadow: inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+							rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+	-moz-box-shadow: 	inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+							rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+	box-shadow: 		inset rgba(255,254,255,0.4) 0 0.3em .3em, inset rgba(0,0,0,0.1) 0 -0.1em .3em, /* inner shadow */ 
+							rgba(0,0,0,0.3) 0 .1em 1px, /* border */
+							rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+	-webkit-transform: 	translateY(5px);
+	-moz-transform: 	translateY(5px);
+	transform: 			translateY(5px);
+}
+
+/* -------------- Fonts -------------- */
+
+.serif { 
+	font-family: 'Lobster', serif;
+	font-weight: 			normal;
+}
+
+
+/* -------------- Sizes -------------- */
+
+.xs { font-size: 16px; }
+.xl { font-size: 32px; }
+
+
+/* -------------- Materials -------------- */
+
+.button.glossy:after, .button.glass:after {
+	content: 	"";
+	position: 	absolute; 
+    width: 		90%;
+    height: 	60%;
+    top: 		0;
+    left: 		5%;    
+    
+    -webkit-border-radius: 	.5em .5em 1em 1em / .5em .5em 2em 2em;    
+    -moz-border-radius: 	.5em .5em 1em 1em / .5em .5em 2em 2em;
+    border-radius: 			.5em .5em 1em 1em / .5em .5em 2em 2em;
+    
+    background-image: 		-webkit-gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+    							color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) );	
+    background-image: 		-moz-linear-gradient(left, rgba(255,255,255,.55), rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,.5) );	
+    background-image: 		gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+    							color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) );	
+}
+.button.glossy:active:after,
+.button.glass:active:after,
+.button.disabled:after,
+.button[disabled]:after
+ { opacity: .6; }
+
+.button.icon.glossy:after,
+.button.icon.glass:after { height: 75% ; }
+
+/* -------------- Glass + Transparent -------------- */
+.button.glass {
+	text-shadow: rgba(255,255,255,.5) 0 -1px 0, rgba(0,0,0,0.18) 0 .18em .15em;
+}
+.button.glass:active {
+	text-shadow: rgba(255,255,255,.3) 0 1px 0, rgba(0,0,0,0.15) 0 .18em .15em;
+}
+
+
+/* -------------- Shapes -------------- */
+
+/* round */
+.round, .round.glossy:after, .round.glass:after { 
+	border-top: none; 
+	-webkit-border-radius: 	50%; 
+	-moz-border-radius: 	50%; 
+	border-radius: 			50%; 
+	width: 86%;
+    left: 7%;
+    top: 6%;
+}
+
+/* oval */
+.oval {
+	border-top: 			none; 
+	padding-left: 			.8em;
+	padding-right: 			.8em;
+	-webkit-border-radius: 	5em / 2em; 
+	-moz-border-radius: 	5em / 2em; 
+	border-radius: 			5em / 2em; 
+}
+.oval.glossy:after, .oval.glass:after { 	
+	top: 					5%;
+	-webkit-border-radius: 	5em / 2em 2em 1em 1em; 
+	-moz-border-radius: 	5em / 2em 2em 1em 1em; 
+	border-radius: 			5em / 2em 2em 1em 1em; 
+}
+.oval.icon {
+	padding-left: 			.8em;
+	padding-right: 			.8em;	
+	-webkit-border-radius: 	1.5em / 1em; 
+	-moz-border-radius: 	1.5em / 1em; 
+	border-radius: 			1.5em / 1em; 
+}
+.oval.icon.glossy:after, .oval.icon.glass:after {	
+	-webkit-border-radius: 	1.5em / 1em; 
+	-moz-border-radius: 	1.5em / 1em; 
+	border-radius: 			1.5em / 1em; 
+}
+
+/* brackets */
+.brackets, .brackets.glossy:after, .brackets.glass:after { 
+	border-top: 			none; 
+	-webkit-border-radius: 	.5em / 1em;
+	-moz-border-radius: 	.5em / 1em;
+	border-radius: 			.5em / 1em;
+}
+
+/* skew */
+.skew { 
+	border-top: 			none; 
+	padding-right: 			1.2em;
+	padding-left: 			0.8em;	
+	-webkit-border-radius: 	5em 1em / 5em 1em;  
+	-moz-border-radius: 	5em 1em / 5em 1em;  
+	border-radius: 			5em 1em / 5em 1em;  
+}
+.skew.glossy:after, .skew.glass:after { 	
+	left: 10%;
+	-webkit-border-radius: 	7em 1em / 5em 1em;
+	-moz-border-radius: 	7em 1em / 5em 1em;
+	border-radius: 			7em 1em / 5em 1em;
+}
+.skew.icon { 	
+	padding-right: 			.9em;
+	padding-left: 			.8em;
+}
+
+/* back */
+.back, .back.glossy:after, .back.glass:after { 
+	border-top-color: 		rgba(255,255,255,0.5);
+	-webkit-border-radius: 	1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+	-moz-border-radius: 	1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+	border-radius: 			1.6em 1.6em 1em 1em / 4em 4em 1em 1em; 
+}
+.back.glossy:after, .back.glass:after { 
+	 left: 	6%;
+	 width:	88%;
+}
+
+/* knife */
+.knife { 						
+	padding-left: 1.5em;
+	-webkit-border-radius: 	.2em .5em .5em 8em / .2em .5em .5em 5em; 
+	-moz-border-radius: 	.2em .5em .5em 8em / .2em .5em .5em 5em; 
+	border-radius: 			.2em .5em .5em 8em / .2em .5em .5em 5em; 
+}
+.knife.glossy:after, .knife.glass:after {
+	left: 					3%;
+	width: 					97%; 		
+	-webkit-border-radius: 	.1em .5em .5em 8em / .1em .5em .5em 2em;   
+	-moz-border-radius: 	.1em .5em .5em 8em / .1em .5em .5em 2em;   
+	border-radius: 			.1em .5em .5em 8em / .1em .5em .5em 2em;   
+}
+.knife.glossy.icon:after, .knife.glass.icon:after { 
+	left: 					5%; 
+	width: 					95%;
+	-webkit-border-radius: 	.5em .5em 1em 6em / .5em .5em 1em 4em; 
+	-moz-border-radius: 	.5em .5em 1em 6em / .5em .5em 1em 4em; 
+	border-radius: 			.5em .5em 1em 6em / .5em .5em 1em 4em; 
+}
+
+/* shield */
+.shield, .shield.glossy:after, .shield.glass:after { 
+	-webkit-border-radius: 	.4em .4em 2em 2em / .4em .4em 3em 3em; 
+	-moz-border-radius: 	.4em .4em 2em 2em / .4em .4em 3em 3em;
+	border-radius: 			.4em .4em 2em 2em / .4em .4em 3em 3em;
+}
+.shield { 							
+	padding-left: 	.8em;
+	padding-right: 	.8em;
+}
+.shield.icon { 						
+	padding-left: 	.6em; 
+	padding-right: 	.6em;
+}
+
+/* drop */
+.drop {
+	border-top: none;
+	-webkit-border-radius: 	2em 5em  2em .6em / 2em 4em 2em .6em; 
+	-moz-border-radius: 	2em 5em  2em .6em / 2em 4em 2em .6em; 
+	border-radius: 			2em 5em  2em .6em / 2em 4em 2em .6em; 
+}
+.drop.glossy:after, .drop.glass:after { 
+	left: 4%;
+	-webkit-border-radius: 	2em 6em  2em 1em / 2em 4em 2em 2em; 
+	-moz-border-radius: 	2em 6em  2em 1em / 2em 4em 2em 2em;
+	border-radius: 			2em 6em  2em 1em / 2em 4em 2em 2em;
+}
+.drop.icon { 	
+	padding-right: .6em; 
+}
+
+
+/* morph */
+.morph {
+	border-top: none;
+	-webkit-border-radius: 	5em / 2em;
+	-moz-border-radius: 	5em / 2em;
+	border-radius: 			5em / 2em;
+	-webkit-transition: 	-webkit-border-radius .3s ease-in-out;
+	-moz-transition: 		-moz-border-radius .3s ease-in-out;
+	transition: 			-moz-border-radius .3s ease-in-out;
+}
+.morph:hover { 
+	-webkit-border-radius: 	.4em .4em 2em 2em / .4em .4em 3em 3em;
+	-moz-border-radius: 	.4em .4em 2em 2em / .4em .4em 3em 3em;
+	border-radius: 			.4em .4em 2em 2em / .4em .4em 3em 3em;
+}
+.morph:active { 
+	-webkit-border-radius: 	.3em;
+	-moz-border-radius: 	.3em;
+	border-radius: 			.3em;
+}
+.morph:after { 
+	display: none;
+}
+
+
+
+
+/* Some ugly hacks for FF. 
+Thanks to David Hund for some help - http://valuedstandards.com/static/test/buttons/ */
+@-moz-document url-prefix() {
+	.button { text-align: center; }
+	/*.icon { padding: .5em 1em; }*/
+	.icon:before { margin-left: -.42em; float: left; }
+	
+	.drop.icon { padding-right: 1.1em; }
+	.shield.icon { padding-left: 1.1em; padding-right: 1.1em; }
+	.skew.icon { padding-right: 1.4em; padding-left: 1.3em; }
+	.oval.icon { padding-left: 1.3em; padding-right: 1.3em;	}
+	.knife { padding-left: 2em; }
+}
+
+#wrapper a{
+	width: 83px;
+    height: 54px;
+    position: relative;
+    left: 116px;
+    z-index: 5;
+    top: -51px;
+}
+#wrapper{
+	float: right;
+    position: relative;
+    left: -176px;
+    top: -32px;
+}
+#wrapper img{
+	position: relative;
+    left: 2px;
+    top: 5px;
+}
+
+</style>
+
+
+<div class="container topreel">
+	<div class="row no-gutters">
+		<div class="col-xs-12">
+			<div class="aboutsusan">				
+				<p> I've played thousands of online slots games, I love them!  
+Most are AMAZING but some are TERRIBLE! 
+I like to play games that relax me, excite me and surprise me! 
+Follow me and find the games you'll love the most! 
+ </p>
+			</div>
+			<div class="ezslot-outermost">
+                <ul>
+                	<li> <div id="ezslots2"></div> </li>
+                	<li> <div id="ezslots5"></div> </li>
+                	<li> <div id="ezslots6"></div> </li>                	
+                </ul>                                  
+            </div>
+            <!-- <a href="#"><img src="http://susanwins.com/uploads/60413_spinbtn.png" alt="" class="spintbtn"></a> -->
+            <div id="wrapper">
+                <a id="gogogo2" class="button pink serif round glass"> Spin! </a>          
+                <img src="http://susanwins.com/uploads/58853_holder.png" alt="">
+            </div>
+			<img src="http://susanwins.com/uploads/40119_goldtext.png" alt="" class="goldtext">
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div class="container categs">
+	<div class="row no-gutters">
+		<div class="col-xs-9">
+			<div class="outer">
+				<!-- <img src="http://susanwins.com/uploads/68781_categdivider.png" alt="" class="dividergrey">
+				<img src="http://susanwins.com/uploads/68781_categdivider.png" alt="" class="dividergrey2"> -->
+				<div class="row no-gutters">
+					<div class="col-xs-4">
+						<div class="divider">
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/66132_adventure-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/20981_adventure-caption.png" alt="">
+									</div>
+								</div>
+							</a>
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/67622_777.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/45945_classcaption.png" alt="">
+									</div>
+								</div>
+							</a>
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/23064_cute-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/33928_cute-caption.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/66362_medieval-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/89598_medieval-caption.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/99722_myth-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/89188_myth-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/14445_relaxing-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/57318_relaxing-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/15131_seasonsal-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/36646_seasonal-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/85230_superhero-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/35669_superhero-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/99351_tropical-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/49742_tropical-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="divider">
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/16937_animals-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/31450_animals-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/68329_boom-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/11748_comic-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/51743_egyptian-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/86602_egyptian-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/94541_movie-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/11595_movie-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/46112_party-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/37846_party-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/21823_heart-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/82893_romantic-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/86179_sexy-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/44345_sexy-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/37741_fav-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/17305_fav-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+	
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/86308_vegas-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/88350_vegas-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+
+						</div>
+					</div>
+					<div class="col-xs-4">
+						<div class="divider">
+							
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/91147_celebs-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/57795_celebs-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/48158_cowboy-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/51017_cowboy-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/81738_fantasy-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/76225_fantasy-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/55997_luxury-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/55511_luxury-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/92396_mystery-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/97807_mystery-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/22078_pirate-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/96970_pirate-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/29110_sea-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/26891_sea-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/69478_sorcery-icon.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/64669_sorcery-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+							<a href="#">
+								<div class="categicon">
+									<img src="http://susanwins.com/uploads/22957_televesion.png" alt="">
+								</div>
+								<div class="categcaption">
+									<div class="inner">
+										<img src="http://susanwins.com/uploads/28849_televesion-text.png" alt="">
+									</div>
+								</div>
+							</a>
+
+
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+		<div class="col-xs-3">
+			<div class="right">
+				
+			</div>
+		</div>	
+	</div>
+</div>
+
+<div class="container bigwins">
+	<div class="row no-gutters">
+		<div class="col-xs-12">
+			<img src="http://susanwins.com/uploads/88825_goldtext2.png" alt="" class="text"> 
+			<ul>
+				<li>
+					<div class="box m-flip">
+					  <div class="front"><a href="#"><img src="http://susanwins.com/uploads/15578_thor.jpg" alt=""></a> </div>
+					  <div class="back"> <a href="#"><img src="http://susanwins.com/uploads/89616_thorback.jpg" alt=""></a> </div>
+					</div>
+				</li>
+				<li>
+					<div class="box m-flip">
+					  <div class="front"><a href="#"><img src="http://susanwins.com/uploads/45031_dave.jpg" alt=""></a> </div>
+					  <div class="back"> <a href="#"><img src="http://susanwins.com/uploads/52149_raback.jpg" alt=""></a> </div>
+					</div>
+				</li>
+				<li>
+					<div class="box m-flip">
+					  <div class="front"><a href="#"><img src="http://susanwins.com/uploads/34699_fball.jpg" alt=""></a> </div>
+					  <div class="back"> <a href="#"><img src="http://susanwins.com/uploads/36174_soccerback.jpg" alt=""></a> </div>
+					</div>
+				</li>
+				<li>
+					<div class="box m-flip">
+					  <div class="front"><a href="#"><img src="http://susanwins.com/uploads/92136_trulove.jpg" alt=""></a> </div>
+					  <div class="back"> <a href="#"><img src="http://susanwins.com/uploads/50359_tlb.jpg" alt=""></a> </div>
+					</div>
+				</li>
+				<li>
+					<div class="box m-flip">
+					  <div class="front"><a href="#"><img src="http://susanwins.com/uploads/15578_thor.jpg" alt=""></a> </div>
+					  <div class="back"> <a href="#"><img src="http://susanwins.com/uploads/45031_dave.jpg" alt=""></a> </div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="container games">
+	<div class="row no-gutters">
+		<div class="col-xs-9">
+
+
+			<div class="left">
+				<div class="row no-gutters">			
+				 	  @foreach($posts as $post)
+                        <div class="col-lg-4" style="width:30%;height:146px;margin:5px;">
+							<div class="game">								
+								<a href="{{url()}}/{{$post->slug}}" class="icon">									
+									<img src="{{url('uploads')}}/{{$post->thumb_feature_image}}" alt="">
+								</a>
+							</div>
+						</div>
+                      @endforeach
+
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-3">
+			<div class="right">
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container footer">
+	<div class="row no-gutters">
+		<div class="col-lg-12">
+			
+		</div>
+	</div>
+</div>
+
+
+@endsection

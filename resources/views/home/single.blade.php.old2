@@ -1,0 +1,2442 @@
+@extends('home.layout')
+
+@section('scripts_here')
+  <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
+@endsection
+
+@section('for_og')
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ url('uploads') }}/{{ $post->thumb_feature_image }}"/>
+  <link rel="image_src" href="{{ url('uploads') }}/{{ $post->thumb_feature_image }}"/>
+  <meta property="og:title" content="{{$post->title}}" />
+@endsection
+
+@section('singlecontent')
+
+<style type="text/css">
+#main{
+overflow: hidden;
+position: relative;
+}
+.popunder{
+    position: fixed;
+    bottom: -340px;
+    right: 310px;
+    z-index: 2;
+}
+
+
+
+.comment-section{
+      padding: 2em 6em;
+          font-family: arial;
+}
+
+.comment-section h2{
+  font-size: 22px;
+}
+
+.comment-section .comments-list .comment-parent{
+      display: block;
+    padding: 0.5em 1em;
+}
+
+.comment-section .comments-list .comment-parent.temporary,
+.reply-list .replies-parent.temporary{
+      background: #f1f1f1;
+    color: #ccc !important;
+}
+
+.comment-section .comments-list .comment-parent .reply_btn{
+
+}
+
+.comment-section .comment-form,
+.comment-section .reply-form
+{
+      width: 380px;
+}
+
+.comment-section .comment-form .form-group,
+.comment-section .reply-form .form-group{
+    padding: 5px 0;
+}
+
+.comment-section .comment-form .form-control,
+.comment-section .reply-form .form-control{
+      border: 1px solid #ccc;
+    border-radius: 5px;
+   padding: 8px 12px;
+    width:100%;
+    resize: none;
+}
+
+.comment-section .reply-form button,
+.comment-section .comment-form button,
+.comment-section .reply-form .btn,
+.comment-section .comment-form .btn
+{
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.reply-list{
+   font-size: 14px;
+}
+
+.reply-list .replies-parent{
+  padding: 10px 15px;
+}
+
+
+/** ============================================ SLOTS ============================================== **/
+.ezslot-outermost{  
+clear: both;
+margin-left: 100px;
+/*  margin-top: 69px;*/
+position: relative;
+top: 378px;/*#main{
+overflow: hidden;
+}*/
+}
+.ezslot-outermost ul li{
+display: inline-block;
+}
+.ezslot-outermost ul li img{
+border:none!important;
+}
+
+h3{
+padding: 0 40px 15px 0px;
+margin: 3px 0 0 0;
+font-family: 'Work Sans';
+color: #9a0a0e;
+font-weight: 800;
+font-size: 30px;
+    border-bottom: 1px solid #ddd;
+}
+.details{
+	position: relative;
+}
+.totalcontainer{
+	position: absolute;
+	overflow: hidden;
+    width: 159px;
+    height: 32px;
+    left: 11%;
+}
+.totalcontainer .innertotalcontainer{
+	width: 100%;
+	height:auto;
+	overflow: hidden;
+}
+#playbig{
+margin-top: -70px;
+position: relative;
+z-index: 2;
+margin-left: 25px;
+}
+#playbig a {
+width: 140px;
+height: 80px;
+position: relative;
+top: -17px;
+}
+#playbig img{
+position: relative;
+left: 25px;
+top: -65px;
+z-index: 6;
+}
+#playbig .button{
+font: 30px/1em 'Work Sans', sans-serif;
+padding: .3em .6em .4em 1em;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: -1px;
+line-height: 26px;
+text-align: left;
+}
+
+
+#playbig .button.pink{
+-webkit-box-shadow: inset rgba(255, 0, 0, 0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 91%, 45%) 0 .1em 3px, hsl(0, 98%, 29%) 0 0.5em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+-moz-box-shadow: inset rgba(255, 0, 0, 0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 91%, 45%) 0 .1em 3px, hsl(0, 98%, 29%) 0 0.5em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+box-shadow: inset rgba(255, 0, 0, 0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 91%, 45%) 0 .1em 3px, hsl(0, 98%, 29%) 0 0.5em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+}
+
+.secondCasino{
+   /* background: #c79b2d;
+    background: -moz-linear-gradient(top, #c79b2d 0%, #c4a55e 64%, #ffffff 100%);
+    background: -webkit-linear-gradient(top, #c79b2d 0%,#c4a55e 64%,#ffffff 100%);
+    background: linear-gradient(to bottom, #c79b2d 0%,#c4a55e 64%,#ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c79b2d', endColorstr='#ffffff',GradientType=0 );*/
+    background: #ffffe1;
+    background: -moz-linear-gradient(top,  #ffffe1 0%, #f1ca89 53%, #a77714 100%);
+    background: -webkit-linear-gradient(top,  #ffffe1 0%,#f1ca89 53%,#a77714 100%);
+    background: linear-gradient(to bottom,  #ffffe1 0%,#f1ca89 53%,#a77714 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffe1', endColorstr='#a77714',GradientType=0 );
+
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+
+    position: relative;
+    z-index: 2;
+    margin: -45px 20px 0px 24px;
+    border-left: 2px solid #98886B;
+    border-right: 2px solid #98886B;
+ /*   -moz-box-shadow: 0 0 8px -1px #000;
+  -webkit-box-shadow: 0 0 8px -1px #000;
+  box-shadow: 0 0 8px -1px #000;*/
+}
+.game {
+    margin: 7px;
+    width: 190px;
+    height: 125px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 2px solid #C1B185;
+    -moz-box-shadow: 0px 0px 9px -5px #000;
+    -webkit-box-shadow: 0px 0px 9px -5px #000;
+    box-shadow: 0px 0px 9px -5px #000;
+}
+.game img {
+    width: 100%;
+    height: auto;
+}
+     
+.footer{
+background: transparent url(http://susanwins.com/uploads/42775_single-footer.png) no-repeat center top;
+height: 200px;
+position: relative;
+margin-top: 0;
+left: 1px;
+}
+
+.gold-vertical-border{       
+background: transparent url(http://susanwins.com/uploads/23410_single-v-border.png) repeat-y;
+width: 21px;
+position: absolute;
+height: 100%;
+}
+.gold-vertical-border{
+left: 47px;
+}
+.b2{
+left:93.6%
+}
+
+.col-xs-18 {
+width: 81%;
+position: relative;
+z-index: 2;
+}
+.col-xs-4{
+height: 200px;
+position: relative;
+}
+
+#wrapper {
+position: relative;
+left: -35px;
+top: -22px;
+}
+#wrapper a {
+width: 70px;
+height: 45px;
+position: relative;
+left: 116px;
+z-index: 5;
+top: -39px;
+}
+.commentSection{
+  background: rgb(220, 174, 58);
+/* background: #bfa883;
+  background: -moz-linear-gradient(left,  #bfa883 0%, #ffe3a2 3%, #ffe3a2 97%, #bfa883 100%);
+  background: -webkit-linear-gradient(left,  #bfa883 0%,#ffe3a2 3%,#ffe3a2 97%,#bfa883 100%);
+  background: linear-gradient(to right,  #bfa883 0%,#ffe3a2 3%,#ffe3a2 97%,#bfa883 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfa883', endColorstr='#bfa883',GradientType=1 );*/
+
+  position: relative;
+
+  border-left: 1px solid #B9B162;
+  border-right: 1px solid #B9B162;
+  padding: 0px 20px;
+  margin: 0px 22px 0px 24px;
+}
+.commentSection .inner{
+  background: #ffffff;
+  background: -moz-linear-gradient(top,  #ffffff 0%, #e5d8b7 100%);
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#e5d8b7 100%);
+  background: linear-gradient(to bottom,  #ffffff 0%,#e5d8b7 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5d8b7',GradientType=0 );
+  border-left: 1px solid #B9B162;
+  border-right: 1px solid #B9B162;
+  
+  padding-bottom: 20px;
+  -moz-box-shadow: 0 0 10px -3px #000;
+  -webkit-box-shadow: 0 0 10px -3px #000;
+  box-shadow: 0 0 10px -3px #000;
+}
+.commentSection .inner ul{
+  text-align: center;
+}
+.commentSection .inner ul li{
+  display: inline-block;
+}
+.commentSection .inner ul li a{
+  display: inline-block;
+  width: 155px;
+}
+.commentSection .inner ul li a img{
+  width: 100%;
+}
+.commentSection .inner h2{
+    font-family: 'Work Sans';
+    color: #B51515;
+    font-size: 25px;
+    padding: 35px 45px 5px 45px;
+}
+.commentSection .inner hr{
+    border: none;
+    border-top: 1px solid #d7d4ca;
+    border-bottom: 1px solid #fbf9f1;
+    margin-top: 25px;
+}
+.susanbonus button
+{
+     position: absolute;
+    top: 34%;
+    left: 29%;
+}
+.susanbonus button,.susanbonus .glossy-button{
+     font-family: 'Work Sans',Roboto;
+    font-size: 30px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    line-height: 30px;
+    height: auto;
+    color: #FFF;
+    cursor: pointer;
+    display: block;
+    width: auto;
+    text-decoration: none !important;
+   /* position: static;*/
+    padding: 1px 10px 2px;
+    margin: -1px 1px 1px -1px;
+    background-color: #BA1010;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(255, 255, 255, 0.6)), color-stop(0.49, rgba(255, 255, 255, 0.3)), color-stop(0.51, rgba(255, 255, 255, 0.0)), to(rgba(255, 255, 255, 0.2)));
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.0) 51%, rgba(255, 255, 255, 0.2) 100%);
+    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.0) 51%, rgba(255, 255, 255, 0.2) 100%);
+    background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.0) 51%, rgba(255, 255, 255, 0.2) 100%);
+    background-image: linear-gradient(top, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.0) 51%, rgba(255, 255, 255, 0.2) 100%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.30);
+    border: 0 !important;
+    text-shadow: rgba(255, 255, 255, 0.1) -1px 0, rgba(0, 0, 0, 0.3) 1px 1px;
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    padding: 15px 50px;
+    margin: 70px 0 20px 20px;
+    border: 1px solid rgb(222, 119, 119) !important;
+
+  }
+/* submit and reset buttons */
+ .susanbonus input.glossy-button{
+      vertical-align: middle;
+      line-height: normal !important;
+      padding-bottom: 0;
+  }
+/* remove ugly dotted border */
+ .susanbonus :focus{
+      outline:none;
+  }
+  ::-moz-focus-inner{
+      border:0;
+  }
+
+/* when pressed */
+  .susanbonus button:active, .susanbonus  .glossy-button:active{
+      background-color:rgb(213, 75, 75);
+-moz-box-shadow: inset 0 0 11px -5px #000;
+-webkit-box-shadow: inset 0 0 11px -5px #000;
+box-shadow: inset 0 0 11px -5px #000;
+    
+
+}
+ .strawberry:hover{
+    background-color:rgb(243, 117, 117);
+}
+.ie9 button:active{
+  padding-top:0;
+  padding-bottom:2px;
+
+  margin-top:-1px;
+  margin-bottom:0;
+
+  padding-left:10px;
+  padding-right:10px;
+
+  margin-left:-1px;
+  margin-right:0;
+  
+  border-top:1px solid white !important;
+  border-left:1px solid white !important;
+  
+  height:31px;
+  
+  border-radius: 5px;
+}
+
+
+.ie button, .ie .glossy-button {
+  background-image:url(images/butt-bg_slither.png);
+  background-repeat: repeat-x;
+  background-position:center center;
+
+}   
+.ie8 button, .ie8 .glossy-button {
+  border:1px solid #ccc !important;
+  height:32px;
+}
+.ie7 button{
+  height:31px;
+}
+.ie7 .glossy-button{
+  height:28px;
+}
+.ie7 .glossy-button:active{
+  padding-bottom: 2px;
+}
+    
+
+.ezslot-outermost2 {
+    clear: both;
+    /*background: #222;*/
+    padding: 10px 5px 5px 35px;
+    margin: 0 10px;
+    position: relative;
+    top: -3px;
+    pointer-events:none;
+}
+.ezslot-outermost2 ul li{
+display: inline-block;
+}
+.ezslot-outermost2 ul li img{
+border:none!important;
+}
+
+.susantinyimg{
+  float: left;
+  margin-right: 15px;
+  width: 63px!important;
+  height: 78px;
+  background: transparent url(http://susanwins.com/uploads/97997_susan-icon.png) no-repeat center center;
+}
+.fbblue{
+
+      text-align: center;
+color: hsl(208, 50%, 40%) !important;
+background-color: hsl(223, 89%, 20%); 
+-moz-box-shadow: inset rgba(44, 106, 154, 0.8) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(222, 61%, 42%) 0 .1em 3px, hsl(223, 60%, 35%) 0 .3em 1px, /* color border */ rgba(154, 110, 110, 0.2) 0 .5em 5px;
+-webkit-box-shadow: inset rgba(44, 106, 154, 0.8) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(222, 61%, 42%) 0 .1em 3px, hsl(223, 60%, 35%) 0 .3em 1px, /* color border */ rgba(154, 110, 110, 0.2) 0 .5em 5px;
+  box-shadow: inset rgba(44, 106, 154, 0.8) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(222, 61%, 42%) 0 .1em 3px, hsl(223, 60%, 35%) 0 .3em 1px, /* color border */ rgba(154, 110, 110, 0.2) 0 .5em 5px;
+}
+.playbutton .fbblue:hover {
+background-color: hsl(222, 54%, 46%);
+}
+.ezslot-outermost{
+clear: both;
+margin-left: 69px;
+position: relative;
+top: -21px;
+
+}
+.ezslots .content{
+background: transparent;
+}
+.susanbonus{
+  background: transparent url(http://susanwins.com/uploads/35009_bonus-susan.png) no-repeat;
+  height: 306px;
+  margin-bottom: -60px;
+  position: relative;
+  z-index: 6;
+}
+
+#button {
+display: inline-block;
+margin-top: 20%;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+-webkit-box-shadow:    0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+-moz-box-shadow: 0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+box-shadow: 0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+-webkit-transition: -webkit-box-shadow .1s ease-in-out;
+-moz-transition: -moz-box-shadow .1s ease-in-out;
+-o-transition: -o-box-shadow .1s ease-in-out;
+transition: box-shadow .1s ease-in-out;
+font-size: 50px;
+color: #fff;
+}
+
+#button span {
+display: inline-block;
+padding: 20px 30px;
+background-color: #ec528d;
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(hsla(338, 90%, 80%, .8)), to(hsla(338, 90%, 70%, .2)));
+background-image: -webkit-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+background-image: -moz-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+background-image: -o-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+-webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+-moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+font-family: 'Pacifico', Arial, sans-serif;
+line-height: 1;
+text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+-webkit-transition: background-color .2s ease-in-out, -webkit-transform .1s ease-in-out;
+-moz-transition: background-color .2s ease-in-out, -moz-transform .1s ease-in-out;
+-o-transition: background-color .2s ease-in-out, -o-transform .1s ease-in-out;
+transition: background-color .2s ease-in-out, transform .1s ease-in-out;
+}
+
+#button:hover span {
+background-color: #ec6a9c;
+text-shadow: 0 -1px 1px rgba(175, 49, 95, .9), 0 0 5px rgba(255, 255, 255, .8);
+}
+
+#button:active, #button:focus {
+-webkit-box-shadow:    0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+-moz-box-shadow: 0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+box-shadow:    0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+}
+
+#button:active span {
+-webkit-transform: translate(0, 4px);
+-moz-transform: translate(0, 4px);
+-o-transform: translate(0, 4px);
+transform: translate(0, 4px);
+}
+
+.glossy a {
+margin: 6px 0 0 0;
+text-align: center;
+display: block;
+width: 100%;
+height: 100%;
+text-decoration: none;
+color: #000;
+}
+.glossy {
+ width: 145px;
+height: 40px;
+margin: 0px auto;
+position: relative;
+background: #94c4fe;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(31%,#f12b24  ), color-stop(100%,#B73C3C  ));
+background: -webkit-linear-gradient(top, #f12b24   31%,#B73C3C   100%);
+background: -moz-linear-gradient(top, #f12b24   31%, #B73C3C   100%);
+background: -o-linear-gradient(top, #f12b24   31%,#B73C3C   100%);
+background: -ms-linear-gradient(top, #f12b24   31%,#B73C3C   100%);
+background: linear-gradient(to bottom, #f12b24   31%,#B73C3C   100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#94c4fe', endColorstr='#d3f6fe',GradientType=0 );
+-webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px;
+border: 1px solid #DE4F4F;
+color: #FFF;
+font-size: 22px;
+text-shadow: 1px 1px 0px rgba(82, 26, 26, 0.5);
+-webkit-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .2);
+box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .2);
+position: relative;
+padding-top: 5px;
+font-family: 'Work Sans';
+}
+.glossy:before {
+content: "";
+width: 123px;
+height: 16px;
+display: block;
+position: absolute;
+left: 9px;
+top: 0px;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 8%, rgba(255,255,255,0) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(8%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+}
+.glossy p, .glossy a {
+margin: 6px 0 0 0;
+text-align: center;
+display: block;
+width: 100%;
+height: 100%;
+
+text-decoration: none;
+color: #000;
+
+position: relative;
+z-index: 1;
+}
+#api_count{
+    font-family: 'Work Sans';
+    font-size: 32px;
+    font-weight: 700;
+    color: #353030;
+    padding: 3px 5px 2px 5px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 7px;
+    /* background: #DFC546; */
+    position: relative;
+    top: 2px;
+    margin-right: 3px;
+}
+.contentSociallinks li, .contentSociallinks li a{
+  display: inline-block;
+}
+.contentSociallinks li a{
+    color: #fff;
+    padding: 5px 25px;
+    font-size: 25px;
+    border-radius: 3px;
+}
+.contentSociallinks li a.fb{
+  background: #3b5998;
+}
+.contentSociallinks li a.tw{
+  background: #54abee;
+}
+.contentSociallinks li a.pn{
+  background: #d73532;
+}
+.contentSociallinks li a.g{
+  background: #dc4a38;
+}
+
+.bottomCasinos{
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+}
+.bottomCasinos ul li, .bottomCasinos ul li a{
+  display: inline-block;
+}
+.bottomCasinos ul li{
+  display: inline-block;
+  width: 210px;
+  margin: 5px 0;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 2px solid #fbd270;
+}
+.bottomCasinos ul li a img{
+width: 100%;
+margin-bottom: -3px;
+}
+  
+ .postcontent .img-loading{
+      width : 56px;
+      height : 56px;
+      margin:auto;
+      display: block;
+  }
+
+#playFancy{
+  background: #db3339;
+  background-image: background: -webkit-linear-gradient(#db3339 0%, #c00b10 100%);
+  background-image: background: -o-linear-gradient(#db3339 0%, #c00b10 100%);
+  background-image: background: linear-gradient(#db3339 0%, #c00b10 100%) ;
+  background: -webkit-linear-gradient(top, #db3339 0%,#c00b10 100%);
+  background: linear-gradient(to bottom, #db3339 0%,#c00b10 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db3339', endColorstr='#c00b10',GradientType=0 );
+  border-radius: 50px;
+  border: 2px solid #D02B2B!important;
+}
+
+.sidebar .rellimg a img
+{
+      margin-bottom: 0 !important;
+}
+
+</style>
+
+ <div class="container">
+ 
+    <div id="main">
+       <div class="row no-gutters">
+          <div class="col-xs-18">
+              <section class="top">
+                 
+                <div class="featimg" style="min-height: 271px;">
+                  <img src="{{url('uploads')}}/{{$post->feat_image_url}}" alt="">
+                </div>
+
+                <img src="http://susanwins.com/uploads/30006_single-reel-divider.png" class="divider1">
+                <img src="http://susanwins.com/uploads/30006_single-reel-divider.png" class="divider2">
+                <img src="http://susanwins.com/uploads/30006_single-reel-divider.png" class="divider3">
+                <!-- <img src="http://susanwins.com/uploads/45150_slotreels.png" style="position: absolute; bottom: 196px; left: 67px;"> -->
+
+
+                <div class="ezslot-outermost">
+                    <ul>
+                      <li> <div id="ezslots15"></div> </li>
+                      <li> <div id="ezslots16"></div> </li>
+                      <li> <div id="ezslots17"></div> </li>        
+                      <li> <div id="ezslots18"></div> </li>             
+                    </ul>                                  
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-15">
+                    <div id="wrapper">
+                                    <a class="button fbblue serif round glass" id="share_via_facebook" style="top: -34px;left: 116px;" data-url="{{url('')}}/{{$post->slug}}" data-text="Share this up!"></a>          
+                                    <img src="http://susanwins.com/uploads/38801_socialbuttonholder.png" alt="" style="left: 20px;top: -6px;">  
+                                    <a class="button pink serif round glass" id="share_via_pinterest" style="left:22px;top: -33px;" data-url="{{url('')}}/{{$post->slug}}" data-text="Pin me!"></a>          
+                                     <img src="http://susanwins.com/uploads/38801_socialbuttonholder.png" alt="" style="left: -75px;top: -4px;"> 
+                                    <a class="button blue serif round glass" id="share_via_twitter" style="left: -73px;top: -36px;" data-url="{{url('')}}/{{$post->slug}}" data-text="I'm tweeting this awesome game!"><img src="http://susanwins.com/uploads/70478_twitter-icon.png" style="top: -3px;left: 1px;"></a>          
+                                    <img src="http://susanwins.com/uploads/38801_socialbuttonholder.png" alt="" style="left: -169px;top: -4px;">
+                                    <a class="button pink serif round glass" id="share_via_googlePlus" style="left: 412px;top: -114px;" data-url="{{url('')}}/{{$post->slug}}" data-text=""><img src="http://susanwins.com/uploads/79339_g+button.png" style="top: -3px;left: 1px;"></a>          
+                                    <img src="http://susanwins.com/uploads/38801_socialbuttonholder.png" alt="" style="left: 316px;top: -82px;">
+
+                                    @if(isset($user))
+                                        <link rel="stylesheet" href="{{ asset('css/rateit.css') }}">
+                                        <style>
+
+                                        .gameExp{
+                                            width: 904px;
+                                            height: 78px;
+                                            top: 70px;
+                                            left: 63px;
+                                            position: absolute;
+                                            padding: 1em 2em;
+                                            z-index: 8;
+                                        }
+
+                                        .gameExp button, .gameExp .rating{
+                                              height: 45px;
+                                            border: 4px solid #D8B422;
+                                            border-radius: 10px;
+                                            background: #fff;
+                                        }
+
+                                        .gameExp .rating{
+                                              padding: 9px;
+                                              text-align: center;
+                                        }
+                                      </style>
+                                          <div class="gameExp" data-user="{{ $user->id }}">
+                                                
+                                              @if($favorite)
+                                                <button type="button" class="col-sm-6" id="removeToFavorite" data-id="{{ $favorite->id }}">Remove to Favorites</button>
+                                              @else
+                                                <button type="button" class="col-sm-6" id="addToFavorite">Add to Favorites</button>
+                                              @endif
+
+
+                                               @if($played_game)
+                                                <div class="col-sm-6 col-sm-offset-3" id="playedText">You have played this game! Happy Susan</div>
+                                                <div class="col-sm-6 col-sm-offset-3 rating">
+                                                    <input type="range" value="{{ $gameRating['totalRating'] }}" step="0.5" id="gameRating">
+                                                          <div class="rateit" data-rateit-backingfld="#gameRating" data-rateit-resetable="false" data-rateit-ispreset="true"
+                                                              data-rateit-min="0.5" data-rateit-max="5">
+                                                          </div>
+                                                  <span id="totalVoters">({{ $gameRating['voters'] }})</span>
+                                                  <div id="ratingThanks"></div>
+                                                </div>
+                                              @else
+                                                <div class="col-sm-6 col-sm-offset-3" id="playedText">You havent played this game! Sad Susan</div>
+                                                 <button type="button" class="col-sm-6 col-sm-offset-3" id="playedGame">I have played this game</button>
+                                              @endif
+                                          </div>
+                                      @endif                     
+                            </div>                                        
+                  </div>
+                  <div class="col-lg-9">             
+                      <div id="playbig">
+                        <a id="winwinwin3" class="button pink serif round glass"> Play Now! </a>         
+                        <img src="http://susanwins.com/uploads/94727_holder.png" alt=""> 
+                      </div> 
+                     <!-- <img src="http://susanwins.com/uploads/71609_single-playnow-holder.png" class="playnowbtnholder"> -->
+                  </div>
+                </div>
+
+              </section>
+               
+
+              <div class="gold-vertical-border b2"></div>
+              <div class="gold-vertical-border"></div>
+              <div class="content">
+                 
+                  <div class="postcontent" data-post="{{$post->id }}">
+                      <div class="susantinyimg"></div>
+                      <a name="gohere"><h2> {{$post->title}}<span> Written by Susan </span> </h2></a>
+                      <div style="clear:both;"></div>
+                      <ul class="contentSociallinks">
+                        <li><span id="api_count" data-url="{{url('')}}/{{$post->slug}}"></span></li>
+                        <li><a href="javascript:;" data-target="#share_via_facebook" class="fb" data-url="{{url('')}}/{{$post->slug}}" data-text="Share this up!"><i class="fa fa-facebook"></i></i></a></li>                        
+                        <li><a href="javascript:;" data-target="#share_via_pinterest" class="pn" data-url="{{url('')}}/{{$post->slug}}" data-text="Pin me!"><i class="fa fa-pinterest-p"></i></a></li>
+                        <li><a href="javascript:;" data-target="#share_via_twitter" class="tw" data-url="{{url('')}}/{{$post->slug}}" data-text="I'm tweeting this awesome game!"><i class="fa fa-twitter"></i></i></a></li>
+                        <li><a href="javascript:;" data-target="#share_via_googlePlus" class="g" data-url="{{url('')}}/{{$post->slug}}" data-text=""><i class="fa fa-google-plus"></i></a></li>
+                      </ul>                      
+                        <p>
+                          <b>
+                            {{$post->introduction}}
+                          </b>
+                        </p>
+                      
+                        {!!$post->content!!}
+                     
+                        <h3 style="margin-top: 40px;"> My thoughts </h3>
+                        <p style="margin-top:20px;margin-bottom: 60px;">
+                        <em>
+                          {{ $widget_ratings->final_verdict }}
+                        </em>
+                       </p> 
+
+                       <div class="susanbonus">
+                          <button id="playFancy" class="strawberry" >Claim Bonus</button>
+                       </div>
+                  </div>
+                 
+
+
+              </div>
+
+              <div class="secondCasino">
+                <img src="http://susanwins.com/uploads/31557_casino2-gold-bar.png" style="margin-left: -5px; margin-top: -1px;" />
+                      
+                      <div class="bottomCasinos">
+                          <ul>
+                              {!! $casino_lists2[0] !!}
+                              {!! $casino_lists2[1] !!}
+                              {!! $casino_lists2[2] !!}
+                              {!! $casino_lists2[3] !!}
+                          </ul>
+                      </div>
+
+                  <img src="http://susanwins.com/uploads/45582_casino2-thick-gold-bar.png" style="margin:0px 0px -12px -4px;" />
+              </div>
+              <div class="commentSection">
+                <div class="inner">
+                    <h2> Top Categories </h2>
+                    <ul>
+                    
+                      
+                   @foreach ($category_randomizer as $key => $value) 
+                        {!! $value !!}
+                  @endforeach
+
+<!--                       <li><a href="#"><img src="http://susanwins.com/uploads/76393_adventure.png"></a></li>
+                      <li><a href="#"><img src="http://susanwins.com/uploads/63125_animals.png"></a></li>
+                      <li><a href="#"><img src="http://susanwins.com/uploads/49000_celebs.png"></a></li>
+                      <li><a href="#"><img src="http://susanwins.com/uploads/66321_classic.png"></a></li>
+                      <li><a href="#"><img src="http://susanwins.com/uploads/27452_comic.png"></a></li> -->
+                    </ul>
+                    <hr />
+                    <h2 style="margin-bottom: 10px;padding-top: 20px;"> Related Games </h2>
+                    <div class="row no-gutters" style="padding: 0px 35px;">
+
+                      @foreach($related_posts as $related_post)
+                        <div class="col-xs-6">
+                          <div class="game">
+                            <a href="{{url('')}}/{{$related_post->slug}}" track-action="56ddbe4b8ab65" class="get_me_related_game"><img src="{{url('uploads')}}/{{$related_post->thumb_feature_image}}" /></a>
+                          </div>  
+                        </div>
+                      @endforeach
+<!--                       <div class="col-xs-6">
+                        <div class="game">
+                          <a href="#"><img src="http://susanwins.com/uploads/61228_alchemist_lab.jpg" /></a>
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="game">
+                          <a href="#"><img src="http://susanwins.com/uploads/30686_hot-gems.jpg" /></a>
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="game">
+                          <a href="#"><img src="http://susanwins.com/uploads/21698_ice-hokey.jpg" /></a>
+                        </div>  
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="game">
+                          <a href="#"><img src="http://susanwins.com/uploads/77776_innocence-temptation.jpg" /></a>
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="game">
+                          <a href="#"><img src="http://susanwins.com/uploads/75031_iron-man.jpg" /></a>
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="game">
+                          <a href="#"><img src="http://susanwins.com/uploads/77280_jackpot-giant.jpg" /></a>
+                        </div>  
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="game">
+                          <a href="#"><img src="http://susanwins.com/uploads/32145_john-wayne.jpg" /></a>
+                        </div>
+                      </div>
+                      <div class="col-xs-6">
+                        <div class="game">
+                          <a href="#"><img src="http://susanwins.com/uploads/30686_hot-gems.jpg" /></a>
+                        </div>
+                      </div> -->
+                    </div>
+                </div>  
+              </div>
+ <div class="comment-section">
+                      <h2>Comments</h2>
+                      <form class="comment-form" action="{{ url('add_comment') }}" method="POST" id="commentForm">
+                        {!! csrf_field() !!}
+                          <div class="form-group">
+                              <textarea class="form-control" rows="4" placeholder="Write a comment" name="content"></textarea>
+                          </div>
+                          <div class="form-group">
+                            
+                            @if(isset($user))
+                                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                <input type="hidden" name="email" value="{{ $user->email }}">
+                                <p>Signed in as {{ $user->email }}</p> <a href="{{ url('logout') }}?redirect={{ Request::url() }}">Logout</a>
+                            @else
+                                <a href="{{ url('login') }}?redirect={{ Request::url() }}">Login to Comment</a> or <a href="{{ url('register') }}?redirect={{ Request::url() }}">Register</a>
+                            @endif
+
+                          </div>
+                          <div class="form-group">
+                              <button type="submit" value="submit">Submit</button>
+                          </div>
+                      </form>
+                      <hr>
+                      <div class="comments-list" id="commentList">
+                          @if(count($comments))
+
+                           @foreach($comments as $comment)
+
+                           <div class="comment-parent">
+                              <div class="comment-info">{{$comment->user->email}}</div>
+                              <div class="comment-content">{{ $comment->content }}</div>
+                              <a href="javascript:;" class="reply_btn">Reply</a>
+                              <div class="reply-list" id="reply-to-{{$comment->id}}">
+                                  @foreach($comment->replies as $reply)
+                                    <div class="replies-parent">
+                                        <div class="reply-info">{{$reply->user->email}}</div>
+                                        <div class="reply-content">{{ $reply->content }}</div>
+                                    </div>
+                                  @endforeach
+                              </div>
+                              @if(isset($user))
+                                <form class="reply-form" action="{{ url('add_reply') }}" method="POST" style="display:none">
+                                    <input type="hidden" name="parent" value="{{ $comment->id }}">
+                                    <input type="hidden" name="user_id" value="{{ $user->id }}">
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                    <input type="hidden" name="email" value="{{ $user->email }}">
+
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="4" placeholder="Write a reply" name="content"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                      
+
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" value="submit">Submit</button>
+                                    </div>
+                                </form>
+                              @endif
+                              
+                            </div>
+                           @endforeach
+
+                          @else
+                              <p id="no-comments">No Comments yet.</p>
+                          @endif
+                            
+                      </div>
+                  </div>
+
+              <div class="footer" style="padding-bottom: 9px;">
+                
+              </div>
+
+              <div class="popunder">
+               <img src="http://susanwins.com/uploads/35599_scrollsusan.png" alt="Scroll down to see my videos and read my review!" />
+              </div>
+
+          </div>
+          <div class="col-xs-4" style="height:200px;">
+              <img src="http://susanwins.com/uploads/26351_single-susan.png" alt="" class="singlesusan">
+              <div class="sidebar">
+                <h3> <img src="http://susanwins.com/uploads/28532_sidebartext.png" alt=""> </h3>
+
+                  <div class="rellimg">
+                  
+
+                </div>
+
+
+
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+@endsection
+
+
+@section('footer_scripts')
+
+
+<script src="{{ asset('js/sockets.io.js') }}"></script>
+<script src="{{ asset('js/jquery.rateit.min.js') }}"></script>
+<script>
+  $(function() {
+
+
+      var socket = io.connect('{{ url("/") }}:8891');
+
+     socket.on('connect', function(){
+          room = 'room_{{$post->id}}';
+
+        socket.emit('connect_to_room', {room : room , user : '{{ isset($user->email) ?$user->email : "Guest" }}'});
+        });
+
+        user_json = '<?php echo isset($user) ? json_encode($user) : null ?>';
+        user = user_json ? JSON.parse(user_json) : false;
+
+
+        function Comment(){
+          this.id, this.content,this.user_id,this.post_id,this.email, this.temporaryComment, this.theComment;
+        }
+
+        Comment.prototype.makeTemporaryComment = function(){
+
+          this.temporaryComment = $('<div></div>').addClass('comment-parent').addClass('temporary').append(
+                  $('<div></div>').addClass('comment-info').text(this.email)
+                  ).append(
+                    $('<div></div>').addClass('comment-content').text(this.content)
+                  );
+
+          return this.temporaryComment;
+        };
+
+        Comment.prototype.maketheComment = function(){
+
+          reply_form = '';
+
+          if(user){
+
+            reply_form = $('<form></form>').addClass('reply-form').attr('action', '{{ url("add_reply") }}').attr('method', 'POST').css('display', 'none')
+                    .append( $('<input>').attr('type', 'hidden').attr('name', 'parent').val(this.id) )
+                    .append( $('<input>').attr('type', 'hidden').attr('name', 'user_id').val(user.id) )
+                    .append( $('<input>').attr('type', 'hidden').attr('name', 'post_id').val(this.post_id) )
+                    .append( $('<input>').attr('type', 'hidden').attr('name', 'email').val(user.email) )
+                    .append( 
+                      $('<div></div>').addClass('form-group')
+                          .append(
+                            $('<textarea>').addClass('form-control').attr('rows', 4).attr('placeholder', 'Write a reply').attr('name', 'content')
+                            )
+                       ).append( 
+                      $('<div></div>').addClass('form-group')
+                          .append(
+                            $('<div></div>').text('Signed in as : '+user.email)
+                            )
+                       ).append( 
+                      $('<div></div>').addClass('form-group')
+                          .append(
+                            $('<button></button>').attr('type', 'submit').text('Submit')
+                            )
+                       )
+
+          }
+
+            this.theComment = $('<div></div>').addClass('comment-parent').attr('id', 'comment-'+this.id).append(
+                  $('<div></div>').addClass('comment-info').text(comment.email)
+                  ).append(
+                    $('<div></div>').addClass('comment-content').text(comment.content)
+                  ).append(
+                    $('<a href="javascript:;">').addClass('reply_btn').text('Reply')
+                  ).append(
+                    $('<div"></div>').addClass('reply-list').attr('id', 'reply-to-'+comment.id)
+                  ).append(
+                    reply_form
+                  );
+
+
+                  return this.theComment;
+        };
+
+
+
+
+         socket.on('post_comment', function(response){
+
+              $('#no-comments').remove();
+
+              comment = new Comment();
+
+              comment.id = response.id;
+              comment.user_id = response.user_id;
+              comment.post_id = response.post_id;
+              comment.email = response.email;
+              comment.content = response.content;
+
+              if($('#comment-'+comment.id).length == 0){
+
+                   $('#commentList').append(comment.maketheComment());
+                   $(document).trigger('adjustHeight');
+              }
+               
+        });
+
+
+         socket.on('post_reply', function(response){
+
+            reply = new Reply();
+
+            reply.id = response.id;
+            reply.user_id = response.user_id;
+            reply.content = response.content;
+            reply.post_id = response.post_id;
+            reply.email = response.email;
+            reply.parent = response.parent;
+
+
+            if($('#reply-'+reply.id).length == 0){
+
+                   $('#reply-to-'+reply.parent).append(reply.maketheReply());
+                   $(document).trigger('adjustHeight');
+              }
+
+            
+        });
+
+      tempComment = null;
+
+      $('#commentForm').on('submit', function(e){
+
+          e.preventDefault();
+
+          if(tempComment == null){
+
+                comment = new Comment();
+
+                comment.user_id = $(this).find('[name="user_id"]').val() || false;
+                comment.content = $(this).find('[name="content"]').val();
+                comment.post_id = $(this).find('[name="post_id"]').val() || false;
+                comment.email = $(this).find('[name="email"]').val() || false;
+                _token = $(this).find('[name="_token"]').val();
+                actionUrl = $(this).attr('action');
+
+                if(comment.content){
+
+                    tempComment = comment.makeTemporaryComment();
+
+                    $('#commentList').append(tempComment);              
+
+                    if(comment.user_id && comment.user_id && comment.email){
+
+                      $(this).find('[name="content"]').val('');
+
+                      $.ajax({
+                        type : 'post',
+                        data : { _token : _token , content : comment.content, user_id : comment.user_id, email : comment.email , post_id : comment.post_id },
+                        url : actionUrl,
+                        dataType : 'json',
+                        success : function(response){
+                          if(response){
+
+                            comment.id = response.id;
+
+                            $(comment.temporaryComment).replaceWith(comment.maketheComment());
+                            $(document).trigger('adjustHeight');
+                              tempComment = null;
+                              socket.emit('comment', response);
+                              
+                              
+                          }
+                        },error : function(res){
+                          console.log(res.responseText);
+                        }
+                      });
+
+
+                    }else{
+                      alert('You must login first!');
+                    }
+
+
+                }else{
+                  alert('Please write something!');
+                }
+
+          }
+       
+        return false;
+        
+      });
+
+
+  var user_id = $('.gameExp').data('user') || false;
+    var post_id = $('.postcontent').data('post') || false;
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+    var gameExpUrl = '{{ url("gameExp") }}';
+
+    $('.gameExp').on('click','#addToFavorite', function(){
+
+        _this = $(this).attr('disabled', 'disabled');
+        if(user_id && post_id){
+
+          $.ajax({
+            url: gameExpUrl+'/addFavorite',
+            type : 'POST',
+            data : { user_id : user_id , post_id : post_id, _token : CSRF_TOKEN  },
+            dataType : 'json',
+            success : function(data){
+              if(data && data.id){
+                $(_this).replaceWith($('<button type="button"></button>').addClass('col-sm-6').attr('id', 'removeToFavorite').data('id', data.id).text('Remove from Favorites'));
+              }
+
+            },error : function(xhr){
+              console.log(xhr.responseText);
+            }
+
+          });
+
+        }
+
+    });
+
+    $('.gameExp').on('click','#removeToFavorite', function(){
+        _this = $(this).attr('disabled', 'disabled');
+
+        data_id = $(_this).data('id');
+        if(data_id){
+
+          $.ajax({
+            url: gameExpUrl+'/removeFavorite',
+            type : 'POST',
+            data : { id : data_id , _token : CSRF_TOKEN  },
+            dataType : 'json',
+            success : function(data){
+                $(_this).replaceWith($('<button type="button"></button>').addClass('col-sm-6').attr('id', 'addToFavorite').text('Add to Favorites'));
+
+            },error : function(xhr){
+              console.log(xhr.responseText);
+            }
+
+          });
+
+        }
+
+    });
+
+    $('.gameExp').on('click','#playedGame', function(){
+
+        _this = $(this).attr('disabled', 'disabled');
+        if(user_id && post_id){
+
+          $.ajax({
+            url: gameExpUrl+'/playedGame',
+            type : 'POST',
+            data : { user_id : user_id , post_id : post_id, _token : CSRF_TOKEN  },
+            dataType : 'json',
+            success : function(data){
+              if(data && data.id){
+                $('#playedText').text('You have played this game! Happy Susan');
+                  
+                  rateIt = $('<div data-rateit-backingfId="#gameRating" data-rateit-resetable="false" data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5">').addClass('rateit');
+
+
+                  ratingThanks = $("<div id='ratingThanks'></div>");
+
+                $(_this).replaceWith(
+
+                  $('<div>').addClass('col-sm-6 col-sm-offset-3 rating')
+                        .append(
+
+                            $('<input type="hidden" step="0.1" id="gameRating">').data('id', data.id)
+                          )
+
+                        .append(
+
+                          rateIt  
+
+                          )
+
+                        .append(
+                          $('<span id="totalVoters"></span>').text('('+data.gameRating['voters']+')')
+                          )
+
+                        .append(
+                            ratingThanks
+                          )
+
+
+                  );
+
+                $(rateIt).rateit({ max: 5, step: 0.1, min : 0.5, backingfld: '#gameRating' });
+
+              }
+
+            },error : function(xhr){
+              console.log(xhr.responseText);
+            }
+
+          });
+
+        }
+
+    });
+  
+
+  $('.gameExp').bind('rated', '#gameRating', function(e, value){
+
+        data_id = $('#gameRating').data('id');
+
+        if(user_id && post_id){
+
+          $.ajax({
+              url: gameExpUrl+'/rateGame',
+              type : 'POST',
+              data : { user_id : user_id, rating : value , post_id : post_id, _token : CSRF_TOKEN  },
+              dataType : 'json',
+              success : function(data){
+                if(data){
+                  $('#ratingThanks').text('Thanks for rating!');
+
+                  setTimeout(function(){
+                      $('#gameRating').val(data.totalRating);
+                      $('#totalVoters').text('('+data.voters+')');
+                     $('#ratingThanks').text('');
+                  }, 1000);
+
+                }
+
+              },error : function(xhr){
+                console.log(xhr.responseText);
+              }
+
+            });
+        }
+  });
+
+
+      $(document).on('click', '#commentList .reply_btn', function(){
+
+        if(user){
+            form = $(this).parent().find('.reply-form');
+            $('#commentList').find('.reply-form').not(form).slideUp();
+            $(form).slideToggle('slow', function(){
+                  $(document).trigger('adjustHeight');
+            });
+        }
+
+            
+      });
+
+
+        function Reply(){
+          this.id, this.user_id, this.content, this.post_id, this.email, this.parent, this.temporaryReply, this.theReply;
+        }
+
+
+        Reply.prototype.makeTemporaryReply = function(){
+
+           this.temporaryReply = $('<div></div>').addClass('replies-parent').addClass('temporary')
+                  .append($('<div></div>').addClass('reply-info').text(this.email))
+                  .append($('<div></div>').addClass('reply-content').text(this.content));
+
+          return this.temporaryReply;
+        }
+
+        Reply.prototype.maketheReply = function(){
+
+            this.theReply = $('<div></div>').addClass('replies-parent').attr('id', 'reply-'+this.id)
+                  .append($('<div></div>').addClass('reply-info').text(this.email))
+                  .append($('<div></div>').addClass('reply-content').text(this.content));
+
+          return this.theReply;
+        }
+
+
+
+    tempReply = null;
+
+    $('#commentList').on('submit', '.reply-form', function(e){
+
+      e.preventDefault();
+      if(tempReply == null){
+
+            reply = new Reply();
+
+            reply.user_id = $(this).find('[name="user_id"]').val() || false;
+            reply.content = $(this).find('[name="content"]').val();
+            reply.post_id = $(this).find('[name="post_id"]').val() || false;
+            reply.email = $(this).find('[name="email"]').val() || false;
+            _token = $('meta[name="csrf-token"]').attr('content');
+            reply.parent = $(this).find('[name="parent"]').val();
+            actionUrl = $(this).attr('action');
+
+            if(reply.content){
+
+              $(this).find('[name="content"]').val('');
+
+                tempReply = reply.makeTemporaryReply();
+                $('#reply-to-'+reply.parent).append(tempReply);
+                $(document).trigger('adjustHeight');
+                $.ajax({
+                    type : 'post',
+                    data : {  user_id : reply.user_id, content : reply.content, post_id : reply.post_id, email : reply.email, _token : _token, parent : reply.parent },
+                    url : actionUrl,
+                    dataType : 'json',
+                    success : function(response){
+                      if(response){
+
+                            reply.id = response.id;
+
+                            $(reply.temporaryReply).replaceWith(reply.maketheReply());
+                            $(document).trigger('adjustHeight');
+                              tempReply = null;
+                              socket.emit('reply', response);
+
+                      }
+                    },error : function(res){
+                      console.log(res.responseText);
+                    }
+                  });
+
+
+            }else{
+              alert('Please write something!');
+            }
+
+      }
+
+
+
+
+
+      return false;
+
+    });
+
+
+
+    $('#playFancy').on('click', function(e) {
+        $('.bottomCasinos').animate({width: '100%', height: 193}, 300);
+    });
+
+
+
+        jQuery.fn.renameAttr = function(oldName, newName) {
+        var args = arguments[0] || {}; 
+        var o = $(this[0]) 
+
+           o
+            .attr(
+                newName, o.attr(oldName)
+            )
+            .removeAttr(oldName)
+            ;
+    };
+
+    // $('.postcontent img').addClass('lazy');
+
+    $('.postcontent img').each(function() {
+
+      $(this).renameAttr('src', 'data-src' );
+    });
+
+    $('.postcontent img').attr('src','http://susanwins.com/uploads/66058_default.gif');
+
+    $('.postcontent img').attr('track-action', '56ddbe6f3a840');
+
+    _scrollTop = $(window).scrollTop();
+
+if(_scrollTop == 0){
+  $('.postcontent img').addClass('img-loading');
+}
+    
+
+
+    $('a[rel*=leanModal]').leanModal({ top : 200, closeButton: ".modal_close" });
+
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content'),
+      get_casino_category = '{{$get_casino_category}}',
+      get_post_id = '{{$post->id}}';
+
+    $(document).on('click','.postcontent img',function(){
+      var $this = $(this);
+      var image_parent = $this.parent();
+      image_parent.css( "position", "relative" );
+      image_parent.append('<span class="overlay_ni_men" style="display: block; position: absolute; z-index: 2; top: 0; width: 100%; height: 100%; text-align: center; background-color:rgba(255, 255, 255, 0.9); "><div class="outer"><div class="middle"><div class="inner"><p>Do you want to play this game?</p> <br /><a href="#" class="casino_yes" track-action="56ddbe4fe6b07" track-value="Yes Count"> <div class="glossy" style="float: left;margin-left: 228px;margin-right: 10px;"> Yes </div> </a> <a href="#" class="casino_no" track-action="56ddbe560574d" track-value="No Count"> <div class="glossy" style="float: left;"> No </div> </a></div></div></div> </span>');
+      
+        save_tracker(1,$this.attr('src'),'','');
+    });
+
+    $('.postcontent').on('click','.casino_yes',function(e){
+      e.preventDefault();
+      var $this = $(this);
+      var casino_yes_parent = $this.parent();
+       casino_yes_parent.html("<div class='loader'><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--text'></div></div>");
+            
+
+      $.ajax({ 
+          type: 'post',
+          url: "{{url('casino/ajax/get_casino')}}",
+          data: {_token: CSRF_TOKEN,'category_id' : get_casino_category,'post_id' : get_post_id,'type' : 2}, 
+          success: function(response)
+          {
+            var parsed = JSON.parse(response);
+            var casino = '<p class="popupheading">Casino List</p> <ul class="casinolist">';
+           
+            $.each( parsed, function( index, obj){
+              var casino_url = '';
+
+              casino_url = obj.link_desktop;
+
+              casino += "<li><a href='"+casino_url+"' track-action='56ddbe5eb51c9' track-value='"+obj.name+"' class='casino_option' get-this-id="+obj.id+"><img src='{{url("uploads")}}/"+obj.image_url+"' style='width:auto;'></a></li>";
+
+            });
+
+            casino += "</ul>";
+
+            setTimeout(function() {
+             casino_yes_parent.html(casino);
+            }, 3000);
+
+          }
+        });
+
+    });
+
+    $('.postcontent').on('click','.casino_no',function(e){
+      e.preventDefault();
+      var $this = $(this);
+      var casino_no_parent = $this.closest('.overlay_ni_men');
+      casino_no_parent.remove();
+
+      save_tracker(3,'','','');
+
+    });
+
+
+    $(document).on('click','.casino_option',function(e){
+
+      var $this = $(this);
+
+      e.preventDefault();
+      save_tracker(4,'','',$this.attr('get-this-id'));
+
+      location.href = $(this).attr('href');
+    });
+
+
+    $(document).on('click','.get_me_sidebar',function(e){
+
+      var $this = $(this);
+
+      e.preventDefault();
+      save_tracker(5,'',$(this).attr('href'),'');
+
+      location.href = $(this).attr('href');
+    });
+
+    $(document).on('click','.get_me_related_game',function(e){
+
+      var $this = $(this);
+
+      e.preventDefault();
+      save_tracker(6,'',$(this).attr('href'),'');
+
+      location.href = $(this).attr('href');
+    });
+
+    $(document).on('click','.get_me_article_banner',function(e){
+
+      var $this = $(this),
+      get_id = $this.attr('get-this-id');
+
+      e.preventDefault();
+      save_tracker(7,'',$(this).attr('href'),get_id);
+
+      location.href = $(this).attr('href');
+    });
+
+    $(document).on('click','.get_me_skyscraper_banner',function(e){
+
+      var $this = $(this),
+      get_id = $this.attr('get-this-id');
+
+      e.preventDefault();
+      save_tracker(8,'',$(this).attr('href'),get_id);
+
+      location.href = $(this).attr('href');
+    });
+
+
+
+
+    
+
+    
+
+    function save_tracker(type,image_url,site_url,casino_id)
+    {
+        $.ajax({ 
+          type: 'post',
+          url: "{{url('home/ajax_tracker_click')}}",
+          data: {_token: CSRF_TOKEN,'post_id' : get_post_id,'type' : type,'image_url' : image_url,'site_url' : site_url,'casino_id' : casino_id}, 
+          success: function(response)
+          {
+
+
+          }
+        });
+    }
+
+    //Article Banner
+     var total_image = $( ".postcontent img" ).length;
+     if(total_image >= 1)
+     {
+
+        var articleBannerRatio = {{$articleBannerRatio}},
+            banner_type = 1;
+
+        $.ajax({
+            type: 'post',
+            url: "{{url('casino/ajax/get_article_banner')}}",
+            data: {_token: CSRF_TOKEN,'articleBannerRatio' : articleBannerRatio,'total_image' : total_image,'banner_type' : banner_type}, 
+            success: function(response)
+            {
+              var parsed = JSON.parse(response),
+                  no_total = articleBannerRatio;
+              
+              $.each( parsed, function( index, obj){
+
+                if(total_image < articleBannerRatio)
+                {
+                  no_total = total_image;
+                }
+
+                no_total -= 1;
+                var every_nth = "img:eq("+no_total+")";
+                // var every_nth = "img:eq(0)";
+                // "<img src='{{url('uploads')}}/"+obj.image_url + "'>"
+                $( ".postcontent" ).find(every_nth).parent().after( "<a href='"+obj.image_link+"' track-action='56ddbe3996ada' class='get_me_article_banner' get-this-id='"+obj.id+"'><img class='not_count' src='{{url('uploads')}}/" + obj.image_url + "'></a>" );
+                no_total += articleBannerRatio + 2;
+
+              });
+
+            }
+            
+          });
+
+
+
+     }
+  });
+</script>
+
+<!-- YOUTUBE SCRIPT HERE -->
+<script type="text/javascript">
+
+  $(document).ready(function(){
+
+  	// $(".postcontent img").unveil(200);
+    var header_counter = 0;
+    totalImages = $(".postcontent img").length;
+    imageLoaded = 0;
+    allImageLoaded = false;
+	$(".postcontent img").unveil(200, function() {
+		$(this).load(function() {
+			$(this).css('width','100%').removeClass('img-loading');
+         imageLoaded++;
+
+        if(totalImages == imageLoaded){
+          allImageLoaded = true;
+        }else{
+          if(!sideBarCompleted){
+                  clearInterval(startAddingSidebarInterval);
+                  setSidebarLoadInterval();
+              }
+        }
+        $(this).css('width','100%');
+  		});
+	});
+
+     
+
+  //APIS
+
+
+  $('.contentSociallinks li a').on('click', function(){
+      __target = $(this).attr('data-target');
+      $(__target).trigger('click');
+  });
+
+  $('#share_via_pinterest').sharrre({
+  share : {
+    pinterest : true
+  },
+  template : '<img src="http://susanwins.com/uploads/76008_pinterestubtton.png" style="left:4px!important;top: -3px;">',
+  enableHover: false,
+  enableTracking: true,
+  click: function(api, options){
+    api.openPopup('pinterest');
+  }
+});
+  $('#share_via_facebook').sharrre({
+  share : {
+    facebook : true
+    },
+    template : '<img src="http://susanwins.com/uploads/34329_fb-button.png" style="left: 2px!important;top: -4px;">',
+  enableHover: false,
+  enableTracking: true,
+  click: function(api, options){
+    api.openPopup('facebook');
+  }
+});
+
+  $('#share_via_twitter').sharrre({
+  share : {
+    twitter : true
+    },
+     template : '<img src="http://susanwins.com/uploads/70478_twitter-icon.png" style="top: -3px;left: 1px;">',
+  enableHover: false,
+  enableTracking: true,
+  click: function(api, options){
+    api.openPopup('twitter');
+  }
+});
+  $('#share_via_googlePlus').sharrre({
+    share : {
+    googlePlus : true
+    },
+  template : '<img src="http://susanwins.com/uploads/79339_g+button.png" style="left: 3px;top: -2px;">',
+  enableHover: false,
+  enableTracking: false,
+  click: function(api, options){
+    api.openPopup('googlePlus');
+  }
+});
+
+
+
+
+  // IDLE POPUP//
+
+
+ $(window).scroll(function () { 
+   if( $(window).scrollTop() > 300 ) {
+     $('.popunder').animate({bottom: '-340px'}, 300);
+   }
+ })
+
+  startIdleCounting = setInterval( checkIdle, 1000 );
+
+  
+  idleCounter = 0;
+  maxIdle = 10;
+
+  //checkTitleSeen()
+  
+  function checkIdle(){
+
+
+    idleCounter++;
+     console.log(idleCounter);
+
+     title_is_seen = checkTitleSeen();
+
+    if(idleCounter == maxIdle){
+        clearInterval(startIdleCounting);
+
+        if(title_is_seen == false){
+            $('.popunder').animate({bottom: '-9px'}, 300);
+        }
+
+    }
+
+  }
+
+  $(window).bind('scroll load', function(){
+   title_is_seen = checkTitleSeen();
+   if(title_is_seen){
+        clearInterval(startIdleCounting);
+   }
+  });
+
+  function checkTitleSeen(){
+
+    title = $('a[name="gohere"]');
+    titleOffsetHeight = title.offset().top + $('.susantinyimg').height();
+    pageHeight = window.height || document.documentElement.clientHeight;
+    
+    documentOffsetTop = document.documentElement.scrollTop || document.body.scrollTop;  
+    documentHeight = documentOffsetTop + pageHeight;
+
+    if(titleOffsetHeight > documentHeight){
+        return false;
+    }
+
+    return true;
+
+    //if(titleOffsetHeight)
+
+/*$('.popunder').animate({bottom: '-9px'}, 300);*/
+
+  }
+
+
+  // ENDOF IDLE POPUP
+
+
+    $('#api_count').sharrre({
+      share : {
+        pinterest : true,
+        facebook : true,
+        twitter : true,
+        googlePlus : true
+      },
+      template :'{total}',
+      enableHover: false
+    });
+
+      //ENDOF APIS
+
+
+
+      var images4 = [
+      '<div class="slotwrapper"><div class="details"><div class="totalcontainer" style="top: 57%;"><div class="innertotalcontainer" style="width:{{ $widget_ratings->music_sounds / 10 * 100 }}%;"><img src="http://susanwins.com/uploads/56148_stars.jpg" /></div></div><img src="http://susanwins.com/uploads/19401_music.jpg"></div></div>'
+      ];
+
+      // '<div class="slotwrapper"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/82370_casino1.jpg"></a></div></div>';
+
+      var images5 = [
+      '<div class="slotwrapper"><div class="details"><div class="totalcontainer" style="top: 53%;"><div class="innertotalcontainer" style="width:{{$widget_ratings->long_term_play / 10 * 100}}%;"><img src="http://susanwins.com/uploads/56148_stars.jpg" /></div></div><img src="http://susanwins.com/uploads/80687_longterm.jpg"></div></div>'
+      ];
+
+      var images6 = [
+      '<div class="slotwrapper"><div class="details"><div class="totalcontainer" style="top: 50%;"><div class="innertotalcontainer" style="width:{{$widget_ratings->fun_rate / 10 * 100}}%;"><img src="http://susanwins.com/uploads/56148_stars.jpg" /></div></div><img src="http://susanwins.com/uploads/81613_funrating.jpg"></div></div>'
+      ];
+
+      var images7 = [
+      '<div class="slotwrapper"><div class="details"><div class="totalcontainer" style="top: 51%;"><div class="innertotalcontainer" style="width:{{$widget_ratings->graphics / 10 * 100}}%;"><img src="http://susanwins.com/uploads/56148_stars.jpg" /></div></div><img src="http://susanwins.com/uploads/47931_graphic.jpg"></div></div>'
+      ];
+
+
+      $("#winwinwin3").click(function(){
+
+        if(header_counter == 0)
+        {
+
+        images4.push('{!! $casino_lists[0] !!}');
+        images5.push('{!! $casino_lists[1] !!}');
+        images6.push('{!! $casino_lists[2] !!}');
+        images7.push('{!! $casino_lists[3] !!}');
+
+          $('.featimg img').fadeOut(300, function() {
+
+            $('.featimg img').attr("src","http://susanwins.com/uploads/64878_click-header.png");
+            $('.featimg img').fadeIn(100);
+
+          });
+
+        }
+
+        ezslot15.win();
+        ezslot16.win();
+        ezslot17.win();
+        ezslot18.win();
+
+
+        header_counter++;
+
+      });
+
+
+
+      var ezslot15 = new EZSlots("ezslots15",{"reelCount":1,"winningSet":[1,1,1,1],"symbols":images4,"height":255,"width":201});
+      var ezslot16 = new EZSlots("ezslots16",{"reelCount":1,"winningSet":[1,1,1,1],"symbols":images5,"height":255,"width":201});
+      var ezslot17 = new EZSlots("ezslots17",{"reelCount":1,"winningSet":[1,1,1,1],"symbols":images6,"height":255,"width":201});
+      var ezslot18 = new EZSlots("ezslots18",{"reelCount":1,"winningSet":[1,1,1,1],"symbols":images7,"height":255,"width":201});
+
+    // $('.postcontent img').Lazy({
+    //     // your configuration goes here
+    //     beforeLoad: function(element) {
+    //       element.css('background-color','black');
+    //     },
+    //     scrollDirection: 'vertical',
+    //     effect: 'fadeIn',
+    //     visibleOnly: true,
+    //     onError: function(element) {
+    //         console.log('error loading ' + element.data('src'));
+    //     }
+    // });
+
+    // $('.postcontent img').lazyImage();
+
+    // $('.postcontent img').attr('src','data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==');
+
+    $('iframe').each(function(){
+
+      var youtube_src = $(this).attr('src');
+      var res = youtube_src.replace("controls=0", "controls=1");
+
+      $(this).attr('src',res);
+      
+    });
+
+    
+
+    var CSRF_TOKEN2 = $('meta[name="csrf-token"]').attr('content'),
+    posts_category_id = '{{$posts_category_id->category_id}}';
+    posts_id = '{{$post->id}}';
+
+
+        var finalSidebarContentHeight = 0, sidebarContentHeight = 0;
+    contentOffset = 1;
+    ajaxDone = false;
+    sideBarHeightLeft = 0;
+    sideBarCompleted = false;
+    sideBarAjaxDone = true;
+
+    pendingSideBarElements = [];
+
+    sideBarSpacer = parseInt($('.sidebar').css('padding-bottom'));
+
+    sideBarSingleContentHeight = 117 + (sideBarSpacer * 2);
+
+    function updateSidebarHeight(){
+
+     mainHeight = $('#main').height() - ($('.top').height()) - parseInt($('.footer').css('padding-bottom').replace('px', ''));
+
+             sideBarHeight = mainHeight + ( $('.postcontent').offset().top - $('.sidebar').offset().top );
+        finalSidebarContentHeight = sideBarHeight - ( $('.sidebar').find('h3').height() + (sideBarSpacer * 2) );
+        $('.sidebar').css('height', sideBarHeight+'px');
+        sidebarContentHeight = $('.rellimg').height();
+        sideBarHeightLeft = finalSidebarContentHeight - sidebarContentHeight;
+
+        lastElement = $('.rellimg').children(':visible').last();
+
+        if( $('.rellimg').find('.updateHeight').length > 0){
+             lastElement = $('.rellimg').find('.updateHeight').first();
+               lastElement.next().css('visibility', 'hidden');
+        }
+
+        theImage = $(lastElement).find('img');
+
+        if(sideBarHeightLeft <= sideBarSpacer){ 
+
+          offsetBottom = ($('.sidebar').offset().top+sideBarHeight) - lastElement.offset().top - (sideBarSpacer * 2);
+
+            if(!lastElement.hasClass('updateHeight')){
+
+              lastElement.addClass('updateHeight').data('originalHeight', $(theImage).height());
+              theImage.css('height', offsetBottom+'px');
+            }else{
+              lastElement.css('visibility', 'visible');
+              if(offsetBottom > 0 && offsetBottom < lastElement.data('originalHeight')){
+                 theImage.css('height', offsetBottom+'px');
+
+              }else if(offsetBottom >= lastElement.data('originalHeight')){
+
+                theImage.css('height', lastElement.data('originalHeight')+'px');
+
+              }else{
+
+               
+                   console.log('unshift');
+
+                  prevElement = lastElement.prev();
+
+                  prevElementImage = prevElement.find('img');
+
+
+                  if(offsetBottom <= 0){
+                     lastElement.css('visibility', 'hidden');
+                   }else{
+
+                   }
+
+                  prevOffsetBottom = ($('.sidebar').offset().top+sideBarHeight) - prevElement.offset().top - (sideBarSpacer * 2);
+
+                  prevElement.addClass('updateHeight').data('originalHeight', $(prevElementImage).height());
+                   prevElementImage.css('height', prevOffsetBottom+'px');
+                
+              }
+            }
+            
+
+       
+              }else{
+
+                if(lastElement.hasClass('updateHeight')){
+
+                  if(theImage.height() >= lastElement.data('originalHeight')){
+                       theImage.css('height', lastElement.data('originalHeight')+'px');
+                        lastElement.removeClass('updateHeight').removeData('originalHeight');
+                    }else{
+
+                      offsetBottom = ($('.sidebar').offset().top+sideBarHeight) - lastElement.offset().top - (sideBarSpacer * 2);
+
+                      if(offsetBottom <= lastElement.data('originalHeight')){
+                          theImage.css('height', offsetBottom+'px');
+                      }else{
+                        
+
+                          if(offsetBottom - lastElement.data('originalHeight') > 0){
+
+                            lastElement.next().css('visibility', 'visible');
+
+                          }else{
+
+                             lastElement.next().css('visibility', 'hidden');
+                          }
+
+                          changeHeight = lastElement.attr('data-height') ? lastElement.attr('data-height') : lastElement.data('originalHeight');
+                          theImage.css('height', changeHeight+'px');
+
+                          if(!lastElement.attr('data-height') ){
+                            lastElement.attr('data-height', lastElement.data('originalHeight') );
+                          }
+
+                          lastElement.addClass('updatedHeight').removeClass('updateHeight').removeData('originalHeight');
+
+
+
+                          
+                      }     
+                       
+                    }
+
+                }
+
+              }
+        }
+    
+
+
+    startAddingSidebarInterval = null;
+    setSidebarLoadInterval();
+    maxSidebarAutoLoad = 10 * 10; //10 seconds
+    maxSidebarCounter = 0;
+
+    $(window).scroll(function(event){
+      //console.log(sideBarCompleted);
+            if(!sideBarCompleted){
+                clearInterval(startAddingSidebarInterval);
+                setSidebarLoadInterval();
+            }
+          
+           
+
+    });
+
+    $(document).on('adjustHeight', function(){
+          sideBarCompleted = false;
+          startAddingSidebarContent();
+    });
+
+    function setSidebarLoadInterval(){
+        startAddingSidebarInterval = setInterval(function(){
+          maxSidebarCounter++;
+
+          if(maxSidebarAutoLoad == maxSidebarCounter){
+            clearInterval(startAddingSidebarInterval);
+          }else{
+             if(sideBarCompleted){
+              clearInterval(startAddingSidebarInterval);
+            }else{
+              startAddingSidebarContent();
+            }
+          }
+         
+        
+
+      }, 100);
+    }
+
+    function startAddingSidebarContent(){
+
+        updateSidebarHeight();
+        //console.log('startAddingSidebarContent');
+            
+          if(finalSidebarContentHeight > sidebarContentHeight && sideBarHeightLeft >= sideBarSingleContentHeight){
+              getSidebarContent();
+            }else{
+              if(sideBarHeightLeft <= 0){
+                if(allImageLoaded){
+
+                   lastImage = $('.rellimg').children().last();
+
+                  pendingSideBarElements.push($(lastImage)[0].outerHTML);
+                    
+                      //$(lastImage).remove();
+                      sideBarCompleted = true;
+                }
+               
+              }else if(allImageLoaded){
+                sideBarCompleted = true;
+              }
+            }
+    }
+
+    function getSidebarContent(){
+
+          if(sideBarAjaxDone && sideBarHeightLeft >= sideBarSingleContentHeight){ 
+
+            if(pendingSideBarElements.length > 0){
+
+                temp = pendingSideBarElements;
+
+                stillPending = [];
+
+                $.each(temp, function(i, l){
+
+                                     /* if(sideBarHeightLeft >= sideBarSingleContentHeight){
+                                          $( ".rellimg" ).append(l);
+                                            updateSidebarHeight();
+                                      }else{
+                                        stillPending.push(l);
+                                      }*/
+
+                                    singleSidebarImage(l, function(el){
+                                       stillPending.push(el);
+                                    });
+
+                });
+
+                pendingSideBarElements = stillPending;
+
+      }else{
+              
+              sideBarAjaxDone = false;
+              sideBarAJAX().done(function(response){
+                             
+
+                              var parsed = JSON.parse(response);
+
+                              contentOffset++;
+
+                              $.each( parsed, function( i, l ){
+                               
+
+                               /* if(sideBarHeightLeft >= sideBarSingleContentHeight){
+
+                                    $( ".rellimg" ).append(l);
+                                      updateSidebarHeight();
+                                }else{
+                                   pendingSideBarElements.push(l);
+                                }*/
+
+                                singleSidebarImage(l, function(el){
+                                  pendingSideBarElements.push(el);
+                                });
+                              });
+                              sideBarAjaxDone = true;
+              });
+      }
+
+
+                     
+          }
+
+
+
+    }
+
+    singleImageLoaded = true;
+
+    function singleSidebarImage(el, callback){
+
+     
+
+      if(sideBarHeightLeft >= sideBarSingleContentHeight && singleImageLoaded){
+
+        element = $(el).hide();
+
+        singleImageLoaded = false;
+
+        $( ".rellimg" ).append(element);
+
+        image = new Image();
+
+        image.onload = function(){
+
+          singleImageLoaded = true;
+
+          theHeight = this.fixedHeight == 117 ? this.fixedHeight : this.naturalHeight;
+          $(this.element).find('img').css('height', theHeight+'px');
+
+          $(this.element).show();
+          updateSidebarHeight();
+
+        }
+
+        image.onerror = function(){
+          singleImageLoaded = true;
+          $(this.element).show();
+           updateSidebarHeight();
+        }
+
+        image.src = $(el).find('img').attr('src');
+        image.fixedHeight = parseInt($(el).find('img').css('height').replace('px', ''));
+        image.element = element;
+
+
+
+      
+      }else{
+        callback(el);
+      }
+
+        
+    }
+
+
+    function sideBarAJAX(){
+
+      var dfr = $.Deferred();
+
+
+      maxThrottles = 10;
+      throttleCounter = 0;
+      throttleTimeout = 3000;
+      (function throttle(){
+
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+          $.ajax({
+                          type: 'post',
+                          url: "{{url('home/ajax_get_ads_posts_init')}}",
+                          data: {_token: CSRF_TOKEN,'posts_category_id' : posts_category_id,'posts_id' : posts_id, 'contentOffset' :contentOffset },
+                          success : dfr.resolve, 
+                          error : function(xhr){
+
+                            throttleCounter++;
+                            if ( xhr.status === 401 || xhr.status === 500 && throttleCounter <= maxThrottles) {
+                                return setTimeout(function(){ throttle( this ) }, throttleTimeout);
+                            }
+
+                            dfr.rejectWith.apply( this, [] );
+                          }
+                
+              });
+      })();
+
+      return dfr.promise();
+
+    }
+
+       /*   $.ajax({
+            type: 'post',
+            url: "{{url('home/ajax_get_ads_posts_init')}}",
+            data: {_token: CSRF_TOKEN2,'posts_category_id' : posts_category_id,'posts_id' : posts_id}, 
+            success: function(response)
+            {
+              var parsed = JSON.parse(response);
+
+              $.each( parsed, function( i, l ){
+                $( ".rellimg" ).append(l);
+              });
+
+            }
+            
+          });
+    
+    var everythingLoaded = setInterval(function() {
+      if (/loaded|complete/.test(document.readyState)) {
+        clearInterval(everythingLoaded);
+
+        var post_content_height = parseInt($('.postcontent').height()) + parseInt(396);
+
+        // console.log(post_content_height);
+
+        $.ajax({
+            type: 'post',
+            url: "{{url('home/ajax_get_ads_posts')}}",
+            data: {_token: CSRF_TOKEN2,'post_content_height' : post_content_height}, 
+            success: function(response)
+            {
+              var parsed = JSON.parse(response);
+
+              $.each( parsed, function( i, l ){
+                $( ".rellimg" ).append(l);
+              });
+
+            }
+            
+          });
+
+        
+      }
+    }, 10);*/
+    // for debug
+    // console.log('watermelon!!!!');
+
+    function getFrameID(id) {
+      var elem = document.getElementById(id);
+      if (elem) {
+          if (/^iframe$/i.test(elem.tagName)) return id; //Frame, OK
+          // else: Look for frame
+          var elems = elem.getElementsByTagName("iframe");
+          if (!elems.length) return null; //No iframe found, FAILURE
+          for (var i = 0; i < elems.length; i++) {
+              if (/^https?:\/\/(?:www\.)?youtube(?:-nocookie)?\.com(\/|$)/i.test(elems[i].src)) break;
+          }
+          elem = elems[i]; //The only, or the best iFrame
+          if (elem.id) return elem.id; //Existing ID, return it
+          // else: Create a new ID
+          do { //Keep postfixing `-frame` until the ID is unique
+              id += "-frame";
+          } while (document.getElementById(id));
+          elem.id = id;
+          return id;
+      }
+      // If no element, return null.
+      return null;
+    }
+
+    // Define YT_ready function. 
+    var YT_ready = (function() {
+      //for debug
+      // console.log('watermelon2!!!!');
+      var onReady_funcs = [],
+      api_isReady = false;
+    /* @param func function     Function to execute on ready
+         * @param func Boolean      If true, all qeued functions are executed
+         * @param b_before Boolean  If true, the func will added to the first
+                                     position in the queue*/
+      return function(func, b_before) {
+          if (func === true) {
+              api_isReady = true;
+              for (var i = 0; i < onReady_funcs.length; i++) {
+                  // Removes the first func from the array, and execute func
+                  onReady_funcs.shift()();
+              }
+          }
+          else if (typeof func == "function") {
+              if (api_isReady) func();
+              else onReady_funcs[b_before ? "unshift" : "push"](func);
+          }
+      }
+    })();
+
+    //for debug
+    // console.log('watermelon 3.0 !!!!');
+    YT_ready(true);
+
+    var players = {};
+  //Define a player storage object, to enable later function calls,
+  //  without having to create a new class instance again.
+    YT_ready(function() {
+      // for debug
+      // console.log('watermelon4221!!!!');
+      readyYoutube();
+
+      function readyYoutube(){
+        // console.log('readyYoutube function');
+        if(YT && YT.Player)
+        {
+          $("iframe[id]").each(function() {
+                var identifier = this.id;
+
+                console.log('samoka this guy oi');
+                console.log(identifier);
+                var frameID = getFrameID(identifier);
+                if (frameID) 
+                { //If the frame exists
+                  // console.log(frameID);
+                  // players[frameID] = readyYoutube(frameID);
+                    players[frameID] = new YT.Player(frameID, {
+                        playerVars: {                          
+                               'controls': 1   
+                        },
+                        events: {
+                            // "onReady": createYTEvent(frameID, identifier),
+                            'onStateChange': onPlayerStateChange
+                        }
+                    });
+                    // console.log(players[frameID]);
+                }
+            });
+
+        }
+        else
+        {
+            setTimeout(readyYoutube, 100);
+        }
+        //ONPLAYERSTATECHANGE
+        function onPlayerStateChange(event) 
+        {
+          // for debug
+          // console.log('am i in?');
+           var state = event.target.getPlayerState();
+            if (state === 2) {
+              console.log('this is a state');
+              console.log(event.target.F.videoData.video_id);
+              // var new_src = '//www.youtube.com/embed/'+event.target.F.videoData.video_id+'?enablejsapi=1&rel=0&controls=1';
+              // $('iframe').attr('src',new_src).parent().html("<div style='position: relative; z-index:999;'><img src='{{url('uploads')}}/{{$yt_image_url}}'></div>");
+
+              
+            }
+            else if (state === 0) {
+
+              // var iframe_id_men = event.target.f.id;
+              // $("#"+iframe_id_men).parent().html("<div style='position: relative; z-index:999;'><img src='{{url('uploads')}}/{{$yt_image_url}}'></div>");
+
+              var new_src = '//www.youtube.com/embed/'+event.target.F.videoData.video_id+'?enablejsapi=1&rel=0&controls=1';
+
+              console.log('samoka this guy 2');
+              console.log(new_src);
+
+              $('iframe[src="'+new_src+'"]').parent().html("<div style='position: relative; z-index:999;'><img src='{{url('uploads')}}/{{$yt_image_url}}'></div>");
+
+              // <div style='position: relative; z-index:999;'><a href='{{$yt_image_link}}'><img src='{{url('uploads')}}/{{$yt_image_url}}'></a></div>
+            }
+        }
+        //END ONPLAYERSTATECHANGE
+      };
+
+
+    });
+
+
+    });
+  </script>
+  <!-- END YOUTUBE SCRIPT HERE -->
+
+
+@endsection

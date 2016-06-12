@@ -1,0 +1,1336 @@
+@extends('clubhouse.layout')
+
+
+
+
+@section('page-title', 'Home')
+
+
+@section('scripts_here')
+
+<link rel="stylesheet" href="{{ asset('css/rateit.css') }}">
+
+@endsection
+
+ @section('switch-button')
+ 	  <button class="categ-button"> <a href="{{ url('logout') }}">Logout</a></button>
+@endsection
+
+@section('background-content')
+
+<style type="text/css">
+	@media(min-width: 1440px){
+	  #roombg{
+	     top: 0;
+	     left: 0;
+	  }
+	  .diarywrapper{
+	    right: 340px;
+    	top: 65%;
+	  }
+	  .magwrapper{
+	    right: 460px;
+	    top: 650px;
+	  }
+	  .keywrapper{
+	    top: 470px;
+	    right: 30.7%;
+	  }
+	  .friendswrapper{
+	    top: 315px;
+	    left: 31%;
+	  }
+	  .picwrapper{
+	    top: 373px;
+    	left: 706px;  
+	  }
+	  .friendsnotif {
+	    top: 295px;
+    	left: 350px;
+	  }
+	  .tvwrapper{
+	  	top: 140px;
+   		left: 1290px;
+	  }
+	}
+
+	@media(max-width: 1366px){
+	  .grid_5{
+	    text-align: right;
+	    margin-top: -5px;
+	  }
+	  header .logo {
+	      width: 85%;
+	  }
+	  header .topicons {
+	    margin-top: 17px;
+	  }
+	  header .search input[type="text"]{
+	    margin-top: 13px;
+	  }
+	  #roombg{
+	     top: -160px;
+	     left: -300px;
+	  }
+	  .diarywrapper{    
+	    left: 1090px;
+	    top: 535px;
+	  }
+	  .magwrapper {    
+	    left: 945px;
+	    top: 490px;
+	  }
+	  .keywrapper {    
+	    top: 310px;
+	    left: 980px;
+	  }
+	  .friendsnotif {
+	      top: 140px;
+	      left: 50px;
+	  }
+	  .friendswrapper {   
+	    top: 160px;
+	    left: 295px;
+	  }
+	  .picwrapper{
+	    left: 405px;
+		top: 213px;
+	  }
+	  .maginterview{
+	    top: 470px;
+	    left: 910px;
+	  }
+	  .tvwrapper{
+	  	top: 11px;
+    	left: 990px;
+	  }
+	  .tvbox {    
+	    top: 130px!important;
+	    right: 210px!important;
+	 }
+	}	
+	.tabs{
+		position: relative;
+	    min-height: 460px;
+	    clear: both;
+	    /*overflow: hidden;*/
+	    width: 850px;
+	}
+	.tabs li {
+	  float: left;
+	  display: block;
+	}
+	.tabs input[type="radio"] {
+	  position: absolute;
+	  top: -9999px;
+	  left: -9999px;
+	}
+	.tabs label {
+		display: block;
+	    padding: 14px 16px;
+	    border-radius: 2px 2px 0 0;
+	    font-size: 16px;
+	    font-weight: normal;
+	    /* text-transform: uppercase; */
+	    background: rgba(255, 255, 255, 0.5);
+	    cursor: pointer;
+	    position: relative;
+	    top: 4px;
+	    font-family: 'Work Sans';
+	    font-weight: 500;
+	    font-size: 20px;
+	    -moz-transition: all 0.2s ease-in-out;
+	    -o-transition: all 0.2s ease-in-out;
+	    -webkit-transition: all 0.2s ease-in-out;
+	    transition: all 0.2s ease-in-out;
+	    border-radius: 50%;
+	    margin-top: -11px;
+	    margin-right: 10px;
+	    color: #D1B6EA;
+	}
+	.tabs label:hover {
+	  background: #FFFFFF;
+	}
+	.tabs .tab-content {
+	  z-index: 2;
+	  display: none;
+	  overflow: auto;
+	  width:81%;
+	  font-size: 17px;
+	  line-height: 25px;
+	  padding: 15px;
+	  position: absolute;
+	  top: 51px;
+	  left: 0;
+	  background-color: rgba(45, 0, 94, 0.86);
+	  -moz-box-shadow: 0 0 10px -1px #000;
+	  -webkit-box-shadow: 0 0 10px -1px #000;
+	  box-shadow: 0 0 10px -1px #000;
+	  border-radius: 3px;
+	}
+	.tabs .tab-content p{
+		color: #9C6CCE;
+	    font-family: 'Work Sans';
+	    text-align: right;
+	    font-weight: 500;
+	    font-size: 15px;
+	    margin-bottom: 5px;
+	}
+	.tabs [id^="tab"]:checked + label {
+	    top: 2px;
+   	   padding: 15px 16px;
+    	background: rgba(67, 25, 102, 0.85);
+	    color: #fff;
+	}
+	.tabs [id^="tab"]:checked ~ [id^="tab-content"] {
+	  display: block;
+	}
+	.tabs .tab-content .gameList li{
+		margin: 9px;
+    	width: 153px;
+	}
+	.tabs .tab-content .gameList li button{
+		border: none;
+	    background: transparent;
+/*	    padding: 5px 10px;*/
+	    color: #fff;
+	    border-radius: 2px;
+	    font-family: Roboto;
+	    font-size: 20px;
+	    font-weight: 500;
+	}
+	.tabs .tab-content .gameList li button a{
+		text-decoration: none;
+		color: #fff;
+	}
+	.tabs .tab-content .gameList li .buttonone{
+		float: left;
+		cursor: pointer;
+	/*	margin-right: 10px;*/
+	}
+
+
+	.image-upload > input
+	{
+	    display: none;
+	}
+
+	.image-upload img
+	{
+	    width: 80px;
+	    cursor: pointer;
+	}
+
+	.view {
+	   width: 160px;
+	   height: 128px;
+	/*   margin: 10px;
+	   float: left;*/
+	   overflow: hidden;
+	   position: relative;
+	   text-align: center;	   
+/*	   box-shadow: 0px 0px 5px #aaa;*/
+	   cursor: pointer;
+	}
+
+	.view .mask, .view .content {
+	   width: 100%;
+       height: 100%;
+	   position: absolute;
+	   overflow: hidden;
+	   top: 0;
+	   left: 0;
+	}
+
+	.view img {
+	   display: block;
+	   position: relative;
+	}
+
+	.view a.info {
+	   background:url(../img/link.png) center no-repeat;
+	   display: inline-block;
+	   text-decoration: none;
+	   padding:0;
+	   text-indent:-9999px;
+	   width:20px;
+	   height:20px;
+	}
+
+	.third-effect .mask {
+	   opacity: 0;
+	   overflow:visible;
+	   /*border:35px solid transparent;*/
+	   box-sizing:border-box;
+	   padding: 20px 30px;
+	   transition: all 0.4s ease-in-out;
+	}
+
+	.third-effect a.info {
+	   position:relative;
+	   top:-10px; /* Center the link */
+	   opacity: 0;
+	   transition: opacity 0.5s 0s ease-in-out;
+	}
+
+	.third-effect:hover .mask {
+	   opacity: 1;
+	  /* border:100px solid rgba(0,0,0,0.7);*/
+	  background: rgba(0, 0, 0, 0.73);
+	}
+
+	.third-effect:hover a.info {
+	   opacity:1;
+	   transition-delay: 0.3s;
+	}
+	.col-sm-12{
+		margin-top: 10px;
+   		 margin-left: 11px;
+	}
+
+
+	.box, .box2, .box3, .box4 {
+	  display: none;	 
+	}
+	.box.active, .box2.active, .box3.active, .box4.active  {
+	  display: block;
+	  -webkit-transform: scale(1);
+	          transform: scale(1);
+	  opacity: 1;
+	}
+	.box.active.bad, .box2.active.bad, .box3.active.bad, .box4.active.bad  {
+	  display: block;
+	  -webkit-transform: scale(1);
+	          transform: scale(1);
+	  opacity: 1;
+	}
+	.box.active.good, .box2.active.good, .box3.active.good, .box4.active.good {
+	  -webkit-animation: anim .5s ease-in-out;
+	          animation: anim .5s ease-in-out;
+	}
+
+	@-webkit-keyframes anim {
+	  0% {
+	    display: none;
+	    opacity: 0;
+	  }
+	  1% {
+	    display: block;
+	    opacity: 0;
+	    -webkit-transform: scale(0);
+	            transform: scale(0);
+	  }
+	  100% {
+	    opacity: 1;
+	    -webkit-transform: scale(1);
+	            transform: scale(1);
+	  }
+	}
+
+	@keyframes anim {
+	  0% {
+	    display: none;
+	    opacity: 0;
+	  }
+	  1% {
+	    display: block;
+	    opacity: 0;
+	    -webkit-transform: scale(0);
+	            transform: scale(0);
+	  }
+	  100% {
+	    opacity: 1;
+	    -webkit-transform: scale(1);
+	            transform: scale(1);
+	  }
+	}
+
+	.tvbox{
+		position: absolute;top: 220px;right: 560px;z-index: 2;
+	}
+	.profilebox{
+		position: absolute;
+	    top: 339px;
+        right: 280px;
+	    z-index: 2;
+	    background-color: rgba(255, 255, 255, 0.83);
+	    padding: 20px 12px;
+	    border-radius: 4px;
+	    width: 260px;
+	}
+	.keybox{
+	    position: absolute;
+	    top: 220px;
+	    right: 560px;
+	    z-index: 2;
+	    background-color: rgba(255, 255, 255, 0.83);
+	    padding: 20px 12px;
+	    border-radius: 4px;
+	    width: 260px;
+	}
+	.keybox form label, .profilebox form label{
+	    display: block;
+	    font-family: Roboto;
+	    color: #BB332C;
+	    font-size: 16px;
+	    font-weight: 500;
+	    margin: 5px 10px 8px 0;
+	    display: none;
+	}
+	.keybox input[type=text], .keybox input[type=password], .profilebox input[type=text], .profilebox input[type=text], .profilebox textarea{
+		border: none;
+	    font-size: 14px;
+	    padding: 14px 14px;
+	    width: 89%;
+	    border-radius: 4px;
+	    margin-bottom: 11px;
+	    -moz-box-shadow: 0px 2px 3px -2px #696969;
+	    -webkit-box-shadow: 0px 2px 3px -2px #696969;
+	    box-shadow: 0px 2px 3px -2px #696969;
+	    font-family: 'Work Sans';
+	}
+	.keybox button, .profilebox button{
+		background: #A40605;
+	    border: none;
+	    display: block;
+	    width: 100%;
+	    padding: 7px;
+	    border-radius: 2px;
+	    color: #fff;
+	    font-family: 'Work Sans';
+	    font-size: 20px;
+	    font-weight: 500;
+	     -moz-box-shadow: 0px 2px 3px -2px #696969;
+	    -webkit-box-shadow: 0px 2px 3px -2px #696969;
+	    box-shadow: 0px 2px 3px -2px #696969;
+	    cursor: pointer;
+	}
+	.magbox{
+		position: absolute;
+		top: 230px;
+        left: 570px;
+        z-index: 10;
+	}
+
+</style>
+
+
+
+	<!-- <input type="hidden" value="{{ $user->id }}" id="userId">
+	<div class="container background-container">	
+			<img src="{{ asset('images/bedroom.jpg') }}" alt="" class="background-image interactiveBackground">
+			
+
+			<div class="interactiveObj c-modal-parent col-sm-6 col-sm-offset-5">
+				
+					<div class="c-modal" data-toggle="#doorKey" id="changePassword">
+						<div class="c-body">
+							<div class="c-title">Change Password</div>
+							<form action="{{ url('clubhouse/profile/changePassword') }}" method="POST">
+								
+									
+								
+								@if(session('changePasswordErrors'))
+									<ul class="formMessage errorlist">
+									@foreach(session('changePasswordErrors') as $error)
+										<li>{{ $error }}</li>
+									@endforeach
+									</ul>
+								@endif
+
+								@if(session('successMessage'))
+									<div class="formMessage successMessage">{{ session('successMessage')}}</div>
+								@endif
+							{!! csrf_field() !!}
+								<div class="form-group">
+									<label for="">Current Password</label>
+									<input type="password" name="current_password" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="">New Password</label>
+									<input type="password" name="password" class="form-control">
+								</div>
+								<div class="form-group">
+									<label for="">Confirm New Password</label>
+									<input type="password" name="password_confirmation" class="form-control">
+								</div>
+								<div class="form-group">
+									<button type="submit">Submit</button>
+								</div>
+							</form>
+						</div>
+					</div>
+			</div>
+
+			<div class="interactiveObj c-modal-parent col-sm-6 col-sm-offset-14">
+				
+					<div class="c-modal" data-toggle="#diary" id="userDetails" style="margin-bottom: 100px;">
+						<div class="c-body">
+						<div class="c-title">User Details</div>
+							<form action="{{ url('clubhouse/profile/userDetails') }}" method="POST">
+								
+									
+								
+								@if(session('userDetailsErrors'))
+									<ul class="formMessage errorlist">
+									@foreach(session('userDetailsErrors') as $error)
+										<li>{{ $error }}</li>
+									@endforeach
+									</ul>
+								@endif
+
+								@if(session('userDetailsSuccessMessage'))
+									<div class="formMessage successMessage">{{ session('userDetailsSuccessMessage')}}</div>
+								@endif
+							{!! csrf_field() !!}
+								<div class="form-group">
+									<label for="">Firstname</label>
+									<input type="text" name="firstname" class="form-control" value="{{ isset($user->user_detail) ? $user->user_detail->firstname : '' }}">
+								</div>
+								<div class="form-group">
+									<label for="">Lastname</label>
+									<input type="text" name="lastname" class="form-control" value="{{ isset($user->user_detail) ? $user->user_detail->lastname : '' }}">
+								</div>
+								<div class="form-group">
+									<label for="">Address</label>
+									<textarea name="address" cols="30" rows="5">{{ isset($user->user_detail) ? $user->user_detail->address : '' }}</textarea>
+								</div>
+								<div class="form-group">
+									<label for="">Phone Number</label>
+									<input type="text" name="phone_no" class="form-control" value="{{ isset($user->user_detail) ? $user->user_detail->phone_no || '' : '' }}">
+								</div>
+								<div class="form-group">
+									<button type="submit">Submit</button>
+								</div>
+							</form>
+						</div>
+					</div>
+			</div>
+
+			<div class="interactiveObj c-modal-parent col-sm-9 col-sm-offset-2">
+				
+					<div class="c-modal" data-toggle="#magazine" id="interview" style="margin-bottom: 100px;">
+						<div class="c-body">
+						<div class="c-title">Magazine</div>
+								<div class="col-sm-12">wewe</div>
+								<div class="col-sm-12">wewe</div>
+						</div>
+					</div>
+			</div>
+
+			<div class="interactiveObj c-modal-parent col-sm-24">
+				<div class="c-modal" data-toggle="#yearbook" id="manageFriends">
+						<div class="c-body">
+						<div class="c-title">Manage Friends</div>
+								<div class="subContent">
+									<div class="searchDiv">
+										<form action="{{ url('clubhouse/findPeople') }}" id="searchPeopleForm">
+											<input type="search" id="searchPeople" class="search-bar" name="search" placeholder="Search People">
+											
+										</form>
+									</div>
+									<div class="subHeader">Online Friends</div>
+									<div class="friendList">
+										
+									</div>
+								</div>
+
+						</div>
+				</div>
+			</div>
+
+		
+
+			<a href="#userDetails" class="interactiveObj interactive" right="40%" top="40%" id="diary">
+				<img src="{{ asset('images/diary.png') }}" alt="" class="diary">		
+			</a>
+
+			
+			<a href="#changePassword" class="interactiveObj interactive" left="45%" bottom="32%" id="doorKey">
+				<img src="{{ asset('images/door_key.png') }}" alt="" class="door_key">
+			</a>
+
+
+			<a href="#gameCollection" class="interactiveObj interactive" right="10%" top="10%" id="pinboard">
+				<img src="{{ asset('images/pinboard.png') }}" alt="" class="pinboard">
+			</a>
+
+			<a href="#manageFriends" class="interactiveObj interactive" left="30%" bottom="25%" id="yearbook">
+				<img src="{{ asset('images/yearbook.png') }}" alt="" class="yearbook">
+			</a>
+
+			<div class="interactiveObj interactive" left="5%" top="2%" id="mirror">
+				<img src="{{ asset('images/mirror.png') }}" alt="" class="mirror">
+				<div class="profile_pictureParent">
+					<img src="{{  $user->user_detail->profile_picture ? asset('').'/'.$user->user_detail->profile_picture : asset('images/default_profile_picture.png')   }}" alt="" class="profile_pic" id="picPreview">
+				</div>
+				<input type="file" name="profilePic" accept="image/*" id="profilePic">
+			</div>
+
+
+			<a href="#interview" class="interactiveObj interactive" bottom="49%" left="45%" id="magazine">
+				<span>{{ ucfirst($user->user_detail->firstname) }}'s Magazine</span>
+				<img src="{{ asset('images/magazine.png') }}" alt="" class="magazine">
+			</a>
+
+	</div> -->
+
+
+	<div class="bgwrapper">
+			<img id="roombg" src="{{url('images/clubhouse')}}/profileroom3.png" alt="">		
+
+			<div  class="box good tvbox">
+				<ul class="tabs" data-toggle="#pinboard" id="gameCollection">
+				    <li>
+				        <input type="radio" name="tabs" id="tab1" checked />
+				        <label for="tab1"> <i class="fa fa-heart"></i>  </label>
+				        <div id="tab-content1" class="tab-content">
+				        	<p> Favourite Games </p>
+							<div class="scrollme">
+						        <ul class="gameList">
+										@foreach($user->favorites as $favorite)
+
+											<li class="col-sm-8">
+
+												  <div class="rateDiv">
+
+
+												  		<div class="view third-effect">  
+														  	<img src="{{ asset('uploads') }}/{{ $favorite->thumb_feature_image }}" alt="">
+														  <div class="mask"> 
+
+																  <div class="rateStatus">My Rating
+																		@if(!$favorite->user_rating)
+																		<span data-target="favorite_{{ $favorite->id }}">
+																			- <b>NOT RATED</b>
+																		</span>
+																		@endif
+																		
+														  		</div>
+
+														  		<div class="ratingArea">
+													  				<input type="hidden" value="{{ $favorite->gameRating['totalRating'] }}" step="0.5" id="favorite_{{ $favorite->id }}" data-post="{{$favorite->id }}" class="rating">
+				                                                	<div class="rateit" data-rateit-backingfld="#favorite_{{ $favorite->id }}" data-rateit-resetable="false" data-rateit-ispreset="true"></div>															
+												  				</div>
+
+												  				<div class="col-sm-12"><button type="button" class="buttonone"> <i class="fa fa-play"></i> </button>
+																<button type="button"><a href="{{ url('') }}/{{ $favorite->slug }}"> <i class="fa fa-book"></i> </a></button></div>
+
+														    <!-- <a href="#" class="info" title="Full Image">Full Image</a>   -->
+														  </div>  
+														</div> 
+
+
+												  		
+												  		
+												  	
+
+
+												  </div>
+
+												
+											</li>
+										@endforeach
+								</ul>
+							</div>				          
+				        </div>
+				    </li>
+				  
+				    <li>
+				        <input type="radio" name="tabs" id="tab2" />
+				        <label for="tab2"> <i class="fa fa-smile-o"></i> </label>
+				        <div id="tab-content2" class="tab-content">
+				        	<p> Games you've played </p>
+				            <div class="scrollme">
+						        <ul class="gameList">
+										@foreach($user->played_games as $played_game)
+											
+											<li class="col-sm-8">
+
+												  <div class="rateDiv">
+
+												  		<div class="view third-effect">  
+														  <img src="{{ asset('uploads') }}/{{ $played_game->thumb_feature_image }}" alt="">
+														  <div class="mask"> 
+
+																 <div class="rateStatus">My Rating
+																				@if(!$played_game->user_rating)
+																				<span data-target="played_game_{{ $played_game->id }}">
+																					- <b>NOT RATED</b>
+																				</span>
+																				@endif
+																				
+																  		</div>
+																  		<div class="ratingArea">
+																  			<input type="hidden" value="{{ $played_game->gameRating['totalRating'] }}" step="0.5" id="played_game_{{ $played_game->id }}" data-post="{{$played_game->id }}" class="rating">
+							                                                <div class="rateit" data-rateit-backingfld="#played_game_{{ $played_game->id }}" data-rateit-resetable="false" data-rateit-ispreset="true"></div>
+
+																			
+																  		</div>
+
+												  					<div class="col-sm-12"><button type="button" class="buttonone">   <i class="fa fa-play"></i>  </button></div>
+																	<div class="col-sm-12"><button type="button"><a href="{{ url('') }}/{{ $played_game->slug }}"> <i class="fa fa-book"></i> </a></button></div>
+
+														    <!-- <a href="#" class="info" title="Full Image">Full Image</a>   -->
+														  </div>  
+														</div> 
+
+
+
+												  </div>
+
+											
+											</li>
+										@endforeach
+								</ul>
+							</div>
+				        </div>
+				    </li>
+
+				    <li>
+				        <input type="radio" name="tabs" id="tab3" />
+				        <label for="tab3"> <i class="fa fa-frown-o"></i> </label>
+				        <div id="tab-content3" class="tab-content">
+				        	<p> Games you haven't played yet </p>
+				          	<div class="scrollme">
+				       		 	<ul class="gameList">
+							@foreach($user->unplayed_games as $unplayed_game)
+
+									<li class="col-sm-8">
+
+										  <div class="rateDiv">
+
+
+										  		<div class="view third-effect">  
+												  <img src="{{ asset('uploads') }}/{{ $unplayed_game->thumb_feature_image }}" alt="">
+												  <div class="mask"> 
+
+														 <div class="rateStatus">My Rating
+																@if(!$unplayed_game->user_rating)
+																<span data-target="unplayed_game_{{ $unplayed_game->id }}">
+																	- <b>NOT RATED</b>
+																</span>
+																@endif
+																
+												  		</div>
+												  		<div class="ratingArea">
+												  			<input type="hidden" value="{{ $unplayed_game->gameRating['totalRating'] }}" step="0.5" id="unplayed_game_{{ $unplayed_game->id }}" data-post="{{$unplayed_game->id }}" class="rating">
+			                                                <div class="rateit" data-rateit-backingfld="#unplayed_game_{{ $unplayed_game->id }}" data-rateit-resetable="false" data-rateit-ispreset="true"></div>
+
+															
+												  		</div>
+
+
+															<div class="col-sm-12"><button type="button" class="buttonone">   <i class="fa fa-play"></i>  </button></div>
+															<div class="col-sm-12"><button type="button"><a href="{{ url('') }}/{{ $unplayed_game->slug }}"> <i class="fa fa-book"></i>  </a></button></div>
+
+												    <!-- <a href="#" class="info" title="Full Image">Full Image</a>   -->
+												  </div>  
+												</div> 
+
+											 
+										  		
+
+
+
+
+
+										  </div>
+
+										
+									</li>
+								@endforeach
+							</ul>
+							</div>
+				        </div>
+				    </li>
+				</ul>
+			</div>		
+
+
+			<div class="box2 good keybox">
+				<form action="{{ url('clubhouse/profile/changePassword') }}" method="POST">						
+						@if(session('changePasswordErrors'))
+							<ul class="formMessage errorlist">
+							@foreach(session('changePasswordErrors') as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+							</ul>
+						@endif
+
+						@if(session('successMessage'))
+							<div class="formMessage successMessage">{{ session('successMessage')}}</div>
+						@endif
+					{!! csrf_field() !!}
+						<div class="form-group">
+							<label for="">Current Password</label>
+							<input type="password" name="current_password" class="form-control" placeholder="Current Password">
+						</div>
+						<div class="form-group">
+							<label for="">New Password</label>
+							<input type="password" name="password" class="form-control" placeholder="New Password">
+						</div>
+						<div class="form-group">
+							<label for="">Confirm New Password</label>
+							<input type="password" name="password_confirmation" class="form-control" placeholder="Confirm New Password">
+						</div>
+						<div class="form-group">
+							<button type="submit">Submit</button>
+						</div>
+					</form>
+			</div>
+			
+			<div class="box3 good profilebox">	
+				<form action="{{ url('clubhouse/profile/userDetails') }}" method="POST">
+					@if(session('userDetailsErrors'))
+						<ul class="formMessage errorlist">
+						@foreach(session('userDetailsErrors') as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+						</ul>
+					@endif
+
+					@if(session('userDetailsSuccessMessage'))
+						<div class="formMessage successMessage">{{ session('userDetailsSuccessMessage')}}</div>
+					@endif
+				{!! csrf_field() !!}
+					<div class="form-group">
+						<label for="">Firstname</label>
+						<input type="text" name="firstname" class="form-control" value="{{ isset($user->user_detail) ? $user->user_detail->firstname : '' }}" placeholder="Firstname">
+					</div>
+					<div class="form-group">
+						<label for="">Lastname</label>
+						<input type="text" name="lastname" class="form-control" value="{{ isset($user->user_detail) ? $user->user_detail->lastname : '' }}" placeholder="Lastname">
+					</div>
+					<div class="form-group">
+						<label for="">Address</label>
+						<textarea name="address" cols="30" rows="5"  placeholder="Address">{{ isset($user->user_detail) ? $user->user_detail->address : '' }}</textarea>
+					</div>
+					<div class="form-group">
+						<label for="">Phone Number</label>
+						<input type="text" name="phone_no" class="form-control" value="{{ isset($user->user_detail) ? $user->user_detail->phone_no || '' : '' }}"  placeholder="Phone Number">
+					</div>
+					<div class="form-group">
+						<button type="submit">Submit</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="box4 good magbox">
+				<div class="flipbook-viewport">
+				  <div class="container">
+				    <div class="flipbook">
+				      <div style="background-image:url(http://www.welovecelebz.com/wp-content/gallery/ileana-dcruz-photos/ileana-dcruz-hot-pictures-12.jpg)"></div>
+				      <div> 
+				          <h2> This is the hottest interview of the year! Today, we're interviewing {account name}! </h2>
+				          <p> Wow, such an honour to have you here (account name)! I'd love to ask you some questions!  </p>
+				      </div>
+				      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				      <div> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				      <div style="background-color:#da7f88;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+
+			<!-- 	<div class="c-modal" data-toggle="#pinboard" id="gameCollection" style="top:5px;position: absolute;">
+					<div class="c-body">
+						<div class="c-title">My Games</div>
+
+						 <ul class="nav-tabs" role="tablist">
+							    <li class="active col-sm-8"><a href="javascript:;" aria-controls="favorites" role="tab" data-toggle="tab">Favorites</a></li>
+							    <li class="col-sm-8"><a href="javascript:;" aria-controls="gamePlayed" role="tab" data-toggle="tab">Games I've Played</a></li>
+							    <li class="col-sm-8"><a href="javascript:;" aria-controls="gameUnplayed" role="tab" data-toggle="tab">Games I Haven't Played</a></li>
+							  </ul>
+
+						<div class="tab-content col-sm-24">
+							<div class="tab-pane active" id="favorites">
+
+								<ul class="gameList">
+									@foreach($user->favorites as $favorite)
+
+										<li class="col-sm-8">
+
+											  <div class="rateDiv">
+											  		<div class="rateStatus">My Rating
+															@if(!$favorite->user_rating)
+															<span data-target="favorite_{{ $favorite->id }}">
+																- <b>NOT RATED</b>
+															</span>
+															@endif
+															
+											  		</div>
+											  		<div class="ratingArea">
+											  			<input type="hidden" value="{{ $favorite->gameRating['totalRating'] }}" step="0.5" id="favorite_{{ $favorite->id }}" data-post="{{$favorite->id }}" class="rating">
+		                                                <div class="rateit" data-rateit-backingfld="#favorite_{{ $favorite->id }}" data-rateit-resetable="false" data-rateit-ispreset="true"></div>
+
+														
+											  		</div>
+											  		<img src="{{ asset('uploads') }}/{{ $favorite->thumb_feature_image }}" alt="">
+											  </div>
+
+											<div class="col-sm-12"><button type="button">Play Now</button></div>
+											<div class="col-sm-12"><button type="button"><a href="{{ url('') }}/{{ $favorite->slug }}">Review</a></button></div>
+										</li>
+									@endforeach
+								</ul>
+							</div>
+							<div class="tab-pane" id="gamePlayed">
+								<ul class="gameList">
+									@foreach($user->played_games as $played_game)
+										
+										<li class="col-sm-8">
+
+											  <div class="rateDiv">
+											  		<div class="rateStatus">My Rating
+															@if(!$played_game->user_rating)
+															<span data-target="played_game_{{ $played_game->id }}">
+																- <b>NOT RATED</b>
+															</span>
+															@endif
+															
+											  		</div>
+											  		<div class="ratingArea">
+											  			<input type="hidden" value="{{ $played_game->gameRating['totalRating'] }}" step="0.5" id="played_game_{{ $played_game->id }}" data-post="{{$played_game->id }}" class="rating">
+		                                                <div class="rateit" data-rateit-backingfld="#played_game_{{ $played_game->id }}" data-rateit-resetable="false" data-rateit-ispreset="true"></div>
+
+														
+											  		</div>
+											  		<img src="{{ asset('uploads') }}/{{ $played_game->thumb_feature_image }}" alt="">
+											  </div>
+
+											<div class="col-sm-12"><button type="button">Play Now</button></div>
+											<div class="col-sm-12"><button type="button"><a href="{{ url('') }}/{{ $played_game->slug }}">Review</a></button></div>
+										</li>
+									@endforeach
+								</ul>
+							</div>
+							<div class="tab-pane" id="gameUnplayed">
+								<ul class="gameList">
+									@foreach($user->unplayed_games as $unplayed_game)
+
+											<li class="col-sm-8">
+
+												  <div class="rateDiv">
+													  <div class="rateStatus">My Rating
+																@if(!$unplayed_game->user_rating)
+																<span data-target="unplayed_game_{{ $unplayed_game->id }}">
+																	- <b>NOT RATED</b>
+																</span>
+																@endif
+																
+												  		</div>
+												  		<div class="ratingArea">
+												  			<input type="hidden" value="{{ $unplayed_game->gameRating['totalRating'] }}" step="0.5" id="unplayed_game_{{ $unplayed_game->id }}" data-post="{{$unplayed_game->id }}" class="rating">
+			                                                <div class="rateit" data-rateit-backingfld="#unplayed_game_{{ $unplayed_game->id }}" data-rateit-resetable="false" data-rateit-ispreset="true"></div>
+
+															
+												  		</div>
+												  		<img src="{{ asset('uploads') }}/{{ $unplayed_game->thumb_feature_image }}" alt="">
+												  </div>
+
+												<div class="col-sm-12"><button type="button">Play Now</button></div>
+												<div class="col-sm-12"><button type="button"><a href="{{ url('') }}/{{ $unplayed_game->slug }}">Review</a></button></div>
+											</li>
+										@endforeach
+									</ul>
+							</div>
+						</div>
+					</div>
+				</div> -->
+		
+
+
+
+			 <div class="tvwrapper wrapper toggle-good">
+		        <div class="tooltip tvtip">View Games</div>
+		        <div class="tv"> <span></span> </div>
+		      </div> 
+
+			 <div class="diarywrapper wrapper toggle-good">
+		        <div class="tooltip">View Profile</div>
+		        <div class="diary"> <span></span> </div>
+		      </div>
+		      
+		      <div class="maginterview">
+		      	<div class="maginterviewmain">
+			        <ul>
+			          <li>            
+			            <p> Hi Jane! We've got a few questions  </p>  
+			          </li>			        
+			          <li>            
+			            <p> Please take time to answer...  </p>  
+			          </li>			        
+			        </ul>
+		        </div>
+		      </div>
+
+		      <div class="magwrapper wrapper toggle-good">
+		        <div class="tooltip"> About You </div>
+		        <div class="magazine"> <span></span> </div>
+		      </div>
+
+ 
+		      <div class="keywrapper  wrapper  toggle-good">
+		        <div class="tooltip keytooltip"> Change Password </div>
+		        <div class="key"> <span></span> </div>
+		      </div>
+
+		      <div class="friendsnotif">
+		        <!-- <h4> Feed </h4> -->
+		       <div class="friendsnotification">
+		        <ul>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/iannnnn/128.jpg">
+		            <p> <b>Gwen</b> is reading the Amazing Spiderman Slot </p>  
+		          </li>
+		         <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/whale/128.jpg">
+		            <p> <b>Ms. Whale</b> sent you a message </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg">
+		            <p> <b>8bit Man</b>  is reading the Amazing Spiderman Slot </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/iannnnn/128.jpg">
+		            <p> <b>Gwen</b> is reading the Amazing Spiderman Slot </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/whale/128.jpg">
+		            <p> <b>Ms. Whale</b> sent you a message </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg">
+		            <p> <b>8bit Man</b>  is reading the Amazing Spiderman Slot </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/iannnnn/128.jpg">
+		            <p> <b>Gwen</b> is reading the Amazing Spiderman Slot </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/whale/128.jpg">
+		            <p> <b>Ms. Whale</b> sent you a message </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg">
+		            <p> <b>8bit Man</b>  is reading the Amazing Spiderman Slot </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/iannnnn/128.jpg">
+		            <p> <b>Gwen</b> is reading the Amazing Spiderman Slot </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/whale/128.jpg">
+		            <p> <b>Ms. Whale</b> sent you a message </p>  
+		          </li>
+		          <li>
+		            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg">
+		            <p> <b>8bit Man</b>  is reading the Amazing Spiderman Slot </p>  
+		          </li> 
+		        </ul>
+		        </div>
+		      </div>
+
+		   <!--    <div class="friendswrapper wrapper">
+		        <div class="tooltip"> All Your Friends </div>
+		        <div class="friends"> <span></span> </div>
+		      </div>
+
+ -->
+		      <div class="picwrapper wrapper">
+		        <div class="tooltip"> Upload image </div>        
+		        <div class="pic"> 		          	
+						<img src="{{  $user->user_detail->profile_picture ? asset('').'/'.$user->user_detail->profile_picture : asset('images/default_profile_picture.png')   }}" alt="" class="profile_pic" id="picPreview">
+		        </div>
+
+		       <div class="image-upload">
+				    <label for="file-input">
+				        <img src="http://goo.gl/pB9rpQ"/>
+				    </label>
+				    <input type="file" class="upload" name="profilePic" accept="image/*" id="profilePic" />
+		      </div>
+
+	</div>
+
+@endsection
+
+@section('custom_scripts')
+
+
+<script src="{{ asset('js/jquery.rateit.min.js') }}"></script>
+<script src="{{ asset('js/jquery.vticker.min.js') }}"></script>
+<script src="{{ asset('js/basic.js') }}"></script>
+
+<script>
+$(function(){
+
+	$('.tvwrapper').on('click', function(e){  e.preventDefault();  $(this).siblings('.box').toggleClass('active');});
+	$('.keywrapper').on('click', function(e){  e.preventDefault();  $(this).siblings('.box2').toggleClass('active');});
+	$('.diarywrapper').on('click', function(e){  e.preventDefault();  $(this).siblings('.box3').toggleClass('active');});
+	$('.magwrapper').on('click', function(e){  e.preventDefault();  $(this).siblings('.box4').toggleClass('active');});
+
+	var txt = $('#chatEntry'),
+		      hiddenDiv = $(document.createElement('div')),
+		      contenttab = null;
+
+		      txt.addClass('txtstuff');
+		      hiddenDiv.addClass('hiddendiv common');
+
+		      $('body').append(hiddenDiv);
+
+		      txt.on('keyup', function () {
+
+		          contenttab = $(this).val();
+
+		          contenttab = contenttab.replace(/\n/g, '<br>');
+		          hiddenDiv.html(contenttab + '<br class="lbr">');
+
+		          $(this).css('height', hiddenDiv.height());
+
+		      });
+
+		      $('.maginterviewmain').vTicker('init', {
+		      	speed: 600, 
+			    padding:10
+			  });
+			  $('.friendsnotification').vTicker('init', {
+		      	speed: 400,
+		      	padding:8
+			  });
+
+		      $('.emojiTrigger').click(function(){
+		        $('#tooltip').toggle();
+		        $('.footer .arrow_box').toggle();
+		      });
+
+		      $('#userMenu').click(function(){
+		      $('.profileBox').toggle();
+		    });
+
+		    $('#messagesMenu').click(function(){
+		      $('.messageBox').toggle();
+		    });
+
+		    $('.messageBox ul').slimScroll({
+		        height: '366px'
+		    });
+
+		     $('.contenttab ul').slimScroll({
+		        height: '515px'
+		    });
+
+		     $('.pmBox .messagesContent').slimScroll({
+		        height: '455px'
+		    });
+
+	
+	       $('.scrollme').slimScroll({
+		        height: '350px'
+		    });
+
+
+		   function loadApp() {
+
+		  // Create the flipbook
+
+		  $('.flipbook').turn({
+		      // Width
+
+		      width:622,
+		      
+		      // Height
+
+		      height:400,
+
+		      // Elevation
+
+		      elevation: 50,
+		      
+		      // Enable gradients
+
+		      gradients: true,
+		      
+		      // Auto center this flipbook
+
+		      autoCenter: true
+
+		  });
+		}
+
+		// Load the HTML4 version if there's not CSS transform
+
+		yepnope({
+		  test : Modernizr.csstransforms,
+		  yep: ['{{ asset("js/turn.min.js") }}'],
+		  nope: ['{{ asset("js/turn.html4.min.js") }}'],
+		  both: ['{{ asset("css/flipbook.css") }}'],
+		  complete: loadApp
+		});
+
+		var 
+		    menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+		    showTop = document.getElementById( 'showTop' ),
+
+		    body = document.body;
+
+		showTop.onclick = function() {
+		  classie.toggle( this, 'active' );
+		  classie.toggle( menuTop, 'cbp-spmenu-open' );
+		  disableOther( 'showTop' );
+		};
+
+
+
+	$('#profilePic').click(function(e){
+
+		e.stopPropagation();
+	});
+
+	$('#mirror').click(function(e){
+
+		$('#profilePic').click();		
+
+	});
+
+
+	$('.nav-tabs li a').on('click', function(){
+		$(this).parent().addClass('active');
+		$(this).parents('ul').find('li').not($(this).parent()).removeClass('active');
+		theContent = $('#'+$(this).attr('aria-controls')).addClass('active');
+
+		$('.tab-content').find('.tab-pane').not(theContent).removeClass('active');
+
+		$(theContent).trigger('tab-open');
+	});
+
+	$('.gameList .rating').rateit({ max: 5, step: 0.1, min : 0.5 });
+
+	var gameExpUrl = '{{ url("gameExp") }}';
+	var userId = $('#userId').val();
+	var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+
+	$('#searchPeopleForm').on('submit', function(e){
+
+		search = $('#searchPeople').val();
+
+		e.preventDefault();
+
+		action = $(this).attr('action');
+
+		if(search){
+
+			window.location.href=action+'?search='+search;
+
+		}
+
+		
+
+	});
+
+	$('#profilePic').on('change', function(){
+		 var reader = new FileReader();
+        reader.readAsDataURL($(this)[0].files[0]);
+
+        reader.onload = function (event) {
+            $('#picPreview').attr('src',event.target.result );
+        };
+        _that = this;
+
+        formData = new FormData();
+        formData.append('profile_picture', $(this)[0].files[0]);
+        formData.append('user_id', userId);
+        formData.append('_token', CSRF_TOKEN);
+
+        $.ajax({
+        	url: gameExpUrl+'/uploadProfilePic',
+        	type : 'POST',
+        	data : formData,
+        	dataType : 'json',
+        	processData: false,
+      		contentType: false,
+        	success : function(data){
+        		console.log(data);
+        	},error : function(xhr){
+        		console.log(xhr.responseText);
+        	}
+        });
+
+	});
+
+	$('.gameList').bind('rated','.rating', function(e, value){
+			
+
+			input = $(e.target).parent().find('input');
+
+			data_id = $(input).data('id');
+			post_id = $(input).data('post');
+
+			if(post_id && userId ){
+
+				$.ajax({
+					type : 'POST',
+					url: gameExpUrl+'/rateGame',
+					data : { rating : value, user_id : userId , post_id : post_id , _token : CSRF_TOKEN },
+					dataType : 'json',
+					success : function(data){
+						console.log(data);
+						if(data){
+							$('span[data-target="'+$(input).attr('id')+'"]').text('RATED!');
+						}
+					},error : function(xhr){
+						console.log(xhr.responseText);
+					}
+
+				});
+			}
+			//alert(data_id);
+	});
+
+});
+
+</script>
+
+@endsection

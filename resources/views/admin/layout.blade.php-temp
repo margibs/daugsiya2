@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="AllLad" />
+    <meta name="propeller" content="18cbecba5946cbcf8014a1a9c091968e" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">    
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    
+    <!-- Document Title
+    ============================================= -->
+    <title> SusanWins </title>
+    <!-- Stylesheets
+    ============================================= -->
+    <link rel="stylesheet" href="{{ asset('css/reset.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/grid24.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-icons.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/social-buttons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ezslots.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/jquery.m.flip.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/newAll.css') }}">   
+  <!--   <link rel="stylesheet" href="{{ asset('css/myStyle.css') }}">    -->
+    
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,300,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:700,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- External JavaScripts
+    ============================================= -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>        
+    <script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+    </script>
+    -->
+
+    <style type="text/css">
+      /* ----------------- HEADER ------------------------- */
+      body{
+        background: #fff;
+      }
+      .logo{
+        width: 100%;
+      }
+      .search input[type=text]{
+          background: #f6f6f6;
+          border: 1px solid #EFEEEE;
+          border-radius: 50px;
+          -moz-border-radius: 50px;
+          -webkit-border-radius: 50px;
+          width: 100%;
+          padding: 13px 25px;   
+          font-weight: 500;
+          font-size: 15px;
+          color: #000000;
+          margin-top: 23px;
+      }
+      header{
+            margin-top: 15px;
+      }
+      header button{      
+        background: #db3339; /* Old browsers */
+        background: -moz-linear-gradient(top,  #db3339 0%, #c00b10 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #db3339 0%,#c00b10 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #db3339 0%,#c00b10 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#db3339', endColorstr='#c00b10',GradientType=0 ); /* IE6-9 */
+        border: none;
+        font-family: 'Work Sans';
+        border-radius: 20px;
+        padding: 10px 20px;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 25px;
+        margin-left: 18px;
+        border: 1px solid #D01419;
+      }
+      header button i{
+        color: #fff;
+        margin-left: 7px;
+      }
+     #search_result{
+        position: absolute;
+        z-index: 99;
+        background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+        width: 100%;
+        top: 16px;
+        margin: 0 20px;
+        border-bottom-right-radius: 9px;
+        border-bottom-left-radius: 9px;
+        padding-bottom: 8px;
+
+        -moz-box-shadow: 0 8px 21px -14px #000;
+        -webkit-box-shadow: 0 8px 21px -14px #000;
+        box-shadow: 0 8px 21px -14px #000;
+       }
+      #search_result img{
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        margin: 5px;
+        float: left;
+      }
+      #search_result .entry{
+        display: block;
+        clear: both;
+        margin: 5px 10px 5px 10px;
+        overflow: hidden;
+        height: 79px;
+      }
+      #search_result  a{
+        color: rgb(0, 0, 0);
+        font-family: Roboto;
+        font-weight: 700;
+        font-size: 14px;
+        display: inline-block;
+        margin-top: 15px;
+        margin-left: 16px;
+      }
+       #search_result  p{
+        font-family: 'Work Sans';
+        font-size: 16px;
+        color: #000000;
+        margin-left: 15px;
+        display: inline-block;
+        margin-top: 22px;
+       }
+      .overlay{
+        cursor: pointer;
+      }
+      .overlay, #search_result, .search{
+        transition: all 0.2s;
+      }
+      .headsocials{
+        float: right;
+        margin-top:27px;
+      }
+      .headsocials li, .headsocials li a{
+        display: inline-block;
+      }
+      .headsocials li a img{
+        width: 37px;
+      }
+      .searchratingouter{
+        height: 16px;
+        width: 103px;
+      }
+      .searchrating{
+        background: transparent url(http://susanwins.com/uploads/57245_xs-star-ratings.png) no-repeat left;
+        display: block;
+        height: 100%;
+        width: 0;
+        margin-left: 95px;      
+        margin-top: 6px;
+      }
+      .categ-entries{
+        display: none;
+        background: rgb(240, 240, 240) none repeat scroll 0% 0%;
+        position: absolute;
+        width: 100%;
+        padding: 10px;
+        z-index: 100;
+        margin-top: 15px;
+        border-radius: 5px;
+        margin-left: -77px;
+      }
+ 
+      .categ-entries  a{
+        display: block;
+        font-family: 'Work Sans';
+        font-weight: 700;
+        color: #000;
+        font-size: 15px;
+        margin-bottom: 8px;
+      }
+      .categ-triangle{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 9px 15px 9px;
+        border-color: transparent transparent #f0f0f0 transparent;
+        position: relative;
+        top: -20px;
+        left: 148px;
+      }
+    </style>
+
+   @yield('scripts_here')
+
+  </head>
+<body>
+
+  <div class="overlay"></div>
+
+  <div id="mainhead" class="container-fluid" style="background:#fff;padding-bottom: 15px;">
+    <div class="container">
+      <header>
+        <div class="row">
+
+          <div class="col-xs-24 col-sm-24 col-md-5 col-lg-5">
+            <a href="{{ url('/') }}"><img src="http://susanwins.com/uploads/52424_logo.png" class="logo"></a>
+          </div>
+
+          <div class="col-xs-24 col-sm-24 col-md-12 col-lg-12">
+            <div class="search">
+              <input type="text" placeholder="Search Games" id="search"/>                  
+            </div>
+          </div>
+
+          <div class="col-xs-24 col-sm-24 col-md-7 col-lg-7">
+
+            <button class="categ-button"> Categories <i class="fa fa-bars"></i> </button>
+
+            <div class="categ-entries">
+              <div class="categ-triangle"></div>
+              <div class="row">
+
+                @foreach($categories as $category)
+                <div class="col-xs-12"> <a href="{{url('')}}/{{$category->slug}}"> {{$category->name}} </a> </div>
+                @endforeach
+
+              </div>
+            </div>
+
+            <ul class="headsocials">
+              <li>
+                <a href="#"> 
+                  <img src="http://susanwins.com/uploads/51332_facebook.png " alt="">
+                </a>
+              </li>
+              <li>
+                <a href="#"> 
+                  <img src="http://susanwins.com/uploads/24612_twitter-bird.png " alt="">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="http://susanwins.com/uploads/66986_google-plus.png " alt="">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="http://susanwins.com/uploads/96013_pinteres.png " alt="">
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="row">
+            <div class="col-xs-24">
+              <div id="search_result">
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+
+  <div class="container">
+
+    @yield('homecontent')
+    @yield('singlecontent')
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="{{ asset('js/ezslots.js') }}"></script>   
+    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>   
+    <script src="{{ asset('js/jquery.jSlots.min.js') }}"></script>   
+    
+     <!-- cdnjs 
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.6.5/jquery.lazy.min.js"></script>-->
+
+
+    <!--<script src="{{ asset('js/jquery.m.flip.js') }}"></script>   -->
+    <!-- <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script> -->
+    <script src="{{ asset('js/jquery.leanModal.min.js') }}"></script>   
+    <script src="{{ asset('js/home.js') }}"></script>   
+    <script src="{{ asset('js/jquery.lazyimage.js') }}"></script>   
+   
+  
+  <script>
+
+    $.fn.preload = function() {
+        this.each(function(){
+            $('<img/>')[0].src = this;
+        });
+    }
+    $(['http://susanwins.com/uploads/64878_click-header.png']).preload();
+
+
+
+
+
+    $(document).ready(function(){
+
+      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+      $(".categ-button").click(function(){
+
+        $(".categ-entries").fadeToggle();
+
+      });
+
+      $('#search').keyup(function(e){
+
+        var searchField = $('#search').val(),
+            timer = $('#search').data('timeout');
+
+        $("#mainhead").css({
+           "position":"relative",
+           "z-index":"999",
+        });
+
+        $(".overlay").css({
+          "background-color":"rgba(0, 0, 0, 0.2)",
+            "position": "fixed",
+            "width": "100%",
+            "height": "100%",
+            "z-index": "98",
+        });
+
+        $("#search").css({
+          "position": "absolute",
+          "z-index": "99"
+        });
+
+        if(timer) 
+        {
+            clearTimeout(timer);
+            $('#search').removeData('timeout');
+        }
+
+        if(e.which === 40)
+        {
+          $("#search_result").focus();
+          console.log('unsa ning 40?');
+        }
+        else
+        {
+
+          if( searchField == 0 || searchField == '' || searchField == null ) 
+          {
+            $('#search_result').html('');
+          } 
+          else if (e.which == 13) 
+          {
+            e.preventDefault();
+            get_search_result(searchField);
+          }
+          else 
+          {
+            $('#search').data('timeout', setTimeout(get_search_result, 1000 * 0.5,searchField));
+          }
+
+        }
+      });
+
+      function get_search_result(searchField)
+      {
+        $.ajax({
+          type: 'post',
+          url: "{{url('home/ajax_get_posts')}}",
+          data: {_token: CSRF_TOKEN,'searchField' : searchField}, 
+          success: function(response)
+          {
+            var parsed = JSON.parse(response),
+            output = '';
+
+            $.each( parsed, function( index, obj){
+
+              output += '<a class="entry" href="{{url('')}}/' +obj.slug+ '" ><p>' +obj.title+ '</p><img src="{{url('uploads')}}/'+obj.thumb_feature_image+'" width="100px" height="100px"> <div class="searchratingouter"> <span class="searchrating" style="width:'+Math.floor(obj.total_rating)+'%;"> &nbsp; </span> </div> </a>';
+            
+            });
+            $('#search_result').html(output);
+          }
+        });
+      }
+
+
+    });
+
+  $(".overlay").click(function(){
+      $(this).css({
+           "background":"none",
+            "z-index": "0"
+          }); 
+      $('#search_result').html('');
+  });
+
+  </script>
+
+  @yield('footer_scripts')
+
+
+</body>
+</html>

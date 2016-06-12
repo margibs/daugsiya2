@@ -1,0 +1,39 @@
+.rateContainer li{
+	display: 	inline-block;
+	  width: 10%;
+	      position: relative;
+}
+
+.rateContainer li input[type="radio"]{
+    position: relative;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+
+}
+
+.rateContainer li input[type="radio"] + .star{
+	    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    opacity: 1;
+    background-size: cover;
+}
+
+
+
+.rateContainer li input[type="radio"]:not(:checked) + .star{
+	background-image: url('../images/stargold-empty.png');
+}
+.rateContainer li input[type="radio"]:checked + .star{
+	background-image: url('../images/stargold.png');
+}
+
+.star.selected{
+	background-image: url('../images/stargold.png') !important;
+}

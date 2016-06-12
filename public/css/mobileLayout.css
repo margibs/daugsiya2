@@ -1,0 +1,1033 @@
+.app-page{
+left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    bottom:0;
+    display: none;
+}
+
+.pageModal .app-content{
+    border:10px solid #ccc;
+}
+
+.app-page .app-content{
+    position: relative;
+    position: relative;
+        padding-top: 48px;
+    overflow-x: hidden;
+}
+.withnotif .app-page .app-content{
+      padding-top: 73px;
+}
+.featImgDiv .featimg{
+    width: 100%;
+}
+
+
+nav{
+    box-shadow: none;
+    height:112px;
+}
+
+.defaultBg{
+    background: #fff;
+}
+
+nav .nav-wrapper{
+        padding: 0 8px;
+            height: 56px;
+        border-bottom: 2px solid #ccc;
+    background-color: #FBFBFB;
+}
+
+#mobileSideNavButton{
+        color: #000;
+}
+
+nav .nav-lower-wrapper{
+    height: 56px;
+    background: #fff;
+    font-size: 18px;
+    font-weight: bold;
+        border-bottom: 1px solid #ccc;
+}
+
+nav .logo{
+           height: 50px;
+}
+
+.loginFooter{
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-size: 24px;
+    padding: 5px;
+    font-family: "Work Sans";
+    color: rgb(154, 10, 14);
+    font-weight: 800;
+}
+
+
+.panel{
+    border-radius:  4px;
+    margin:20px;
+    padding:20px;
+    border:#ccc;
+    background-color:#fff;
+}
+
+.homeCard img{
+            margin: auto;
+            max-width:  150px;
+}
+
+.homeCard .card-image a{
+    position: relative;
+    display: block;
+    padding: 20px;
+}
+
+.uploadImageCard .card-image{
+        padding-top: 15px;
+}
+
+.uploadImageCard .card-image img{
+    max-width: 150px;
+    margin: auto;
+}
+
+#profilePic {
+    position: fixed;
+    top: -1000px;
+}
+
+#cropperH{
+padding: 20px 0;
+height: 372px; 
+}
+
+.back_button{
+    color: #000;
+    padding: 0 1em;
+    height: 50px;
+    float: left;
+    margin-top: -9px;
+}
+.logout_button{
+    position: absolute;
+    right: 15px;
+    color: #9E0603;
+    font-size: 16px !important;
+    line-height: 1 !important;
+    top: 16px;
+    font-weight: 500;
+}
+.logo_button{
+    position: absolute;
+    left: 74px;
+    width: 106px;
+    top: 4px;
+}
+#navbarTitle{
+        display: inline-block;
+    float: right;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 35px;
+        padding: 0 1em;
+}
+
+#navbarTitle span{
+    color:#AB0A00;
+}
+
+.back_button i
+{
+    display: inline-block !important;
+    color: #E4C8C8;
+    font-size: 26px !important;
+    line-height: 1 !important;
+    margin-left: 4px;
+    margin-top: 21px;
+}
+
+.back_button span{
+        line-height: 59px;
+    vertical-align: top;
+}
+
+.userButtons{
+    float: left;
+    width: 100%;
+background-color: #E3D6C6;
+    padding: 8px;
+    text-align: center;
+}
+
+.userButtons span,
+.userButtons a{
+    padding: 5px;
+    font-weight: 600;
+    font-size: 17px;
+    color: #A85F36;
+    border-radius: 8px;
+    margin: 0 9px;
+}
+
+.userDetailBackground{
+    background: #E3D6C6;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.userDetail .upperHalf{
+    height: 330px;
+        background: #CEBDA8 url(http://susanwins.com/uploads/60698_mobileprofilebg.jpg) no-repeat center 58%;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.userDetail .lowerHalf{
+}
+.userDetail .imgContainer{
+       width: 100%;
+}
+.userDetail .imgContainer .changePicButtonContainer{
+    width: 114px;
+    border-radius: 50%;
+    padding: 2px;
+    position: relative;
+    margin: 20px auto;
+    background: rgb(255, 255, 255);
+}
+
+.userDetail .changePicButton{
+   display: block;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.userDetail .changePicButtonContainer label{
+    border: none;
+    border-radius: 50%;
+    padding: 0px 9px 3px 9px;
+    margin: 2px;
+    background: RGBA(255, 255, 255, 0.56);
+    display: inline-block;
+    font-size: 35px;
+    font-weight: 400;
+    margin-left: 31px;
+    margin-top: -35px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    height: 40px;
+    line-height: 1.1;
+    height: 40px;
+    width: 40px;
+    background: rgba(255, 255, 255, 0.29);
+    color: #F8F6F4;
+}
+
+.userDetail .changePicButton img{
+        width: 100%;
+}
+
+.userDetail .upperHalf{
+    font-weight: bold;
+    font-family: 'Work Sans';
+        padding-top: 62px;
+}
+
+.userDetail .upperHalf .userDetailActions{
+       text-align: center;
+}
+
+.userDetail .upperHalf h6{
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: -8px;
+    color: #fff;
+    text-shadow: 0px 1px 2px rgb(115, 114, 114);
+}
+
+.userDetail .upperHalf .userDetailActions .app-button,
+.userDetail .upperHalf .userDetailActions #messageUser{
+    color:#fff;
+   font-size: 18px;
+   font-family: Roboto
+}
+
+.userDetail .actionButton{
+    color: #FF3636  !important;    
+    border-radius: 1em;
+    line-height: 66px;
+    font-size: 34px;
+}
+
+
+.userDetail .upperHalf .userDetailActions .app-button .icon,
+.userDetail .upperHalf .userDetailActions #messageUser .icon{
+        font-size: 45px;
+    vertical-align: middle;
+    padding-right: 4px;
+}
+
+.listFav{
+        padding: 1em;
+}
+.listFav .favTitle{
+    margin:0;
+    margin-bottom:4px;
+}
+
+.listFav ul{
+        margin: 0;
+}
+
+.listFav ul li {
+    padding: 0 !important;
+}
+.listFav ul li img{
+        width: 100%;
+    padding-right: 10%;
+}
+
+.friendList{
+
+}
+
+.friendList li{
+    text-align: center;
+    position: relative;
+    margin: 0px 0 20px 0;
+}
+.friendList li img{
+    width: 100%;
+    height: auto;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.friendList .user_online_status{
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: green;
+    border-radius: 50%;
+    z-index: 1;
+    right: 6px;
+    top: -3px;
+}
+
+  .friendList .user_online_status.offline {
+    background-color: #D6D5D4;
+}
+
+.messageList{
+    margin:0;
+        padding-bottom: 67px;
+}
+.messageList li{
+    position: relative;
+    overflow: hidden;
+    padding: 15px;
+    display: block;
+}
+
+.messageList li.unread{
+    background-color: #FFEDED;
+}
+
+
+.messageList li:not(:last-child){
+        border-bottom: 1px solid #ECEAEA;
+}
+
+.messageList li img{
+    width: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 10px;
+}
+
+.messageList li .msgContent{
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-left: 65px;
+
+}
+
+.messageList li .msgContent .info h6{
+    font-size: 15px;
+    font-weight: 500;
+    color: #A20704;
+    font-family: 'Roboto';
+    margin: 4px 0;
+}
+
+.messageList li .msgContent .info span.timestamp{
+        float: right;
+        color: #F7C0C1;
+}
+
+.messageList li .msgContent p{
+    min-height: 25px;
+    overflow: hidden;
+    padding-right: 5px;
+    text-align: left;
+    font-family: Roboto;
+    font-weight: 500;
+    color: #000000;
+    font-size: 15px;
+    line-height: 16px;
+    margin: 0;
+}
+
+#yourFriendSorting{
+
+}
+
+#yourFriendSorting li{
+        display: inline-block;
+}
+
+#yourFriendSorting li div{
+        color: #000;
+    padding: 8px 14px;
+        border-radius: 5px;
+}
+
+#yourFriendSorting li div.active{
+        background: #F7E3E4;
+}
+
+#yourFriendSorting li div .countOnline{
+    color:#36A719;
+}
+#yourFriendSorting li div .countOffline
+{
+    color:#D0CBC8;
+}
+
+.friendList li .userName{
+    font-weight: bold;
+   line-height: 1px;
+    font-size: 12px;
+}
+
+.pageLoading{
+    position: absolute;
+    z-index: 997;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    background: #fff;
+    float: left;
+}
+
+.pageLoading .preloaderContainer{
+      margin: auto;
+    position: absolute;
+    top: 50%;
+    margin-top: -48px;
+    left: 50%;
+    margin-left: -32px;
+}
+.pageLoading .preloaderContainer .preloader-wrapper{
+        display: block;
+    margin: auto;
+    margin-top: 50%;
+}
+
+.chatBox{
+    padding-bottom: 10px;
+}
+
+.chatBox .body{
+    background: #EDEDED;
+    position: relative;
+    /*        height: 400px;*/
+    width: 100%;
+    margin: auto auto auto auto;
+    padding: 1em 0;
+    overflow-y: scroll;
+}
+
+.chatBox ul{
+    margin: 0;
+    display: block;
+    float: left;
+    width: 100%;
+}
+/* .chatBox ul li:first-child{
+    margin-top:40px;
+} */
+
+.chatBox ul li{
+        display: block;
+    width: 100%;
+    float: left;
+        margin-top: 10px;
+}
+
+.chatBox textarea[disabled="disabled"]{
+        background: #F7F7F7;
+    color: #fff;
+    cursor:not-allowed;
+}
+
+.chatBox ul li img{
+        width: 33px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 14px;
+    margin-left: 15px;
+    margin-bottom: -85px;
+}
+
+.chatBox ul li span{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    text-align: left;
+    font-size: 15px;
+    padding: 4px 15px;
+    margin-right: 20px;
+    font-weight: 500;
+    margin-left: 61px;
+    margin-top: 0;
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    line-height: 18px;
+    float: left;
+    display: block;
+    word-break: break-all;
+    color: #272727;
+    border: 1px solid #E8E8E8;
+    word-break: break-word;
+
+}
+
+.chatBox ul li span.alt{
+    background: #C75F5F;
+    display: inline-block;
+    float: right!important;
+    margin-left: 50px!important;
+    color: #FFFCFC;
+    word-break: break-word;
+}
+
+.chatBox .chatFooter{
+    position: fixed;
+    width: 100%;
+    background: #fff;
+    bottom: 60px;
+/*    height: 70px;*/
+
+}
+
+.chatBox .chatFooter .triggers{
+    position: absolute;
+    right: 0;
+    padding: 2px 20px;
+    top: 7px;
+    pointer-events: all;
+    z-index: 1;
+    font-size: 34px;
+    color: #B54C4C;
+}
+.chatBox .chatFooter textarea{
+    border: none;
+    position: relative;
+    font-family: 'Work Sans';
+    font-size: 18px;
+    font-weight: 500;
+    -moz-box-shadow: 0 0 7px -3px #D8D8D8;
+    -webkit-box-shadow: 0 0 7px -3px #D8D8D8;
+    box-shadow: 0 0 7px -3px #D8D8D8;
+    padding-right: 80px;
+    resize: none;
+    padding: 13px 19px;
+    height: 60px;
+    padding-right: 3em;
+    bottom: -6px;
+}
+
+.modal .modal-content{
+    padding: 0;
+}
+#rateModal{
+        opacity: 1;
+    background: #fff;
+}
+
+#rateModal h4{
+    text-align: center;
+    color:#000;
+    font-size: 25px;
+    font-weight: 600;
+}
+#selectCasinoModal h4{
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    margin:  0;
+}
+
+#rateModal button,
+#rateModal button a{
+    border: none;
+    background: rgb(164, 9, 9);
+    color: #fff;
+    border-radius: 2px;
+    font-family: Roboto;
+    font-size: 26px;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+    border-radius: 50px;
+    margin: 5px 0;
+}
+
+#goToGame{
+    padding: 0!important;
+    margin:0!important;
+}
+
+
+.notifcount{
+  background: red;
+    font-size: 16px;
+/*    position: absolute;
+    top: 0;*/
+    border-radius: 6px;
+    padding: 2px 4px;
+    color: #fff;
+    font-family: Roboto;
+    font-weight: 600;
+}
+
+.bottomNotification{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-radius: 20px;
+    z-index: 996;
+    margin: 1em;
+    padding: 5px 15px;
+    background: rgb(244,244,244);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top, rgba(244, 244, 244, 0.94) 0%, rgba(255, 255, 255, 0.82) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(244,244,244,1)), color-stop(100%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top, rgba(244, 244, 244, 0.94) 0%,rgba(255, 255, 255, 0.82) 100%);
+    background: -o-linear-gradient(top, rgba(244, 244, 244, 0.94) 0%,rgba(255, 255, 255, 0.82) 100%);
+    background: -ms-linear-gradient(top, rgba(244, 244, 244, 0.94) 0%,rgba(255, 255, 255, 0.82) 100%);
+    background: linear-gradient(to bottom, rgba(244, 244, 244, 0.94) 0%,rgba(255, 255, 255, 0.82) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#ffffff',GradientType=0 );
+}
+
+.bottomNotification .notifCounter{
+    position: relative;
+    display: inline-block;
+    float: right;
+}
+
+.bottomNotification li{
+    display: inline-block;
+}
+
+.follow_up{
+    display: none;
+}
+#selectCasino{
+        text-align: center;
+        margin-top: 0;
+        list-style: none;
+}
+#selectCasino li{
+        width: 31%;
+        list-style: none;
+        display: inline-block;
+}
+#selectCasino li a{
+    background:none!important;
+}
+
+
+#selectCasino li img{
+       width: 95%;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+#selectCasino li:first-child:nth-last-child(1) {
+    width: 50%;
+}
+
+#selectCasino li:first-child:nth-last-child(2),
+#selectCasino li:first-child:nth-last-child(2) ~ li {
+    width: 48%;
+}
+
+#selectCasino li:first-child:nth-last-child(3),
+#selectCasino li:first-child:nth-last-child(3) ~ li {
+      width: 30%;
+}
+
+#selectCasino li:first-child:nth-last-child(4),
+#selectCasino li:first-child:nth-last-child(4) ~ li {
+       width: 48%;
+}
+
+.userDetail{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 67px;
+}
+
+.commentsContainer textarea{
+    border: 1px solid #fff;
+    border-radius: 3px;
+    padding: 18px 20px;
+    font-size: 15px;
+        background-color: #fff;
+    font-family: 'Work sans', Arial, Helvetica;
+    -moz-box-shadow: 0 5px 4px -4px #f6e2b8;
+    -webkit-box-shadow: 0 5px 4px -4px #f6e2b8;
+    box-shadow: 0 5px 4px -4px #f6e2b8;
+    height: 100px;
+    resize : none;
+        float: left;
+    margin-bottom: 5px;
+}
+
+.commentsContainer textarea[disabled="disabled"]{
+        background-color: rgb(235, 235, 228);
+}
+
+.commentsContainer button{
+     border: 1px solid #b1423a;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 25px;
+    padding: 5px;
+    text-decoration: none;
+    display: inline-block;
+    text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+    color: #FFFFFF;
+    background-color: #C9625B;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#C9625B), to(#d20202));
+    background-image: -webkit-linear-gradient(top, #C9625B, #d20202);
+    background-image: -moz-linear-gradient(top, #C9625B, #d20202);
+    background-image: -ms-linear-gradient(top, #C9625B, #d20202);
+    background-image: -o-linear-gradient(top, #C9625B, #d20202);
+    background-image: linear-gradient(to bottom, #C9625B, #d20202);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#C9625B, endColorstr=#d20202);
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-family: 'Work Sans';
+    font-weight: 600;
+}
+
+.replyArea{
+    position: relative;
+    width: 100%;
+    float: left;
+    padding: 0 6px 15px 0;
+}
+
+.commentsContainer ul li .replyArea ul.replyList{
+    margin: 0;
+    border-left: 1px solid #ccc;
+    padding-left: 10px;
+}
+
+.replyArea form{
+        float: left;
+    width: 100%;
+    margin-right: -65px;
+    padding-right: 65px;
+        position: relative;
+}
+
+.replyArea .toggleReply{
+    float: right;
+    text-align: center;
+    width: 65px;
+}
+
+.replyArea textarea{
+    float: left;
+    width: 100%;
+    height: 40px;
+    padding: 8px 15px;
+}
+.replyArea button.replyBtn{
+     width: 65px;
+    position: absolute;
+    right: 0;
+    top: 0;
+        font-size: 18px;
+}
+#commentList{
+    position: relative;
+    z-index: 2;
+}
+
+#commentList li{
+
+        display: inline-block;
+    padding: 6px;
+        float: left;
+    width: 100%;
+}
+
+#commentList > li:not(:last-child){
+    border-bottom: 1px solid #ccc;
+}
+
+#commentList li.temporary{
+    background-color: #ccc;
+    opacity: 0.5;
+}
+
+.gameList li a{
+        height: auto;
+    overflow: visible;
+    display: block;
+}
+
+.confirmNotification{
+    margin-top: 7px;
+    padding: 4px;
+    background: #dfa941;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    font-family: "Roboto";
+    font-size: 15px;
+    overflow: hidden;
+    position: relative;
+    font-size: 3.2vw;
+    /* line-height: 27px; */
+    /* height: 24px; */
+  }
+  .confirmNotification button{
+    float: right;
+    border: none;
+    background: #CA8E1C;
+    padding: 1px 15px;
+    border-radius: 10px;
+  }
+.confirmNotification.done{
+        background: #6CBB43;
+}
+
+.confirmNotification a{
+color:#fff;
+}
+
+.withnotif header{
+    padding: 0px 0 0px 0;
+}
+#initialWelcomePackage h2, #welcomePackageAddress h2{
+    font-size: 23px;
+    font-family: 'Work Sans',Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+#initialWelcomePackage h4{
+    font-size: 18px;
+    font-family: 'Work Sans',Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #9C0A0A;
+}
+#initialWelcomePackage p, #welcomePackageAddress p{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 0;
+}
+#initialWelcomePackage p span{
+    background: #9C0A0A;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 7px;
+}
+#initialWelcomePackage p b{
+    display: block;
+    font-size: 12px;
+    color: #BB832C;
+}
+#initialWelcomePackage button, #welcomePackageAddress button{
+    background: #9C0A0A;
+    border: none;
+    font-size: 25px;
+    color: #fff;
+    padding: 0 30px;
+    border-radius: 50px;
+}
+#initialWelcomePackage textarea, #welcomePackageAddress textarea{
+    border-radius: 5px;
+    padding: 6px;
+    border: 1px solid #E2DFDF;
+    height: auto;
+    overflow: scroll;
+    font-weight: 900;
+    margin-bottom: 10px;
+    background: #FDFDFD;
+    color: #000;
+    font-family: Helvetica,Arial,sans-serif
+}
+
+@media(max-width: 320px){
+    #initialWelcomePackage h2, #welcomePackageAddress h2{
+        font-size: 17px;
+    }
+    #initialWelcomePackage p, #welcomePackageAddress p{
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+/* .userDetail .imgContainer{
+position: relative;
+    background: rgba(190, 19, 19, 0.92);
+    padding-top: 20px;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+        text-align: center;
+}
+
+.userDetail .imgContainer #viewFriendProfileName{
+    font-family: 'Work Sans';
+    font-size: 22px;
+    margin: 0 0 15px 0;
+    padding-bottom: 30px;
+    color: #F9F9F9;
+    font-weight: 600;
+    text-shadow: 0px 1px 2px rgb(128, 10, 10);
+}
+.userDetail .imgContainer .msgImgcont{
+        width: 150px;
+    height: 150px;
+    float: none;
+    display: block;
+    margin:auto;
+    margin-bottom: 9px;
+        overflow: hidden;
+    margin: 0 auto 8px auto;
+    -moz-box-shadow: 0 0 10px -2px #616161;
+    -webkit-box-shadow: 0 0 10px -2px #616161;
+    box-shadow: 0 0 10px -2px #616161;
+    border-radius: 50%;
+}
+
+.userDetail .imgContainer .msgImgcont img{
+    width:100%;
+}
+
+.userDetail p{
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Roboto;
+    color: #9C9C9C;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.userDetail ul{
+        margin-right: 28px;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.userDetail ul li, .friendProfile ul li a {
+    display: inline-block;
+}
+.userDetail ul li a img{
+        width: 37px;
+    border: none;
+    box-shadow: 0 0 0 0;
+    -moz-box-shadow: 0 0 10px -6px #000;
+    -webkit-box-shadow: 0 0 10px -6px #000;
+    box-shadow: 0 0 10px -6px #000;
+    border-radius: 50%;
+}
+
+.pageLoading{
+        position: absolute;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.pageLoading .preloaderContainer{
+        margin: auto;
+}
+.pageLoading .preloaderContainer .preloader-wrapper{
+        display: block;
+    margin: auto;
+    margin-top: 50%;
+}
+
+.homeButtonNav img{
+    width:100%;
+}
+
+.userDetail .imgContainer a.messageButton {
+    text-decoration: none;
+    background: #F16565;
+    cursor: pointer;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    font-size: 20px;
+    bottom: -17px;
+    -moz-box-shadow: 0 0 10px -6px #000;
+    -webkit-box-shadow: 0 0 10px -6px #000;
+    box-shadow: 0 0 10px -6px #000;
+    margin-right: -30px;
+    right: 60px;
+}
+
+#profileBtn{
+        position: absolute;
+    bottom: -13px;
+    left: 20px;
+}
+
+#profileBtn button{
+    border-radius: 50px;
+    background: #FF8315;
+    border: none;
+    padding: 8px 22px;
+    color: #fff;
+    font-family: Roboto;
+    font-weight: 600;
+    cursor: pointer;
+} */
+

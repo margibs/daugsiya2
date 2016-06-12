@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="AllLad" />
+    <meta name="propeller" content="18cbecba5946cbcf8014a1a9c091968e" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">    
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <!-- Stylesheets
+    ============================================= -->
+    <link rel="stylesheet" href="{{ asset('css/reset.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/grid12.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-icons.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/social-buttons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ezslots.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/jquery.m.flip.css') }}">
+    <link rel="stylesheet" href="{{ asset('myStyle.css') }}">   
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,300,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:700,800,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- External JavaScripts
+    ============================================= -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>        
+    <script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+    </script>
+    -->
+    
+    <script src="{{ asset('js/jquery.js') }}"></script>   
+    <script src="{{ asset('js/ezslots.js') }}"></script>   
+    <!--<script src="{{ asset('js/jquery.m.flip.js') }}"></script>   -->
+    <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
+    <script src="{{ asset('js/jquery.leanModal.min.js') }}"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>    
+
+
+    <!-- Document Title
+    ============================================= -->
+    <title> SusanWins </title>
+
+   @yield('scripts_here')
+
+  </head>
+<body>
+
+<header>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row no-gutters">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+          <a href="{{ url('/') }}"> <img src="http://susanwins.com/uploads/33719_susanslogo.png" alt="Susan Wins" class="logo"> </a>
+      </div>      
+      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+        <nav>
+          <ul>
+            <li> <a href="#"> Home </a> </li>
+            <li> <a href="#"> Slot Games </a> </li>
+            <li> <a href="#"> Review </a> </li>
+            <li> <a href="#"> Contact </a> </li>
+          </ul>
+        </nav>
+      </div>      
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+@yield('homecontent')
+@yield('singlecontent')
+
+
+<script>
+
+$(function(){
+  var numbers = ['0','1','2','3','4','5','6','7','8','9'];
+  var images = [
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/82883_kingofcash.png"></a></div></div>',
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/57891_1.jpg"></a></div></div>',
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/88803_10.jpg"></a></div></div>',
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/14366_5.jpg"></a></div></div>',
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/13654_8.jpg"></a></div></div>'];
+  var images2 = [
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/57068_fleece.png"></a></div></div>',
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/92660_3.jpg"></a></div></div>',
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/36024_2.jpg"></a></div></div>',
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/35588_4.jpg"></a></div></div>',
+  '<div class="slotwrapper" style="margin-left: 4px;"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/87194_12.jpg"></a></div></div>'];
+  var images3 = [
+  '<div class="slotwrapper"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/52231_11.jpg"></a></div></div>',
+  '<div class="slotwrapper"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/74534_9.jpg"></a></div></div>',
+  '<div class="slotwrapper"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/44885_7.jpg"></a></div></div>',
+  '<div class="slotwrapper"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/98699_6.jpg"></a></div></div>'];
+
+  var misc = ['!','K','*','#','@','$'];
+
+  //all parameters except id are optional
+  var ezslot0 = new EZSlots("ezslots0");
+  //simple numbers based one
+  var ezslot1 = new EZSlots("ezslots1",{"reelCount":4,"winningSet":[7,7,7],"symbols":numbers,"height":126,"width":126});
+  //using images instead, and more reels
+  var ezslot2 = new EZSlots("ezslots2",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images,"height":302,"width":294});
+  var ezslot5 = new EZSlots("ezslots5",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images2,"height":302,"width":293});
+  var ezslot6 = new EZSlots("ezslots6",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images3,"height":302,"width":288});
+  //var ezslot7 = new EZSlots("ezslots7",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images4,"height":302,"width":294});
+  //mixed types for each reel
+  var ezslot3 = new EZSlots("ezslots3",{"reelCount":3,"winningSet":[0,0,0],"symbols":[numbers,images,misc],"height":126,"width":126});
+
+  // $("#gogogo0").click(function(){ console.log(ezslot0.spin());});
+
+  // $("#gogogo1").click(function(){ console.log(ezslot1.spin());});
+  // $("#winwinwin1").click(function(){ console.log(ezslot1.win())});
+   $("#gogogo2").click(function(){ 
+    console.log(ezslot2.spin());
+    console.log(ezslot5.spin());
+    console.log(ezslot6.spin());
+  });
+  // $("#gogogo5").click(function(){ console.log(ezslot5.spin());})
+  // $("#winwinwin2").click(function(){ console.log(ezslot2.win())});
+  // $("#gogogo3").click(function(){ console.log(ezslot3.spin());});
+  // $("#winwinwin3").click(function(){ console.log(ezslot3.win())});
+
+  // setInterval(function(){ ezslot2.spin(); }, 7000);
+  // setInterval(function(){ ezslot5.spin(); }, 7080);
+  // setInterval(function(){ ezslot6.spin(); }, 10160);
+  // setInterval(function(){ ezslot7.spin(); }, 10240);
+
+
+  var $divView = $('div.view');
+  var innerHeight = $divView.removeClass('view').height();
+  $divView.addClass('view');
+    
+  $('div.slide').click(function() {
+      $('div.view').animate({
+        height: (($divView.height() == 450)? innerHeight  : "450px")
+      }, 500);
+      return false;
+  });
+
+  var options = {
+  horizontalPixelsCount: 90,
+  verticalPixelsCount: 5,
+  pixelSize: 5,
+  disabledPixelColor: '#080808',
+  enabledPixelColor: '#ff0101',
+  pathToPixelImage: 'http://susanwins.com/uploads/43978_pixel.png',
+  stepDelay: 40,
+  // only for canvas
+  backgroundColor: '#080808',
+  // only for canvas
+  pixelRatio: 0.7,
+  runImmidiatly: true
+  };
+  
+
+  // $('.toggle').on({
+  //   'click': function() {         
+
+  //            $(this).css({
+  //               'background-image':'url("http://susanwins.com/uploads/74969_levers2.png")',
+  //               'pointer-events':'none'
+  //             });
+  //            ezslot2.spin();
+  //            ezslot5.spin();
+  //            ezslot6.spin();
+  //            ezslot7.spin();              
+  //            setTimeout(function(){                 
+  //               $('.toggle').css({
+  //               'background-image':'url("http://susanwins.com/uploads/70985_levers.png")',
+  //               'pointer-events':'auto'
+  //             });
+  //              } , 2500 );
+  //       }
+  //   });
+
+ // $(".box").mflip();
+$(".box").flip({
+  trigger: 'hover'
+});
+});
+
+</script>
+
+</body>
+</html>

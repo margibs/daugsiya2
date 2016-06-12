@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Susanwins" />
+    <meta name="propeller" content="18cbecba5946cbcf8014a1a9c091968e" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">    
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="google-site-verification" content="ZsovtY5ezCxnStSn3xVYrsyYw7Jdt3pUHDhlV-qwKTY" />
+    
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}">
+
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> -->
+
+
+    @yield('for_og')
+    
+    <!-- Document Title
+    ============================================= -->
+    <title> SusanWins </title>
+    <!-- Stylesheets
+    ============================================= -->
+    <link rel="stylesheet" href="{{ asset('css/reset.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/grid24.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-icons.css') }}">    
+    <link rel="stylesheet" href="{{ asset('css/social-buttons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ezslots.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/jquery.m.flip.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/newAll.css') }}">   
+
+
+  <!--   <link rel="stylesheet" href="{{ asset('css/myStyle.css') }}">    -->
+
+<!--   <link rel="stylesheet" href="{{url('')}}/{{ elixir('css/all.css') }}" type="text/css" /> -->
+    
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans:800,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- External JavaScripts
+    ============================================= -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>        
+    <script type="text/javascript">
+    if (typeof jQuery == 'undefined') {
+        document.write(unescape("%3Cscript src='/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+    }
+    </script>
+    -->
+
+   @yield('scripts_here')
+
+  </head>
+<body>
+
+  <div class="overlay"></div>
+
+  <div id="mainhead" class="container-fluid" style="background:#fff;padding-bottom: 15px;">
+    <div class="container">
+      <header>
+        <div class="row">
+
+          <div class="col-xs-24 col-sm-24 col-md-5 col-lg-5">
+            <a href="{{ url('/') }}"><img src="http://susanwins.com/uploads/52424_logo.png" class="logo"></a>
+          </div>
+
+          <div class="col-xs-24 col-sm-24 col-md-12 col-lg-12">
+            <div class="search">
+              <input type="text" placeholder="Search Games" id="search" autocomplete="off"/>                  
+            </div>
+          </div>
+
+          <div class="col-xs-24 col-sm-24 col-md-7 col-lg-7">
+
+             <button class="categ-button"> <a href="{{ url('welcome') }}">Login / Sign-Up</a></button>
+
+            <!-- <button class="categ-button"> Categories <i class="fa fa-bars"></i> </button>
+            
+            
+            <div class="categ-entries">
+              <div class="categ-triangle"></div>
+              <div class="row">
+            
+                @if(Request::url() != url('mobile_view'))
+                  @foreach($categories as $category)
+                  <div class="col-xs-12"> <a href="{{url('')}}/{{$category->slug}}"> {{$category->name}} </a> </div>
+                  @endforeach
+                @endif
+            
+              </div>
+            </div> -->
+
+            <ul class="headsocials">
+              <li>
+                <a href="#"> 
+                  <img src="http://susanwins.com/uploads/51332_facebook.png " alt="">
+                </a>
+              </li>
+             
+              <li>
+                <a href="#">
+                  <img src="http://susanwins.com/uploads/64695_youtube.png" alt="">
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <img src="http://susanwins.com/uploads/96013_pinteres.png " alt="">
+                </a>
+              </li>
+               <li>
+                <a href="#"> 
+                  <img src="http://susanwins.com/uploads/24612_twitter-bird.png " alt="">
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="row">
+            <div class="col-xs-24">
+              <div id="search_result">
+
+<!--                   <div id="floatingCirclesG">
+                    <div class="f_circleG" id="frotateG_01"></div>
+                    <div class="f_circleG" id="frotateG_02"></div>
+                    <div class="f_circleG" id="frotateG_03"></div>
+                    <div class="f_circleG" id="frotateG_04"></div>
+                    <div class="f_circleG" id="frotateG_05"></div>
+                    <div class="f_circleG" id="frotateG_06"></div>
+                    <div class="f_circleG" id="frotateG_07"></div>
+                    <div class="f_circleG" id="frotateG_08"></div>
+                  </div> -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+
+  <div class="container">
+
+    @yield('homecontent')
+    @yield('singlecontent')
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+
+      var _nxlOptions = _nxlOptions || [];
+      _nxlOptions.tracker_code = '$2y$10$P9Nx.8NNoidJZUKoSXDlpecCrJxKNaAGsKiAmIv0swXBoRkwFuFKu';
+        
+       (function(){
+
+
+        _tracker = document.createElement('script');
+        _tracker.type = 'text/javascript';
+        _tracker.async = true;
+        _tracker.src = ('https:' == document.location.protocol ? 'https://ssl.' : 'http://') + 'nexolytics.susanwins.com/js/tracker.js';
+
+        var s = document.getElementsByTagName('script')[0];
+
+        s.parentNode.insertBefore(_tracker,s);
+
+       })();
+
+    </script>
+    <script src="{{ asset('js/ezslots.js') }}"></script>   
+    <script src="{{ asset('js/jquery.unveil.js') }}"></script>   
+    <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script> 
+
+    <!--<script src="{{ asset('js/jquery.m.flip.js') }}"></script>   -->
+    <!-- <script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script> -->
+    <script src="{{ asset('js/jquery.leanModal.min.js') }}"></script>   
+    <script src="{{ asset('js/home.js') }}"></script>   
+    <script src="{{ asset('js/jquery.lazyimage.js') }}"></script>   
+    <script src="{{ asset('js/jquery.sharrre.min.js') }}"></script>   
+
+   
+  
+  <script>
+
+    $.fn.preload = function() {
+        this.each(function(){
+            $('<img/>')[0].src = this;
+        });
+    }
+    $(['http://susanwins.com/uploads/64878_click-header.png']).preload();
+
+
+
+
+
+    $(document).ready(function(){
+
+      var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+      $(".categ-button").click(function(){
+
+        $(".categ-entries").fadeToggle();
+
+      });
+
+      $('body').on('click', function(e){
+
+
+        if( $('.categ-entries').is(':visible') && ( !$(e.target).hasClass('categ-entries') && !$(e.target).hasClass('categ-button'))){
+           $(".categ-entries").fadeOut();
+        } 
+
+      });
+
+      // OLD SEARCH
+
+      /*$('#search').keyup(function(e){
+
+        var searchField = $('#search').val(),
+            timer = $('#search').data('timeout');
+
+     
+
+        $("#mainhead").css({
+           "position":"relative",
+           "z-index":"999",
+        });
+
+        $(".overlay").css({
+          "background-color":"rgba(0, 0, 0, 0.2)",
+            "position": "fixed",
+            "width": "100%",
+            "height": "100%",
+            "z-index": "98",
+        });
+
+        // $("#floatingCirclesG").css({
+        //   "display":"block",
+        // });
+
+        $('#search_result').html('<div id="floatingCirclesG"  style="display:block;"><div class="f_circleG" id="frotateG_01"></div><div class="f_circleG" id="frotateG_02"></div><div class="f_circleG" id="frotateG_03"></div><div class="f_circleG" id="frotateG_04"></div><div class="f_circleG" id="frotateG_05"></div><div class="f_circleG" id="frotateG_06"></div><div class="f_circleG" id="frotateG_07"></div><div class="f_circleG" id="frotateG_08"></div></div>');
+
+        $("#search").css({
+          "position": "absolute",
+          "z-index": "99"
+        });
+
+        if(timer) 
+        {
+            clearTimeout(timer);
+            $('#search').removeData('timeout');
+        }
+
+        // if(e.which === 40)
+        // {
+        //   $("#search_result").focus();
+        //   console.log('unsa ning 40?');
+        // }
+        // else
+        // {
+
+          if( searchField == 0 || searchField == '' || searchField == null ) 
+          {
+            $('#search_result').html('');
+          } 
+          else if (e.which == 13) 
+          {
+            e.preventDefault();
+            get_search_result(searchField);
+          }
+          else 
+          {
+            $('#search').data('timeout', setTimeout(get_search_result, 1000 * 0.5,searchField));
+          }
+
+        // }
+      });*/
+
+
+// NEW SEARCH
+
+$('#search').on('input', function(e){
+
+
+          //console.log($(this).val());
+
+           var searchField = $('#search').val(),
+            timer = $('#search').data('timeout');
+
+     
+
+        $("#mainhead").css({
+           "position":"relative",
+           "z-index":"999",
+        });
+
+        $(".overlay").css({
+          "background-color":"rgba(0, 0, 0, 0.2)",
+            "position": "fixed",
+            "width": "100%",
+            "height": "100%",
+            "z-index": "98",
+        });
+
+        // $("#floatingCirclesG").css({
+        //   "display":"block",
+        // });
+
+        $('#search_result').html('<div id="floatingCirclesG"  style="display:block;"><div class="f_circleG" id="frotateG_01"></div><div class="f_circleG" id="frotateG_02"></div><div class="f_circleG" id="frotateG_03"></div><div class="f_circleG" id="frotateG_04"></div><div class="f_circleG" id="frotateG_05"></div><div class="f_circleG" id="frotateG_06"></div><div class="f_circleG" id="frotateG_07"></div><div class="f_circleG" id="frotateG_08"></div></div>');
+
+        $("#search").css({
+          "position": "absolute",
+          "z-index": "99"
+        });
+
+        if(timer) 
+        {
+            clearTimeout(timer);
+            $('#search').removeData('timeout');
+        }
+
+        // if(e.which === 40)
+        // {
+        //   $("#search_result").focus();
+        //   console.log('unsa ning 40?');
+        // }
+        // else
+        // {
+
+          if( searchField == 0 || searchField == '' || searchField == null ) 
+          {
+            $('#search_result').html('<h6>NO RESULTS FOUND</h6>');
+          } 
+          else if (e.which == 13) 
+          {
+            e.preventDefault();
+            get_search_result(searchField);
+          }
+          else 
+          {
+            $('#search').data('timeout', setTimeout(get_search_result, 1000 * 0.5,searchField));
+          }
+
+        // }
+
+
+     
+      });
+
+
+
+      function get_search_result(searchField)
+      {
+        $.ajax({
+          type: 'post',
+          url: "{{url('home/ajax_get_posts')}}",
+          data: {_token: CSRF_TOKEN,'searchField' : searchField}, 
+          success: function(response)
+          {
+            var parsed = JSON.parse(response),
+            output = '';
+
+            $.each( parsed, function( index, obj){
+
+              output += '<a class="entry" tabindex="1" href="{{url('')}}/' +obj.slug+ '" ><p>' +obj.title+ '</p><img src="{{url('uploads')}}/'+obj.icon_feature_image+'" width="100px" height="100px"> <div class="searchratingouter"> <span class="searchrating" style="width:'+Math.floor(obj.total_rating)+'%;"> &nbsp; </span> </div> </a>';
+            
+            });
+
+            if(output.trim() == '')
+            {
+              $('#search_result').html('<h6>NO RESULTS FOUND</h6>');
+            }
+            else
+            {
+              $('#search_result').html(output);
+            }
+            
+          }
+        });
+      }
+
+
+    });
+
+
+
+// Highlighting search results
+
+    // added tanbindex="1" to each entries
+
+  $('#search').on('keyup', function(e){
+      if(e.which == 40){
+        $('#search_result').find('.entry:first-child').focus().trigger('keydown');
+
+      }
+  });
+
+  $('#search_result').on('focusin', '.entry', function(){
+        $(this).css({'outline' : 0, 'background' : '#E8E8E8'});
+  }).on('focusout','.entry', function(){
+      $(this).css({'background' : '#fff'});
+  });
+
+  $('#search_result').on('keydown','.entry:focus', function(e){
+
+    if(e.which == 40 || e.which == 38){
+
+        if(e.which == 40){
+            $(this).next().focus();
+        }else{
+
+          if($(this).index() == 0){
+            $('#search').focus();
+          }else{
+               $(this).prev().focus();
+          }
+
+          
+        }
+
+        return false;
+
+    }
+
+  });
+
+  // ENDOF Highlighting search results
+
+
+  $(".overlay").click(function(){
+      $(this).css({
+           "background":"none",
+            "z-index": "0"
+          }); 
+
+      $('#search_result').html('');
+  });
+
+  </script>
+
+  @yield('footer_scripts')
+
+
+</body>
+</html>

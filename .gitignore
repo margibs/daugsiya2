@@ -1,0 +1,12 @@
+/vendor
+/node_modules
+/public/uploads
+/public/autoposter_uploads
+/public/user_uploads
+/storage
+composer.lock
+.htaccess-ONHOLD
+.htpasswd-ONHOLD
+Homestead.yaml
+Homestead.json
+.env

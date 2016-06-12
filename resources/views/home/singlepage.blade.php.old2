@@ -1,0 +1,1088 @@
+@extends('home.layout')
+
+@section('scripts_here')
+  <script type="text/javascript" src="https://www.youtube.com/player_api"></script>
+@endsection
+
+@section('singlecontent')
+
+<style type="text/css">
+#main{
+overflow: hidden;
+}
+
+/** ============================================ SLOTS ============================================== **/
+.ezslot-outermost{  
+clear: both;
+margin-left: 69px;
+/*  margin-top: 69px;*/
+position: relative;
+top: -21px;
+}
+.ezslot-outermost ul li{
+display: inline-block;
+}
+.ezslot-outermost ul li img{
+border:none!important;
+}
+  
+#wrapper{
+position: relative;
+top: 200px;
+}
+#playbig a {
+width: 130px;
+height: 75px;
+top: 121px;
+left: 49px;
+}
+#playbig img{
+position: relative;
+left: -115px;
+top: 185px;
+z-index: 6;
+width: 45%;
+}
+#playbig .button{
+font: 35px/1em 'Work Sans', sans-serif;
+padding: .5em .6em .4em .55em;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: -1px;
+}
+
+
+#playbig .button.pink{
+-webkit-box-shadow: inset rgba(255, 0, 0, 0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 91%, 45%) 0 .1em 3px, hsl(0, 98%, 29%) 0 0.5em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+-moz-box-shadow: inset rgba(255, 0, 0, 0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 91%, 45%) 0 .1em 3px, hsl(0, 98%, 29%) 0 0.5em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+box-shadow: inset rgba(255, 0, 0, 0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(0, 91%, 45%) 0 .1em 3px, hsl(0, 98%, 29%) 0 0.5em 1px, /* color border */ rgba(0,0,0,0.2) 0 .5em 5px;
+}
+
+
+.singlesusan{
+margin-top: 40px;
+margin-left: -82px;
+position: relative;
+z-index: 2;
+margin-bottom: -65px;
+}
+.game{
+ margin: 7px;
+ width: 222px;
+ height: 150px;
+border-radius: 4px;
+overflow: hidden;
+border: 2px solid #fbd270;
+}
+.deepermain .game img{
+width: 100%;
+height: auto;
+}
+
+.topgames{
+display: block;
+width: 87.7%;
+text-align: center;
+background: #363535;
+background: -moz-linear-gradient(top,  #363535 0%, #1f1f1f 100%);
+background: -webkit-linear-gradient(top,  #363535 0%,#1f1f1f 100%);
+background: linear-gradient(to bottom,  #363535 0%,#1f1f1f 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#363535', endColorstr='#1f1f1f',GradientType=0 );
+
+-moz-box-shadow: inset 0 0 10px 1px #000;
+-webkit-box-shadow: inset 0 0 10px 1px #000;
+box-shadow: inset 0 0 10px 1px #000;
+
+position: relative;
+z-index: 3;
+margin-left: 60px;
+top: -21px;
+}
+.topgames h3{
+font-family: 'Work Sans';
+color: #fff0a3;
+font-size: 21px;
+text-transform: uppercase;
+padding: 7px;
+}
+
+
+.featimg img{
+margin: 35px 45px;
+width: 91%;
+}
+
+
+#main{
+overflow: hidden;
+}
+.top{
+background: transparent url(http://susanwins.com/uploads/99431_single-reel.png) no-repeat -11px 0;
+height: 705px;
+position: relative;      
+}
+.content{
+clear: both;
+background-image: url(http://susanwins.com/uploads/70058_single-border-left.png), url(http://susanwins.com/uploads/92401_single-border-right.png);
+background-color: transparent;
+background-position: 10px, 787px;
+background-repeat: repeat-y;      
+}
+.divider1, .divider2 ,.divider3{
+position: absolute;
+bottom: 194px;
+z-index: 2;
+height: 225px;
+}
+.divider1{
+left: 337px;
+}
+.divider2{
+left:612.4px;
+}
+.divider3{
+left: 677px;
+display: none;
+}
+.postcontent{
+background-image: url(http://susanwins.com/uploads/27053_catpurple.jpg);
+background-color: #fff;
+background-position: center top;
+background-repeat: no-repeat;
+-moz-box-shadow: inset 0 0 10px 0 #000;
+-webkit-box-shadow: inset 0 0 10px 0 #000;
+box-shadow: inset 0 0 10px 0 #000;
+
+margin: 0px 60px;
+padding: 20px 35px 60px 35px;
+overflow: hidden;
+}
+.postcontent img{
+width: 100%;
+height: auto;
+}
+.postcontent p{
+font-family: 'Roboto';
+font-weight: 500;
+font-size: 19px;
+line-height: 27px;
+margin: 35px 0;
+}
+.postcontent p b{
+font-weight: 800;
+font-size: 21px;
+}
+.postcontent h2{
+padding: 0 40px 15px 10px;
+margin: 10px 0 0 0;
+font-family: 'Work Sans';
+color: #9a0a0e;
+/*     text-transform: uppercase;*/
+font-weight: 800;
+font-size: 30px;
+border-bottom: 1px solid #ddd;
+}
+.postcontent h2 span{
+display: block;
+font-weight: 500;
+color: rgb(239, 162, 162);
+font-family: Roboto;
+font-size: 17px;
+margin-top: 10px;
+}
+.sidebar{
+background: #C20F14 none repeat scroll 0% 0%;
+width: 240px;
+margin-left: -23px;
+border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
+padding-bottom: 20px;
+box-shadow: 0px 0px 10px -4px #B46666 inset;
+border-bottom: 2px solid #890303;
+}
+.sidebar a{
+display: block;
+}
+.sidebar .rellimg a  img{
+/*width: 89%;
+height: auto;
+margin: 10px 15px;
+border: 1px solid #BDA76F;
+border-radius: 4px;*/
+
+background: #ffe18d;
+background: -moz-linear-gradient(top, #ffe18d 0%, #cd8b01 27%, #ffe491 57%, #cfb319 80%, #cdb985 100%);
+background: -webkit-linear-gradient(top, #ffe18d 0%,#cd8b01 27%,#ffe491 57%,#cfb319 80%,#cdb985 100%);
+background: linear-gradient(to bottom, #ffe18d 0%,#cd8b01 27%,#ffe491 57%,#cfb319 80%,#cdb985 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe18d', endColorstr='#cdb985',GradientType=0 );
+/* background-position: -100px -100px, 0 0; */
+-moz-background-size: 250% 250%, 100% 100%;
+background-size: 250% 250%, 100% 100%;
+-webkit-transition: background-position 0s ease;
+-moz-transition: background-position 0s ease;
+-o-transition: background-position 0s ease;
+transition: background-position 0s ease;
+padding: 2px;
+border-radius: 7px;
+overflow: hidden;
+/*width: 86%;
+margin: 10px auto 0 auto;*/        
+-moz-box-shadow: 0 0 10px -2px #000;
+-webkit-box-shadow: 0 0 10px -2px #000;
+box-shadow: 0 0 10px -2px #000;
+height: auto;
+margin-left: 26px;
+margin-top: 10px;
+width: 80%;
+
+
+
+}
+
+.sidebar .rellad a  img{
+margin: 20px;
+width: 85%;
+}
+
+
+.sidebar h3{
+color: #FFE3A2;
+padding:15px 15px 12px 15px;
+text-align: center;
+border-bottom: 1px solid #990e12;
+font-weight:  600;
+font-family: 'Work Sans';
+text-shadow: 1px 2px 2px rgb(90, 6, 6);
+}
+
+.footer{
+background: transparent url(http://susanwins.com/uploads/83515_single-footer.png) no-repeat center top;
+height: 227px;
+position: relative;
+margin-top: -43px;
+left: 1px;
+}
+
+.gold-vertical-border{       
+background: transparent url(http://susanwins.com/uploads/23410_single-v-border.png) repeat-y;
+width: 21px;
+position: absolute;
+height: 85%;
+}
+.gold-vertical-border{
+left: 47px;
+}
+.b2{
+left:93.6%
+}
+
+.col-xs-18 {
+width: 81%;
+position: relative;
+z-index: 2;
+}
+.col-xs-4{
+height: 200px;
+position: relative;
+}
+#wrapper {
+position: relative;
+top: 0;
+left: -15px;
+}
+#wrapper a {
+width: 70px;
+height: 45px;
+position: relative;
+left: 116px;
+z-index: 5;
+top: -39px;
+}
+
+.fbblue{
+
+  text-align: center;
+color: hsl(208, 50%, 40%) !important;
+background-color: hsl(223, 89%, 20%); 
+-moz-box-shadow: inset rgba(44, 106, 154, 0.8) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(222, 61%, 42%) 0 .1em 3px, hsl(223, 60%, 35%) 0 .3em 1px, /* color border */ rgba(154, 110, 110, 0.2) 0 .5em 5px;
+-webkit-box-shadow: inset rgba(44, 106, 154, 0.8) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(222, 61%, 42%) 0 .1em 3px, hsl(223, 60%, 35%) 0 .3em 1px, /* color border */ rgba(154, 110, 110, 0.2) 0 .5em 5px;
+box-shadow: inset rgba(44, 106, 154, 0.8) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */ hsl(222, 61%, 42%) 0 .1em 3px, hsl(223, 60%, 35%) 0 .3em 1px, /* color border */ rgba(154, 110, 110, 0.2) 0 .5em 5px;
+}
+.playbutton .fbblue:hover {
+background-color: hsl(222, 54%, 46%);
+}
+
+.ezslots .content{
+background: transparent;
+}
+
+
+#button {
+display: inline-block;
+margin-top: 20%;
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+-webkit-box-shadow:    0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+-moz-box-shadow: 0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+box-shadow: 0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+-webkit-transition: -webkit-box-shadow .1s ease-in-out;
+-moz-transition: -moz-box-shadow .1s ease-in-out;
+-o-transition: -o-box-shadow .1s ease-in-out;
+transition: box-shadow .1s ease-in-out;
+font-size: 50px;
+color: #fff;
+}
+
+#button span {
+display: inline-block;
+padding: 20px 30px;
+background-color: #ec528d;
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(hsla(338, 90%, 80%, .8)), to(hsla(338, 90%, 70%, .2)));
+background-image: -webkit-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+background-image: -moz-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+background-image: -o-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+-webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+-moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+font-family: 'Pacifico', Arial, sans-serif;
+line-height: 1;
+text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+-webkit-transition: background-color .2s ease-in-out, -webkit-transform .1s ease-in-out;
+-moz-transition: background-color .2s ease-in-out, -moz-transform .1s ease-in-out;
+-o-transition: background-color .2s ease-in-out, -o-transform .1s ease-in-out;
+transition: background-color .2s ease-in-out, transform .1s ease-in-out;
+}
+
+#button:hover span {
+background-color: #ec6a9c;
+text-shadow: 0 -1px 1px rgba(175, 49, 95, .9), 0 0 5px rgba(255, 255, 255, .8);
+}
+
+#button:active, #button:focus {
+-webkit-box-shadow:    0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+-moz-box-shadow: 0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+box-shadow:    0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+}
+
+#button:active span {
+-webkit-transform: translate(0, 4px);
+-moz-transform: translate(0, 4px);
+-o-transform: translate(0, 4px);
+transform: translate(0, 4px);
+}
+
+.glossy a {
+margin: 6px 0 0 0;
+text-align: center;
+display: block;
+width: 100%;
+height: 100%;
+text-decoration: none;
+color: #000;
+}
+.glossy {
+width: 115px;
+height: 28px;
+
+margin: 10px auto;
+position: relative;
+
+background: #94c4fe;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(31%,#94c4fe), color-stop(100%,#d3f6fe));
+background: -webkit-linear-gradient(top,  #94c4fe 31%,#d3f6fe 100%);
+background: -moz-linear-gradient(top,  #94c4fe 31%, #d3f6fe 100%);
+background: -o-linear-gradient(top,  #94c4fe 31%,#d3f6fe 100%);
+background: -ms-linear-gradient(top,  #94c4fe 31%,#d3f6fe 100%);
+background: linear-gradient(to bottom,  #94c4fe 31%,#d3f6fe 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#94c4fe', endColorstr='#d3f6fe',GradientType=0 );
+
+-webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px;
+
+border: 1px solid #4864a9;
+
+color: #000;
+font-size: 20px;
+text-shadow: 1px 1px 0px rgba(255,255,255,.5);
+
+-webkit-box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, .2);    
+box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, .2);
+
+position: relative;
+}
+.glossy:before {
+content: "";
+width: 104px;
+height: 16px;
+
+display: block;
+position: absolute;
+left: 5px;
+
+-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
+
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0.7) 8%, rgba(255,255,255,0) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(8%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0)));
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0.7) 8%,rgba(255,255,255,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+}
+
+  .sidebar .rellimg a img
+{
+      margin-bottom: 0 !important;
+}
+
+
+.glossy p {
+.glossy a {
+margin: 6px 0 0 0;
+text-align: center;
+display: block;
+width: 100%;
+height: 100%;
+
+text-decoration: none;
+color: #000;
+
+position: relative;
+z-index: 1;
+}
+
+
+
+</style>
+
+ <div class="container">
+ 
+    <div id="main">
+       <div class="row no-gutters">
+          <div class="col-xs-18">
+              <section class="top">
+                 
+                <div class="featimg" style="min-height: 271px;">
+                  <img src="{{$category_image}}">
+                </div>
+                <div class="topgames">
+                    <h3> Top Rated Games </h3>
+                </div>  
+
+                <img src="http://susanwins.com/uploads/30006_single-reel-divider.png" class="divider1">
+                <img src="http://susanwins.com/uploads/30006_single-reel-divider.png" class="divider2">
+                <img src="http://susanwins.com/uploads/30006_single-reel-divider.png" class="divider3">
+             
+               
+
+                <div class="ezslot-outermost">
+                    <ul>
+                      <li> <div id="ezslots19"></div> </li>
+                      <li> <div id="ezslots20"></div> </li>
+                      <li> <div id="ezslots21"></div> </li>                        
+                    </ul>                                  
+                </div>
+
+        
+            
+                     <div class="row">
+                          <div class="col-lg-15" style="margin-bottom: -13px; margin-top: -25px">
+                                <div id="wrapper">
+                                  <a class="button fbblue serif round glass" id="share_via_facebook" style="top: -34px;left: 116px;" data-url="{{url('')}}/{{$cat_slug}}" data-text="Share this up!"></a>          
+                                    <img src="http://susanwins.com/uploads/38801_socialbuttonholder.png" alt="" style="left: 20px;top: -6px;">  
+                                    <a class="button pink serif round glass" id="share_via_pinterest" style="left:22px;top: -33px;" data-url="{{url('')}}/{{$cat_slug}}" data-text="Pin me!"></a>          
+                                     <img src="http://susanwins.com/uploads/38801_socialbuttonholder.png" alt="" style="left: -75px;top: -4px;"> 
+                                    <a class="button blue serif round glass" id="share_via_twitter" style="left: -73px;top: -36px;" data-url="{{url('')}}/{{$cat_slug}}" data-text="I'm tweeting this awesome game!"><img src="http://susanwins.com/uploads/70478_twitter-icon.png" style="top: -3px;left: 1px;"></a>          
+                                    <img src="http://susanwins.com/uploads/38801_socialbuttonholder.png" alt="" style="left: -169px;top: -4px;">
+                                    <a class="button pink serif round glass" id="share_via_googlePlus" style="left: 412px;top: -114px;" data-url="{{url('')}}/{{$cat_slug}}" data-text=""><img src="http://susanwins.com/uploads/79339_g+button.png" style="top: -3px;left: 1px;"></a>          
+                                    <img src="http://susanwins.com/uploads/38801_socialbuttonholder.png" alt="" style="left: 316px;top: -82px;">                    
+                                </div>                                        
+                          </div>
+                          <div class="col-lg-9" style="margin-top: -222px;pointer-events: none;">                          
+                             <div id="playbig">
+                                <a id="playFancy" class="button pink serif round glass" style="pointer-events: all;"> Spin! </a>         
+                              <img src="http://susanwins.com/uploads/94727_holder.png" alt=""> 
+                              </div> 
+                             <!-- <img src="http://susanwins.com/uploads/71609_single-playnow-holder.png" class="playnowbtnholder"> -->
+                          </div>
+                     </div>                                     
+     
+
+              </section>
+               <div class="gold-vertical-border b2"></div>
+              <div class="gold-vertical-border"></div>
+              <div class="content">
+                 
+                  <div class="postcontent">
+
+                   <ul class="filters">
+                    <li><a get-this-id="posts.slug" get-this-order="ASC"> <i class="fa fa-sort"></i> A - Z </a></li>
+                    <li><a get-this-id="total_rating" get-this-order="ASC"> <i class="fa fa-star"></i> Ratings  </a></li>
+                    <li><a get-this-id="posts.created_at" get-this-order="DESC"> <i class="fa fa-sort"></i> Date Added  </a></li>
+               <!--      <li id="api_count" data-url="{{url('')}}/{{$cat_slug}}"></li> -->
+                  </ul>
+                  
+                    <div id="contents_here" style="overflow:hidden">
+                            @foreach($posts as $post)
+                                          <div class="col-lg-8" style="height: 162px;">
+                                                <div class="game">                
+                                                  <a href="{{url('')}}/{{$post->slug}}" class="icon">                  
+                                                    <img src="{{url('uploads')}}/{{$post->thumb_feature_image}}">
+                                                  </a>
+                                                </div>
+                                          </div>
+                            @endforeach
+                    </div>
+
+                  </div>
+
+
+              </div>
+              <div class="footer" style="padding-bottom: 9px;">
+                
+              </div>
+          </div>
+          <div class="col-xs-4" style="height:200px;">
+            <img src="http://susanwins.com/uploads/26351_single-susan.png" alt="" class="singlesusan">
+              <div class="sidebar" style="margin-top: 5px;">
+                <h3> <img src="http://susanwins.com/uploads/53662_related-game-text.png" alt=""> </h3>
+
+              <div class="rellimg">
+
+              </div>
+
+
+
+
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+@endsection
+
+
+@section('footer_scripts')
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-xxxxxx-x']);
+_gaq.push(['_trackPageview']);
+(function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+</script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+  // FILTER SCRIPT
+  $('.filters a').on('click',function(e){
+    e.preventDefault();
+    var $this = $(this),
+        type = $this.attr('get-this-id'),
+        order_by = $this.attr('get-this-order'),
+        category_id = {{$current_category_id}};
+
+      /*  $('#contents_here').css({'overflow' : 'hidden'}).children().each(function(i, l){
+
+           $(this).animate({'opacity' : 0, 'top' : '-140px'}, 500 , function(){
+
+           
+
+           });
+
+        });*/
+
+
+contentHeight = $(contents_here).outerHeight() +'px';
+
+//console.log(contentHeight);
+
+     $('#contents_here').html(
+
+            $('<div>').css({'height': contentHeight})
+                .append(
+                   $('<img src="{{url()}}/uploads/66058_default.gif">').css({'width' : '45px', 'margin' : '2em auto', 'display' : 'block'})
+                  )     
+        );
+
+      $.ajax({ 
+          type: 'post',
+          url: "{{url('home/ajax_get_filter_posts')}}",
+          data: {_token: CSRF_TOKEN,'type' : type,'order_by' : order_by,'category_id' : category_id}, 
+          success: function(response)
+          {
+            var parsed = JSON.parse(response);
+            $( "#contents_here" ).html('');
+            $.each( parsed, function( i, l ){
+
+
+              $( "#contents_here" ).append(
+
+                $(l).css({'opacity' : 0, 'top' : '140px'}).animate({'opacity' : 1, 'top' : '0px'}, 500)
+
+                );
+            });
+
+            if(order_by == 'ASC')
+            {
+               $this.attr('get-this-order','DESC');
+            }
+            else
+            {
+               $this.attr('get-this-order','ASC');
+            }
+
+          }
+        });
+
+  });
+
+      // var images4 = [
+      // '<div class="slotwrapper"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/50904_category-reel-game1.jpg"></a></div></div>',
+      // ];    
+
+      // var images5 = [
+      // '<div class="slotwrapper"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/50904_category-reel-game1.jpg"></a></div></div>'
+      // ];
+
+      // var images6 = [
+      // '<div class="slotwrapper"><div class="details"><a href="#"><img src="http://susanwins.com/uploads/50904_category-reel-game1.jpg"></a></div></div>'
+      // ];
+
+
+      // $("#playFancy").click(function(){
+       
+      //   ezslot19.spin();
+      //   ezslot20.spin();
+      //   ezslot21.spin();
+
+      // });
+
+
+      // var ezslot19 = new EZSlots("ezslots19",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images4,"height":220,"width":270});
+      // var ezslot20 = new EZSlots("ezslots20",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images5,"height":220,"width":270});
+      // var ezslot21 = new EZSlots("ezslots21",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images6,"height":220,"width":270});
+  
+
+
+
+    var CSRF_TOKEN2 = $('meta[name="csrf-token"]').attr('content');
+
+              var finalSidebarContentHeight = 0, sidebarContentHeight = 0;
+    contentOffset = 1;
+    ajaxDone = false;
+    sideBarHeightLeft = 0;
+    sideBarCompleted = false;
+    sideBarAjaxDone = true;
+
+    pendingSideBarElements = [];
+
+    sideBarSpacer = parseInt($('.sidebar').css('padding-bottom'));
+    console.log('sideBarSpacer '+sideBarSpacer);
+
+    sideBarSingleContentHeight = 117 + (sideBarSpacer * 2);
+
+    function updateSidebarHeight(){
+
+     mainHeight = $('#main').height() - ($('.top').height()) - parseInt($('.footer').css('padding-bottom').replace('px', ''));
+
+             sideBarHeight = mainHeight + ( $('.postcontent').offset().top - $('.sidebar').offset().top );
+        finalSidebarContentHeight = sideBarHeight - ( $('.sidebar').find('h3').height() + (sideBarSpacer * 2) );
+        $('.sidebar').css('height', sideBarHeight+'px');
+        sidebarContentHeight = $('.rellimg').height();
+        sideBarHeightLeft = finalSidebarContentHeight - sidebarContentHeight;
+
+        lastElement = $('.rellimg').children(':visible').last();
+
+        theImage = $(lastElement).find('img');
+
+        if(sideBarHeightLeft <= 0){
+
+          offsetBottom = ($('.sidebar').offset().top+sideBarHeight) - lastElement.offset().top - (sideBarSpacer * 2);
+
+            lastElement.css('visibility', 'hidden');
+
+            if(!lastElement.hasClass('updateHeight')){
+              lastElement.addClass('updateHeight').data('originalHeight', $(theImage).height());
+              theImage.css('height', offsetBottom+'px');
+            }
+            
+
+       
+              }else{
+
+                if(lastElement.hasClass('updateHeight')){
+                  
+                  if(theImage.height() >= lastElement.data('originalHeight')){
+                       theImage.css('height', lastElement.data('originalHeight')+'px');
+                        lastElement.removeClass('updateHeight').removeData('originalHeight');
+                    }else{
+
+                      offsetBottom = ($('.sidebar').offset().top+sideBarHeight) - lastElement.offset().top - (sideBarSpacer * 2);
+
+                      if(offsetBottom <= lastElement.data('originalHeight')){
+                          theImage.css('height', offsetBottom+'px');
+                      }else{
+                          theImage.css('height', lastElement.data('originalHeight')+'px');
+                      }
+                            
+                       
+                    }
+
+
+                }
+                
+
+                lastElement.css('visibility', 'visible');
+
+              }
+        }
+    
+
+
+    startAddingSidebarInterval = null;
+    setSidebarLoadInterval();
+    maxSidebarAutoLoad = 10 * 10; //10 seconds
+    maxSidebarCounter = 0;
+
+    $(window).scroll(function(event){
+      //console.log(sideBarCompleted);
+            if(!sideBarCompleted){
+                clearInterval(startAddingSidebarInterval);
+                setSidebarLoadInterval();
+            }
+
+            else{
+              console.log('sideBarCompleted');
+            }
+          
+           
+
+    });
+
+    $(document).on('adjustHeight', function(){
+          sideBarCompleted = false;
+          startAddingSidebarContent();
+    });
+
+    function setSidebarLoadInterval(){
+        startAddingSidebarInterval = setInterval(function(){
+          maxSidebarCounter++;
+
+          if(maxSidebarAutoLoad == maxSidebarCounter){
+            clearInterval(startAddingSidebarInterval);
+          }else{
+             if(sideBarCompleted){
+              clearInterval(startAddingSidebarInterval);
+            }else{
+              startAddingSidebarContent();
+            }
+          }
+         
+        
+
+      }, 100);
+    }
+
+    function startAddingSidebarContent(){
+
+        updateSidebarHeight();
+        //console.log(sideBarCompleted);
+            
+          if(finalSidebarContentHeight > sidebarContentHeight && sideBarHeightLeft >= sideBarSingleContentHeight){
+              getSidebarContent();
+            }else{
+              if(sideBarHeightLeft <= 0){
+                  //console.log(sideBarHeightLeft);
+                   lastImage = $('.rellimg').children().last();
+
+                  pendingSideBarElements.push($(lastImage)[0].outerHTML);
+                      console.log('sideBarCompleted = true');
+                      //$(lastImage).remove();
+                      sideBarCompleted = true;
+               
+              }else{
+                sideBarCompleted = true;
+              }
+            }
+    }
+
+    function getSidebarContent(){
+
+          if(sideBarAjaxDone && sideBarHeightLeft >= sideBarSingleContentHeight){ 
+
+            if(pendingSideBarElements.length > 0){
+
+                temp = pendingSideBarElements;
+
+                stillPending = [];
+
+                $.each(temp, function(i, l){
+
+                                      singleSidebarImage(l, function(el){
+                                       stillPending.push(el);
+                                    });
+
+                });
+
+                pendingSideBarElements = stillPending;
+
+      }else{
+              
+              sideBarAjaxDone = false;
+              sideBarAJAX().done(function(response){
+                             
+
+                              var parsed = JSON.parse(response);
+
+                              contentOffset++;
+
+                              $.each( parsed, function( i, l ){
+                              
+                                singleSidebarImage(l, function(el){
+                                  pendingSideBarElements.push(el);
+                                });
+
+                              });
+                              sideBarAjaxDone = true;
+              });
+      }
+
+
+                     
+          }
+
+
+
+    }
+
+
+    function sideBarAJAX(){
+
+      var dfr = $.Deferred();
+
+
+      maxThrottles = 10;
+      throttleCounter = 0;
+      throttleTimeout = 3000;
+      (function throttle(){
+
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+          $.ajax({
+                          type: 'post',
+                          url: "{{url('home/ajax_get_ads_posts_init')}}",
+                          data: {_token: CSRF_TOKEN, 'contentOffset' :contentOffset },
+                          success : dfr.resolve, 
+                          error : function(xhr){
+
+                            throttleCounter++;
+                            if ( xhr.status === 401 || xhr.status === 500 && throttleCounter <= maxThrottles) {
+                                return setTimeout(function(){ throttle( this ) }, throttleTimeout);
+                            }
+
+                            dfr.rejectWith.apply( this, [] );
+                          }
+                
+              });
+      })();
+
+      return dfr.promise();
+
+    }
+
+
+        singleImageLoaded = true;
+
+    function singleSidebarImage(el, callback){
+
+     
+
+      if(sideBarHeightLeft >= sideBarSingleContentHeight && singleImageLoaded){
+
+        element = $(el).hide();
+
+        singleImageLoaded = false;
+
+        $( ".rellimg" ).append(element);
+
+        image = new Image();
+
+        image.onload = function(){
+
+          singleImageLoaded = true;
+
+          theHeight = this.fixedHeight == 117 ? this.fixedHeight : this.naturalHeight;
+          $(this.element).find('img').css('height', theHeight+'px');
+
+          $(this.element).show();
+          updateSidebarHeight();
+
+        }
+
+        image.onerror = function(){
+          singleImageLoaded = true;
+          $(this.element).show();
+           updateSidebarHeight();
+        }
+
+        image.src = $(el).find('img').attr('src');
+        image.fixedHeight = parseInt($(el).find('img').css('height').replace('px', ''));
+        image.element = element;
+
+
+
+      
+      }else{
+        callback(el);
+      }
+
+        
+    }
+/*      $.ajax({
+        type: 'post',
+        url: "{{url('home/ajax_get_ads_posts_init')}}",
+        data: {_token: CSRF_TOKEN2}, 
+        success: function(response)
+        {
+          var parsed = JSON.parse(response);
+
+          $.each( parsed, function( i, l ){
+            $( ".rellimg" ).append(l);
+          });
+
+        }
+        
+      });*/
+
+
+
+      // APIS
+
+
+  $('#share_via_pinterest').sharrre({
+  share : {
+    pinterest : true
+  },
+  template : '<img src="http://susanwins.com/uploads/76008_pinterestubtton.png" style="left:4px!important;top: -3px;">',
+  enableHover: false,
+  enableTracking: true,
+  click: function(api, options){
+    api.openPopup('pinterest');
+  }
+});
+  $('#share_via_facebook').sharrre({
+  share : {
+    facebook : true
+    },
+    template : '<img src="http://susanwins.com/uploads/34329_fb-button.png" style="left: 2px!important;top: -4px;">',
+  enableHover: false,
+  enableTracking: true,
+  click: function(api, options){
+    popup = api.openPopup('facebook');
+  }
+});
+
+  $('#share_via_twitter').sharrre({
+  share : {
+    twitter : true
+    },
+     template : '<img src="http://susanwins.com/uploads/70478_twitter-icon.png" style="top: -3px;left: 1px;">',
+  enableHover: false,
+  enableTracking: true,
+  click: function(api, options){
+    api.openPopup('twitter');
+  }
+});
+  $('#share_via_googlePlus').sharrre({
+    share : {
+    googlePlus : true
+    },
+  template : '<img src="http://susanwins.com/uploads/79339_g+button.png" style="left: 3px;top: -2px;">',
+  enableHover: false,
+  enableTracking: false,
+  click: function(api, options){
+    api.openPopup('googlePlus');
+  }
+});
+
+
+    $('#api_count').sharrre({
+    share : {
+      pinterest : true,
+      facebook : true,
+      twitter : true,
+      googlePlus : true
+    },
+    enableTracking: true,
+    template : 'Total Shares: {total}',
+    enableHover: false
+  });
+
+      //ENDOF APIS
+
+$(function(){
+  
+
+  var top_games = 
+  [
+    "{!! $top_games[0] !!}",
+    "{!! $top_games[1] !!}",
+    "{!! $top_games[2] !!}",
+    "{!! $top_games[3] !!}",
+    "{!! $top_games[4] !!}",
+    "{!! $top_games[5] !!}",
+    "{!! $top_games[6] !!}",
+    "{!! $top_games[7] !!}"
+  ];
+
+  var images19 = 
+  [
+    top_games[0],
+    top_games[3],
+    top_games[6]
+  ];
+
+  var images20 = 
+  [
+    top_games[1],
+    top_games[4],
+    top_games[7]
+  ];
+
+  var images21 = 
+  [
+    top_games[2],
+    top_games[5]
+  ];
+
+
+  var ezslot19 = new EZSlots("ezslots19",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images19,"height":220,"width":270});
+  var ezslot20 = new EZSlots("ezslots20",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images20,"height":220,"width":270});
+  var ezslot21 = new EZSlots("ezslots21",{"reelCount":1,"winningSet":[0,0,0,0],"symbols":images21,"height":220,"width":270});
+  
+  
+
+   $("#playFancy").click(function(){ 
+    console.log(ezslot19.spin());
+    console.log(ezslot20.spin());
+    console.log(ezslot21.spin());
+  });
+ 
+
+});
+
+
+});
+
+</script>
+
+@endsection
